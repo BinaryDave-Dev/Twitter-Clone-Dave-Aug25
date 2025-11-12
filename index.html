@@ -1,0 +1,1877 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css"
+        integrity="sha384-JcKb8q3iqJ61gNV9KGb8thSsNjpSL0n8PARn9HuZOnIxN0hoP+VmmDGMN5t9UJ0Z" crossorigin="anonymous">
+    <link rel="stylesheet" href="styles/main.css">
+    <link rel="stylesheet" href="styles/sidebar.css">
+    <link rel="stylesheet" href="styles/maincontent.css">
+    <link rel="stylesheet" href="styles/rightsidebar.css">
+    <link rel="icon" href="assets/favicon.png">
+    <title>Home / X</title>
+
+</head>
+
+<body>
+    <div class="mainContainer">
+        <div class="sidebar">
+            <div class="sidebar-items">
+                <div class="sidebar-links">
+                    <span class="sidebar-logo">
+                        <svg width="30" height="30" viewBox="0 0 24 24" fill="white">
+                            <path d="M18.244 2.25h3.308l-7.227 8.26 8.502 11.24H16.17l-5.214-6.817L4.99 21.75H1.68l7.73-8.835L1.254 2.25H8.08l4.713 6.231zm-1.161 17.52h1.833L7.084 4.126H5.117z"/>
+                        </svg>
+                    </span>
+                    <span class="sidebar-item">
+                        <svg class="sidebar-icon" viewBox="0 0 24 24" fill="currentColor">
+                            <path d="M12 2.5L2 10v10h6v-8h8v8h6V10L12 2.5z"/>
+                        </svg>
+                        <span class="sidebar-title">Home</span>
+                    </span>
+                    <span class="sidebar-item">
+                        <svg class="sidebar-icon" viewBox="0 0 24 24" fill="currentColor">
+                            <path d="M21.53 20.47l-3.66-3.66C19.195 15.24 20 13.214 20 11c0-4.97-4.03-9-9-9s-9 4.03-9 9 4.03 9 9 9c2.215 0 4.24-.804 5.808-2.13l3.66 3.66c.147.146.34.22.53.22s.385-.073.53-.22c.295-.293.295-.767.002-1.06zM3.5 11c0-4.135 3.365-7.5 7.5-7.5s7.5 3.365 7.5 7.5-3.365 7.5-7.5 7.5-7.5-3.365-7.5-7.5z"/>
+                        </svg>
+                        <span class="sidebar-title">Explore</span>
+                    </span>
+                    <span class="sidebar-item">
+                        <svg class="sidebar-icon" viewBox="0 0 24 24" fill="currentColor">
+                            <path d="M21.697 16.468c-.02-.016-2.14-1.64-2.103-6.03.02-2.532-.812-4.782-2.347-6.335C15.872 2.71 14.01 1.94 12.005 1.93h-.013c-2.004.01-3.866.78-5.242 2.174-1.534 1.553-2.368 3.802-2.346 6.334.037 4.33-2.02 5.967-2.102 6.03-.26.193-.366.53-.265.838.102.308.39.515.712.515h4.92c.102 2.31 1.997 4.16 4.33 4.16s4.226-1.85 4.327-4.16h4.922c.322 0 .61-.206.71-.514.103-.307-.003-.645-.263-.838zM12 20.478c-1.505 0-2.73-1.177-2.828-2.658h5.656c-.1 1.48-1.323 2.66-2.828 2.66zM4.38 16.32c.74-1.132 1.548-3.028 1.524-5.896-.018-2.16.644-3.982 1.913-5.267C8.91 4.05 10.397 3.437 12 3.43c1.603.008 3.087.62 4.18 1.728 1.27 1.285 1.933 3.106 1.915 5.267-.024 2.868.785 4.765 1.525 5.896H4.38z"/>
+                        </svg>
+                        <span class="sidebar-title">Notifications</span>
+                    </span>
+                    <span class="sidebar-item">
+                        <svg class="sidebar-icon" viewBox="0 0 24 24" fill="currentColor">
+                            <path d="M19.25 3.018H4.75C3.233 3.018 2 4.252 2 5.77v12.495c0 1.518 1.233 2.753 2.75 2.753h14.5c1.517 0 2.75-1.235 2.75-2.753V5.77c0-1.518-1.233-2.752-2.75-2.752zm-14.5 1.5h14.5c.69 0 1.25.56 1.25 1.25v.714l-8.05 5.367c-.273.18-.626.182-.9-.002L3.5 6.482v-.714c0-.69.56-1.25 1.25-1.25zm14.5 14.998H4.75c-.69 0-1.25-.56-1.25-1.25V8.24l7.24 4.83c.383.256.822.384 1.26.384.44 0 .877-.128 1.26-.383l7.24-4.83v10.022c0 .69-.56 1.25-1.25 1.25z"/>
+                        </svg>
+                        <span class="sidebar-title">Messages</span>
+                    </span>
+                    <span class="sidebar-item">
+                        <svg class="sidebar-icon" viewBox="0 0 33 32" fill="currentColor">
+                            <path d="M12.745 20.54l10.97-8.19c.539-.4 1.307-.244 1.564.38 1.349 3.288.746 7.241-1.938 9.955-2.683 2.714-6.417 3.31-9.83 1.954l-3.728 1.745c5.347 3.697 11.84 2.782 15.898-1.324 3.219-3.255 4.216-7.692 3.284-11.693l.008.009c-1.351-5.878.332-8.227 3.782-13.031L33 0l-4.54 4.59v-.014L12.743 20.544m-2.263 1.987c-3.837-3.707-3.175-9.446.1-12.755 2.42-2.449 6.388-3.448 9.852-1.979l3.72-1.737c-.67-.49-1.53-1.017-2.515-1.387-4.455-1.854-9.789-.931-13.41 2.728-3.483 3.523-4.579 8.94-2.697 13.561 1.405 3.454-.899 5.898-3.22 8.364C1.49 30.2.666 31.074 0 32l10.478-9.466"/>
+                        </svg>
+                        <span class="sidebar-title">Grok</span>
+                    </span>
+                    <span class="sidebar-item">
+                        <svg class="sidebar-icon" viewBox="0 0 24 24" fill="currentColor">
+                            <path d="M19.9 23.5c-.157 0-.312-.05-.442-.144L12 17.928l-7.458 5.43c-.228.164-.53.19-.782.06-.25-.127-.41-.385-.41-.667V5.6c0-1.24 1.01-2.25 2.25-2.25h12.798c1.24 0 2.25 1.01 2.25 2.25v17.15c0 .282-.158.54-.41.668-.106.055-.223.082-.34.082zM12 16.25c.155 0 .31.048.44.144l6.71 4.883V5.6c0-.412-.337-.75-.75-.75H5.6c-.413 0-.75.338-.75.75v15.677l6.71-4.883c.13-.096.285-.144.44-.144z"/>
+                        </svg>
+                        <span class="sidebar-title">Bookmarks</span>
+                    </span>
+                    <span class="sidebar-item">
+                        <svg class="sidebar-icon" viewBox="0 0 24 24" fill="currentColor">
+                            <path d="M7.501 19.917L7.471 21H.472l.029-1.027c.184-6.618 3.736-8.977 7-8.977.963 0 1.95.212 2.87.672-.444.478-.851 1.03-1.212 1.656-.507-.204-1.054-.329-1.658-.329-2.767 0-4.57 2.223-4.938 6.004H7.56c-.023.302-.05.599-.059.917zm15.998.056L23.528 21H9.472l.029-1.027c.184-6.618 3.736-8.977 7-8.977s6.816 2.358 7 8.977zM21.437 19c-.367-3.781-2.17-6.004-4.938-6.004s-4.57 2.223-4.938 6.004h9.875zm-4.938-9c-.799 0-1.527-.279-2.116-.73-.836-.64-1.384-1.638-1.384-2.77 0-1.93 1.567-3.5 3.5-3.5s3.5 1.57 3.5 3.5c0 1.132-.548 2.13-1.384 2.77-.589.451-1.317.73-2.116.73zm-1.5-3.5c0 .827.673 1.5 1.5 1.5s1.5-.673 1.5-1.5-.673-1.5-1.5-1.5-1.5.673-1.5 1.5zM7.5 3C9.433 3 11 4.57 11 6.5S9.433 10 7.5 10 4 8.43 4 6.5 5.567 3 7.5 3zm0 2C6.673 5 6 5.673 6 6.5S6.673 8 7.5 8 9 7.327 9 6.5 8.327 5 7.5 5z"/>
+                        </svg>
+                        <span class="sidebar-title">Communities</span>
+                    </span>
+                    <span class="sidebar-item">
+                        <svg class="sidebar-icon" viewBox="0 0 24 24" fill="currentColor">
+                            <path d="M18.244 2.25h3.308l-7.227 8.26 8.502 11.24H16.17l-5.214-6.817L4.99 21.75H1.68l7.73-8.835L1.254 2.25H8.08l4.713 6.231zm-1.161 17.52h1.833L7.084 4.126H5.117z"/>
+                        </svg>
+                        <span class="sidebar-title">Premium</span>
+                    </span>
+                    <span class="sidebar-item">
+                        <svg class="sidebar-icon" viewBox="0 0 24 24" fill="currentColor">
+                            <path d="M12 11.816c1.355 0 2.872-.15 3.84-1.256.814-.93 1.078-2.368.806-4.392-.38-2.825-2.117-4.512-4.646-4.512S7.734 3.343 7.354 6.17c-.272 2.022-.008 3.46.806 4.39.968 1.107 2.485 1.256 3.84 1.256zM8.84 6.368c.162-1.2.787-3.212 3.16-3.212s2.998 2.013 3.16 3.212c.207 1.55.057 2.627-.45 3.205-.455.52-1.266.743-2.71.743s-2.255-.223-2.71-.743c-.507-.578-.657-1.656-.45-3.205zm11.44 12.868c-.877-3.526-4.282-5.99-8.28-5.99s-7.403 2.464-8.28 5.99c-.172.692-.028 1.4.395 1.94.408.52 1.04.82 1.733.82h12.304c.693 0 1.325-.3 1.733-.82.424-.54.567-1.247.394-1.94zm-1.576 1.016c-.126.16-.316.246-.552.246H5.848c-.235 0-.426-.085-.552-.246-.137-.174-.18-.412-.12-.654.71-2.855 3.517-4.85 6.824-4.85s6.114 1.994 6.824 4.85c.06.242.017.48-.12.654z"/>
+                        </svg>
+                        <span class="sidebar-title">Profile</span>
+                    </span>
+                    <span class="sidebar-item">
+                        <svg class="sidebar-icon" viewBox="0 0 24 24" fill="currentColor">
+                            <circle cx="17" cy="12" r="1.5"/>
+                            <circle cx="12" cy="12" r="1.5"/>
+                            <circle cx="7" cy="12" r="1.5"/>
+                        </svg>
+                        <span class="sidebar-title">More</span>
+                    </span>
+
+                    <span class="sidebar-button">
+                        Post
+                    </span>
+                </div>
+                <div class="sidebar-user">
+                    <div class="sidebar-user-details">
+
+                        <img src="assets/Profile.jpg" alt="">
+                        <div class="sidebar-name">
+                            <span class="name">CFC4LIFE</span>
+                            <span class="userid">@davegrob88</span>
+                        </div>
+                    </div>
+                    <div class="sidebar-user-action">
+                        <svg class="sidebar-icon" viewBox="0 0 24 24">
+                            <g>
+                                <circle cx="17" cy="12" r="1.5"/>
+                                <circle cx="12" cy="12" r="1.5"/>
+                                <circle cx="7" cy="12" r="1.5"/>
+                            </g>
+                        </svg>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+
+        <div class="main">
+            <div class="content">
+                <div class="mainContent">
+                    <div class="feed-navigation">
+                        <div class="nav-tab active" data-tab="foryou">
+                            <span class="nav-tab-text">For you</span>
+                            <div class="nav-tab-indicator"></div>
+                        </div>
+                        <div class="nav-tab" data-tab="following">
+                            <span class="nav-tab-text">Following</span>
+                            <div class="nav-tab-indicator"></div>
+                        </div>
+                    </div>
+                    <div class="post-tweet">
+                        <div class="post-section">
+                            <div class="tweet-profile-pic">
+                                <img src="assets/Profile.jpg"
+                                    alt="">
+                            </div>
+                            <div class="post-content-wrapper">
+                                <div class="post-input">
+                                    <input type="text" placeholder="What's happening?">
+                                </div>
+
+                            <div class="post-actions">
+                                <div class="post-icons">
+                                    <div class="tweet-option">
+                                        <svg class="insights-icon" viewBox="0 0 24 24">
+                                            <g>
+                                                <path
+                                                    d="M19.75 2H4.25C3.01 2 2 3.01 2 4.25v15.5C2 20.99 3.01 22 4.25 22h15.5c1.24 0 2.25-1.01 2.25-2.25V4.25C22 3.01 20.99 2 19.75 2zM4.25 3.5h15.5c.413 0 .75.337.75.75v9.676l-3.858-3.858c-.14-.14-.33-.22-.53-.22h-.003c-.2 0-.393.08-.532.224l-4.317 4.384-1.813-1.806c-.14-.14-.33-.22-.53-.22-.193-.03-.395.08-.535.227L3.5 17.642V4.25c0-.413.337-.75.75-.75zm-.744 16.28l5.418-5.534 6.282 6.254H4.25c-.402 0-.727-.322-.744-.72zm16.244.72h-2.42l-5.007-4.987 3.792-3.85 4.385 4.384v3.703c0 .413-.337.75-.75.75z">
+                                                </path>
+                                            </g>
+                                        </svg>
+                                    </div>
+                                    <div class="tweet-option">
+                                        <svg class="insights-icon" viewBox="0 0 24 24">
+                                            <g>
+                                                <path
+                                                    d="M19 10.5V8.8h-4.4v6.4h1.7v-2h2v-1.7h-2v-1H19zm-7.3-1.7h1.7v6.4h-1.7V8.8zm-3.6 1.6c.4 0 .9.2 1.2.5l1.2-1C9.9 9.2 9 8.8 8.1 8.8c-1.8 0-3.2 1.4-3.2 3.2s1.4 3.2 3.2 3.2c1 0 1.8-.4 2.4-1.1v-2.5H7.7v1.2h1.2v.6c-.2.1-.5.2-.8.2-.9 0-1.6-.7-1.6-1.6 0-.8.7-1.6 1.6-1.6z">
+                                                </path>
+                                                <path
+                                                    d="M20.5 2.02h-17c-1.24 0-2.25 1.007-2.25 2.247v15.507c0 1.238 1.01 2.246 2.25 2.246h17c1.24 0 2.25-1.008 2.25-2.246V4.267c0-1.24-1.01-2.247-2.25-2.247zm.75 17.754c0 .41-.336.746-.75.746h-17c-.414 0-.75-.336-.75-.746V4.267c0-.412.336-.747.75-.747h17c.414 0 .75.335.75.747v15.507z">
+                                                </path>
+                                            </g>
+                                        </svg>
+                                    </div>
+                                    <div class="tweet-option">
+                                        <svg class="insights-icon" viewBox="0 0 33 32">
+                                            <g>
+                                                <path d="M12.745 20.54l10.97-8.19c.539-.4 1.307-.244 1.564.38 1.349 3.288.746 7.241-1.938 9.955-2.683 2.714-6.417 3.31-9.83 1.954l-3.728 1.745c5.347 3.697 11.84 2.782 15.898-1.324 3.219-3.255 4.216-7.692 3.284-11.693l.008.009c-1.351-5.878.332-8.227 3.782-13.031L33 0l-4.54 4.59v-.014L12.743 20.544m-2.263 1.987c-3.837-3.707-3.175-9.446.1-12.755 2.42-2.449 6.388-3.448 9.852-1.979l3.72-1.737c-.67-.49-1.53-1.017-2.515-1.387-4.455-1.854-9.789-.931-13.41 2.728-3.483 3.523-4.579 8.94-2.697 13.561 1.405 3.454-.899 5.898-3.22 8.364C1.49 30.2.666 31.074 0 32l10.478-9.466"/>
+                                            </g>
+                                        </svg>
+                                    </div>
+                                    <div class="tweet-option">
+                                        <svg class="insights-icon" viewBox="0 0 24 24">
+                                            <g>
+                                                <path
+                                                    d="M20.222 9.16h-1.334c.015-.09.028-.182.028-.277V6.57c0-.98-.797-1.777-1.778-1.777H3.5V3.358c0-.414-.336-.75-.75-.75s-.75.336-.75.75V20.83c0 .415.336.75.75.75s.75-.335.75-.75v-1.434h10.556c.98 0 1.778-.797 1.778-1.777v-2.313c0-.095-.014-.187-.028-.278h4.417c.98 0 1.778-.798 1.778-1.778v-2.31c0-.983-.797-1.78-1.778-1.78zM17.14 6.293c.152 0 .277.124.277.277v2.31c0 .154-.125.28-.278.28H3.5V6.29h13.64zm-2.807 9.014v2.312c0 .153-.125.277-.278.277H3.5v-2.868h10.556c.153 0 .277.126.277.28zM20.5 13.25c0 .153-.125.277-.278.277H3.5V10.66h16.722c.153 0 .278.124.278.277v2.313z">
+                                                </path>
+                                            </g>
+                                        </svg>
+                                    </div>
+                                    <div class="tweet-option">
+                                        <svg class="insights-icon" viewBox="0 0 24 24">
+                                            <g>
+                                                <path
+                                                    d="M12 22.75C6.072 22.75 1.25 17.928 1.25 12S6.072 1.25 12 1.25 22.75 6.072 22.75 12 17.928 22.75 12 22.75zm0-20C6.9 2.75 2.75 6.9 2.75 12S6.9 21.25 12 21.25s9.25-4.15 9.25-9.25S17.1 2.75 12 2.75z">
+                                                </path>
+                                                <path
+                                                    d="M12 17.115c-1.892 0-3.633-.95-4.656-2.544-.224-.348-.123-.81.226-1.035.348-.226.812-.124 1.036.226.747 1.162 2.016 1.855 3.395 1.855s2.648-.693 3.396-1.854c.224-.35.688-.45 1.036-.225.35.224.45.688.226 1.036-1.025 1.594-2.766 2.545-4.658 2.545z">
+                                                </path>
+                                                <circle cx="14.738" cy="9.458" r="1.478"></circle>
+                                                <circle cx="9.262" cy="9.458" r="1.478"></circle>
+                                            </g>
+                                        </svg>
+                                    </div>
+                                    <div class="tweet-option">
+                                        <svg class="insights-icon" viewBox="0 0 24 24">
+                                            <g>
+                                                <path d="M-37.9 18c-.1-.1-.1-.1-.1-.2.1 0 .1.1.1.2z"></path>
+                                                <path
+                                                    d="M-37.9 18c-.1-.1-.1-.1-.1-.2.1 0 .1.1.1.2zM18 2.2h-1.3v-.3c0-.4-.3-.8-.8-.8-.4 0-.8.3-.8.8v.3H7.7v-.3c0-.4-.3-.8-.8-.8-.4 0-.8.3-.8.8v.3H4.8c-1.4 0-2.5 1.1-2.5 2.5v13.1c0 1.4 1.1 2.5 2.5 2.5h2.9c.4 0 .8-.3.8-.8 0-.4-.3-.8-.8-.8H4.8c-.6 0-1-.5-1-1V7.9c0-.3.4-.7 1-.7H18c.6 0 1 .4 1 .7v1.8c0 .4.3.8.8.8.4 0 .8-.3.8-.8v-5c-.1-1.4-1.2-2.5-2.6-2.5zm1 3.7c-.3-.1-.7-.2-1-.2H4.8c-.4 0-.7.1-1 .2V4.7c0-.6.5-1 1-1h1.3v.5c0 .4.3.8.8.8.4 0 .8-.3.8-.8v-.5h7.5v.5c0 .4.3.8.8.8.4 0 .8-.3.8-.8v-.5H18c.6 0 1 .5 1 1v1.2z">
+                                                </path>
+                                                <path
+                                                    d="M15.5 10.4c-3.4 0-6.2 2.8-6.2 6.2 0 3.4 2.8 6.2 6.2 6.2 3.4 0 6.2-2.8 6.2-6.2 0-3.4-2.8-6.2-6.2-6.2zm0 11c-2.6 0-4.7-2.1-4.7-4.7s2.1-4.7 4.7-4.7 4.7 2.1 4.7 4.7c0 2.5-2.1 4.7-4.7 4.7z">
+                                                </path>
+                                                <path
+                                                    d="M18.9 18.7c-.1.2-.4.4-.6.4-.1 0-.3 0-.4-.1l-3.1-2v-3c0-.4.3-.8.8-.8.4 0 .8.3.8.8v2.2l2.4 1.5c.2.2.3.6.1 1z">
+                                                </path>
+                                            </g>
+                                        </svg>
+                                    </div>
+                                    <div class="tweet-option location-disabled">
+                                        <svg class="insights-icon" viewBox="0 0 24 24">
+                                            <g>
+                                                <path
+                                                    d="M12 2C8.13 2 5 5.13 5 9c0 5.25 7 13 7 13s7-7.75 7-13c0-3.87-3.13-7-7-7zm0 9.5c-1.38 0-2.5-1.12-2.5-2.5s1.12-2.5 2.5-2.5 2.5 1.12 2.5 2.5-1.12 2.5-2.5 2.5z">
+                                                </path>
+                                            </g>
+                                        </svg>
+                                    </div>
+                                </div>
+                                <span class="post-button">
+                                    Post
+                                </span>
+                            </div>
+                            </div>
+                        </div>
+
+                    </div>
+                    
+                    <!-- For You Tab Content -->
+                    <div class="tab-content" id="foryou-content">
+                        <div class="show-posts-container">
+                            <span class="show-posts-text">Show 104 posts</span>
+                        </div>
+                        <div class="tweet-card">
+                        <div class="tweet-profile-pic">
+                            <img src="assets/Chelsea logo.jpg"
+                                alt="">
+                        </div>
+                        <div class="tweet">
+                            <div class="tweet-row">
+                                <div class="user-details">
+                                    <span class="name">Chelsea FC</span>
+                                    <svg class="verified-badge" viewBox="0 0 22 22" aria-label="Verified account" role="img" width="18.75" height="18.75">
+                                        <g>
+                                            <linearGradient gradientUnits="userSpaceOnUse" id="4-a" x1="4.411" x2="18.083" y1="2.495" y2="21.508">
+                                                <stop offset="0" stop-color="#f4e72a"></stop>
+                                                <stop offset=".539" stop-color="#cd8105"></stop>
+                                                <stop offset=".68" stop-color="#cb7b00"></stop>
+                                                <stop offset="1" stop-color="#f4ec26"></stop>
+                                                <stop offset="1" stop-color="#f4e72a"></stop>
+                                            </linearGradient>
+                                            <linearGradient gradientUnits="userSpaceOnUse" id="4-b" x1="5.355" x2="16.361" y1="3.395" y2="19.133">
+                                                <stop offset="0" stop-color="#f9e87f"></stop>
+                                                <stop offset=".406" stop-color="#e2b719"></stop>
+                                                <stop offset=".989" stop-color="#e2b719"></stop>
+                                            </linearGradient>
+                                            <g clip-rule="evenodd" fill-rule="evenodd">
+                                                <path d="M13.324 3.848L11 1.6 8.676 3.848l-3.201-.453-.559 3.184L2.06 8.095 3.48 11l-1.42 2.904 2.856 1.516.559 3.184 3.201-.452L11 20.4l2.324-2.248 3.201.452.559-3.184 2.856-1.516L18.52 11l1.42-2.905-2.856-1.516-.559-3.184zm-7.09 7.575l3.428 3.428 5.683-6.206-1.347-1.247-4.4 4.795-2.072-2.072z" fill="url(#4-a)"></path>
+                                                <path d="M13.101 4.533L11 2.5 8.899 4.533l-2.895-.41-.505 2.88-2.583 1.37L4.2 11l-1.284 2.627 2.583 1.37.505 2.88 2.895-.41L11 19.5l2.101-2.033 2.895.41.505-2.88 2.583-1.37L17.8 11l1.284-2.627-2.583-1.37-.505-2.88zm-6.868 6.89l3.429 3.428 5.683-6.206-1.347-1.247-4.4 4.795-2.072-2.072z" fill="url(#4-b)"></path>
+                                                <path d="M6.233 11.423l3.429 3.428 5.65-6.17.038-.033-.005 1.398-5.683 6.206-3.429-3.429-.003-1.405.005.003z" fill="#d18800"></path>
+                                            </g>
+                                        </g>
+                                    </svg>
+                                    <span class="id">@ChelseaFC</span>
+                                    <span class="separator">.</span>
+                                    <span class="time">32m</span>
+                                </div>
+                                <div class="tweet-arrow">
+                                    <svg class="tweet-grok-icon" viewBox="0 0 33 32" fill="currentColor">
+                                        <path d="M12.745 20.54l10.97-8.19c.539-.4 1.307-.244 1.564.38 1.349 3.288.746 7.241-1.938 9.955-2.683 2.714-6.417 3.31-9.83 1.954l-3.728 1.745c5.347 3.697 11.84 2.782 15.898-1.324 3.219-3.255 4.216-7.692 3.284-11.693l.008.009c-1.351-5.878.332-8.227 3.782-13.031L33 0l-4.54 4.59v-.014L12.743 20.544m-2.263 1.987c-3.837-3.707-3.175-9.446.1-12.755 2.42-2.449 6.388-3.448 9.852-1.979l3.72-1.737c-.67-.49-1.53-1.017-2.515-1.387-4.455-1.854-9.789-.931-13.41 2.728-3.483 3.523-4.579 8.94-2.697 13.561 1.405 3.454-.899 5.898-3.22 8.364C1.49 30.2.666 31.074 0 32l10.478-9.466"/>
+                                    </svg>
+                                    <div class="tweet-menu-wrapper">
+                                        <svg class="tweet-menu-icon" viewBox="0 0 24 24">
+                                            <g>
+                                                <circle cx="5" cy="12" r="1.5"></circle>
+                                                <circle cx="12" cy="12" r="1.5"></circle>
+                                                <circle cx="19" cy="12" r="1.5"></circle>
+                                            </g>
+                                        </svg>
+                                        <div class="tweet-menu-dropdown">
+                                            <div class="tweet-menu-item">
+                                                <svg class="tweet-menu-item-icon" viewBox="0 0 24 24">
+                                                    <path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm-2 15l-5-5 1.41-1.41L10 14.17l7.59-7.59L19 8l-9 9z"/>
+                                                </svg>
+                                                <span>Not interested in this post</span>
+                                            </div>
+                                            <div class="tweet-menu-item">
+                                                <svg class="tweet-menu-item-icon" viewBox="0 0 24 24">
+                                                    <path d="M19 13h-6v6h-2v-6H5v-2h6V5h2v6h6v2z"/>
+                                                </svg>
+                                                <span>Follow @ChelseaFC</span>
+                                            </div>
+                                            <div class="tweet-menu-item">
+                                                <svg class="tweet-menu-item-icon" viewBox="0 0 24 24">
+                                                    <path d="M19 3H5c-1.1 0-2 .9-2 2v14c0 1.1.9 2 2 2h14c1.1 0 2-.9 2-2V5c0-1.1-.9-2-2-2zm0 16H5V5h14v14zm-5.04-6.71l-2.75 3.54-1.96-2.36L6.5 17h11l-3.54-4.71z"/>
+                                                </svg>
+                                                <span>Add/remove from Lists</span>
+                                            </div>
+                                            <div class="tweet-menu-item">
+                                                <svg class="tweet-menu-item-icon" viewBox="0 0 24 24">
+                                                    <path d="M18.5 12c0-1.77-1.02-3.29-2.5-4.03v8.05c1.48-.73 2.5-2.25 2.5-4.02zM5 9v6h4l5 5V4L9 9H5z"/>
+                                                </svg>
+                                                <span>Mute</span>
+                                            </div>
+                                            <div class="tweet-menu-item">
+                                                <svg class="tweet-menu-item-icon" viewBox="0 0 24 24">
+                                                    <path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm0 18c-4.42 0-8-3.58-8-8 0-1.85.63-3.55 1.69-4.9L16.9 18.31C15.55 19.37 13.85 20 12 20zm6.31-3.1L7.1 5.69C8.45 4.63 10.15 4 12 4c4.42 0 8 3.58 8 8 0 1.85-.63 3.55-1.69 4.9z"/>
+                                                </svg>
+                                                <span>Block @ChelseaFC</span>
+                                            </div>
+                                            <div class="tweet-menu-item">
+                                                <svg class="tweet-menu-item-icon" viewBox="0 0 24 24">
+                                                    <path d="M3 13h8V3H3v10zm0 8h8v-6H3v6zm10 0h8V11h-8v10zm0-18v6h8V3h-8z"/>
+                                                </svg>
+                                                <span>View post engagements</span>
+                                            </div>
+                                            <div class="tweet-menu-item">
+                                                <svg class="tweet-menu-item-icon" viewBox="0 0 24 24">
+                                                    <path d="M9.4 16.6L4.8 12l4.6-4.6L8 6l-6 6 6 6 1.4-1.4zm5.2 0L19.2 12l-4.6-4.6L16 6l6 6-6 6-1.4-1.4z"/>
+                                                </svg>
+                                                <span>Embed post</span>
+                                            </div>
+                                            <div class="tweet-menu-item">
+                                                <svg class="tweet-menu-item-icon" viewBox="0 0 24 24">
+                                                    <path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/>
+                                                </svg>
+                                                <span>Report post</span>
+                                            </div>
+                                            <div class="tweet-menu-item">
+                                                <svg class="tweet-menu-item-icon" viewBox="0 0 24 24">
+                                                    <path d="M3 9v6h4l5 5V4L7 9H3zm13.5 3c0-1.77-1.02-3.29-2.5-4.03v8.05c1.48-.73 2.5-2.25 2.5-4.02zM14 3.23v2.06c2.89.86 5 3.54 5 6.71s-2.11 5.85-5 6.71v2.06c4.01-.91 7-4.49 7-8.77s-2.99-7.86-7-8.77z"/>
+                                                </svg>
+                                                <span>Request Community Note</span>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="tweet-text">
+                                We're behind at the break.
+                            </div>
+                            <div class="tweet-hashtags">
+                                <span class="hashtag">#CFC</span>
+                                <span class="hashtag-separator">|</span>
+                                <span class="hashtag">#UCL</span>
+                            </div>
+                            <div class="tweet-image-container">
+                                <div class="tweet-image-content">
+                                    <img src="assets/Chelsea.jpeg" alt="Chelsea FC">
+                                </div>
+                            </div>
+                            <div class="tweet-actions">
+                                <div class="tweet-option">
+                                    <svg class="tweet-option-icon" viewBox="0 0 24 24">
+                                        <g>
+                                            <path
+                                                d="M14.046 2.242l-4.148-.01h-.002c-4.374 0-7.8 3.427-7.8 7.802 0 4.098 3.186 7.206 7.465 7.37v3.828c0 .108.044.286.12.403.142.225.384.347.632.347.138 0 .277-.038.402-.118.264-.168 6.473-4.14 8.088-5.506 1.902-1.61 3.04-3.97 3.043-6.312v-.017c-.006-4.367-3.43-7.787-7.8-7.788zm3.787 12.972c-1.134.96-4.862 3.405-6.772 4.643V16.67c0-.414-.335-.75-.75-.75h-.396c-3.66 0-6.318-2.476-6.318-5.886 0-3.534 2.768-6.302 6.3-6.302l4.147.01h.002c3.532 0 6.3 2.766 6.302 6.296-.003 1.91-.942 3.844-2.514 5.176z">
+                                            </path>
+                                        </g>
+                                    </svg>
+                                    <span class="tweet-action-count">204</span>
+                                </div>
+                                <div class="tweet-option">
+                                    <svg class="tweet-option-icon" viewBox="0 0 24 24">
+                                        <g>
+                                            <path
+                                                d="M23.77 15.67c-.292-.293-.767-.293-1.06 0l-2.22 2.22V7.65c0-2.068-1.683-3.75-3.75-3.75h-5.85c-.414 0-.75.336-.75.75s.336.75.75.75h5.85c1.24 0 2.25 1.01 2.25 2.25v10.24l-2.22-2.22c-.293-.293-.768-.293-1.06 0s-.294.768 0 1.06l3.5 3.5c.145.147.337.22.53.22s.383-.072.53-.22l3.5-3.5c.294-.292.294-.767 0-1.06zm-10.66 3.28H7.26c-1.24 0-2.25-1.01-2.25-2.25V6.46l2.22 2.22c.148.147.34.22.532.22s.384-.073.53-.22c.293-.293.293-.768 0-1.06l-3.5-3.5c-.293-.294-.768-.294-1.06 0l-3.5 3.5c-.294.292-.294.767 0 1.06s.767.293 1.06 0l2.22-2.22V16.7c0 2.068 1.683 3.75 3.75 3.75h5.85c.414 0 .75-.336.75-.75s-.337-.75-.75-.75z">
+                                            </path>
+                                        </g>
+                                    </svg>
+                                    <span class="tweet-action-count">999</span>
+                                </div>
+                                <div class="tweet-option">
+                                    <svg class="tweet-option-icon" viewBox="0 0 24 24">
+                                        <g>
+                                            <path
+                                                d="M12 21.638h-.014C9.403 21.59 1.95 14.856 1.95 8.478c0-3.064 2.525-5.754 5.403-5.754 2.29 0 3.83 1.58 4.646 2.73.814-1.148 2.354-2.73 4.645-2.73 2.88 0 5.404 2.69 5.404 5.755 0 6.376-7.454 13.11-10.037 13.157H12zM7.354 4.225c-2.08 0-3.903 1.988-3.903 4.255 0 5.74 7.034 11.596 8.55 11.658 1.518-.062 8.55-5.917 8.55-11.658 0-2.267-1.823-4.255-3.903-4.255-2.528 0-3.94 2.936-3.952 2.965-.23.562-1.156.562-1.387 0-.014-.03-1.425-2.965-3.954-2.965z">
+                                            </path>
+                                        </g>
+                                    </svg>
+                                    <span class="tweet-action-count">1.8K</span>
+                                </div>
+                                <div class="tweet-option">
+                                    <svg class="tweet-option-icon" viewBox="0 0 24 24">
+                                        <g>
+                                            <path
+                                                d="M8.75 21V3h2v18h-2zM18 21V8.5h2V21h-2zM11.25 21V3.75h2V21h-2zM15.5 21V5.5h2V21h-2zM5.5 21V10.75h2V21h-2z">
+                                            </path>
+                                        </g>
+                                    </svg>
+                                    <span class="tweet-action-count">55M</span>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="tweet-bookmark-icon">
+                            <svg class="tweet-option-icon" viewBox="0 0 24 24">
+                                <g>
+                                    <path
+                                        d="M19.9 23.5c-.157 0-.312-.05-.442-.144L12 17.928l-7.458 5.43c-.228.164-.53.19-.782.06-.25-.127-.41-.385-.41-.667V5.6c0-1.24 1.01-2.25 2.25-2.25h12.798c1.24 0 2.25 1.01 2.25 2.25v17.15c0 .282-.158.54-.41.668-.106.055-.223.082-.34.082zM12 16.25c.155 0 .31.048.44.144l6.71 4.883V5.6c0-.412-.337-.75-.75-.75H5.6c-.413 0-.75.338-.75.75v15.677l6.71-4.883c.13-.096.285-.144.44-.144z">
+                                    </path>
+                                </g>
+                            </svg>
+                        </div>
+                        <div class="tweet-share-icon">
+                            <svg class="tweet-option-icon" viewBox="0 0 24 24">
+                                <g>
+                                    <path
+                                        d="M17.53 7.47l-5-5c-.293-.293-.768-.293-1.06 0l-5 5c-.294.293-.294.768 0 1.06s.767.294 1.06 0l3.72-3.72V15c0 .414.336.75.75.75s.75-.336.75-.75V4.81l3.72 3.72c.146.147.338.22.53.22s.384-.072.53-.22c.293-.293.293-.767 0-1.06z">
+                                    </path>
+                                    <path
+                                        d="M19.708 21.944H4.292C3.028 21.944 2 20.916 2 19.652V14c0-.414.336-.75.75-.75s.75.336.75.75v5.652c0 .437.355.792.792.792h15.416c.437 0 .792-.355.792-.792V14c0-.414.336-.75.75-.75s.75.336.75.75v5.652c0 1.264-1.028 2.292-2.292 2.292z">
+                                    </path>
+                                </g>
+                            </svg>
+                        </div>
+                    </div>
+                <div class="tweet-card">
+                    <div class="tweet-profile-pic">
+                        <img src="assets/Elon.jpg" alt="Commentary Elon Musk News">
+                    </div>
+                    <div class="tweet">
+                        <div class="tweet-row">
+                            <div class="user-details">
+                                <span class="name">Commentary Elon Musk News</span>
+                                <svg class="verified-badge" viewBox="0 0 22 22" aria-label="Verified account" role="img" width="18.75" height="18.75">
+                                    <g>
+                                        <linearGradient gradientUnits="userSpaceOnUse" id="blue-a" x1="4.411" x2="18.083" y1="2.495" y2="21.508">
+                                            <stop offset="0" stop-color="#8ec5ff"></stop>
+                                            <stop offset=".539" stop-color="#1d9bf0"></stop>
+                                            <stop offset=".68" stop-color="#177ddc"></stop>
+                                            <stop offset="1" stop-color="#1d9bf0"></stop>
+                                            <stop offset="1" stop-color="#8ec5ff"></stop>
+                                        </linearGradient>
+                                        <linearGradient gradientUnits="userSpaceOnUse" id="blue-b" x1="5.355" x2="16.361" y1="3.395" y2="19.133">
+                                            <stop offset="0" stop-color="#c0e4ff"></stop>
+                                            <stop offset=".406" stop-color="#4ab3ff"></stop>
+                                            <stop offset=".989" stop-color="#1d9bf0"></stop>
+                                        </linearGradient>
+                                        <g clip-rule="evenodd" fill-rule="evenodd">
+                                            <path d="M13.324 3.848L11 1.6 8.676 3.848l-3.201-.453-.559 3.184L2.06 8.095 3.48 11l-1.42 2.904 2.856 1.516.559 3.184 3.201-.452L11 20.4l2.324-2.248 3.201.452.559-3.184 2.856-1.516L18.52 11l1.42-2.905-2.856-1.516-.559-3.184zm-7.09 7.575l3.428 3.428 5.683-6.206-1.347-1.247-4.4 4.795-2.072-2.072z" fill="url(#blue-a)"></path>
+                                            <path d="M13.101 4.533L11 2.5 8.899 4.533l-2.895-.41-.505 2.88-2.583 1.37L4.2 11l-1.284 2.627 2.583 1.37.505 2.88 2.895-.41L11 19.5l2.101-2.033 2.895.41.505-2.88 2.583-1.37L17.8 11l1.284-2.627-2.583-1.37-.505-2.88zm-6.868 6.89l3.429 3.428 5.683-6.206-1.347-1.247-4.4 4.795-2.072-2.072z" fill="url(#blue-b)"></path>
+                                            <path d="M6.233 11.423l3.429 3.428 5.65-6.17.038-.033-.005 1.398-5.683 6.206-3.429-3.429-.003-1.405.005.003z" fill="#177ddc"></path>
+                                        </g>
+                                    </g>
+                                </svg>
+                                <span class="id">@elonmusknews30</span>
+                                <span class="separator">.</span>
+                                <span class="time">4h</span>
+                            </div>
+                            <div class="tweet-arrow">
+                                <svg class="tweet-grok-icon" viewBox="0 0 33 32" fill="currentColor">
+                                    <path d="M12.745 20.54l10.97-8.19c.539-.4 1.307-.244 1.564.38 1.349 3.288.746 7.241-1.938 9.955-2.683 2.714-6.417 3.31-9.83 1.954l-3.728 1.745c5.347 3.697 11.84 2.782 15.898-1.324 3.219-3.255 4.216-7.692 3.284-11.693l.008.009c-1.351-5.878.332-8.227 3.782-13.031L33 0l-4.54 4.59v-.014L12.743 20.544m-2.263 1.987c-3.837-3.707-3.175-9.446.1-12.755 2.42-2.449 6.388-3.448 9.852-1.979l3.72-1.737c-.67-.49-1.53-1.017-2.515-1.387-4.455-1.854-9.789-.931-13.41 2.728-3.483 3.523-4.579 8.94-2.697 13.561 1.405 3.454-.899 5.898-3.22 8.364C1.49 30.2.666 31.074 0 32l10.478-9.466"/>
+                                </svg>
+                                <div class="tweet-menu-wrapper" style="position: relative;">
+                                    <svg class="tweet-menu-icon" viewBox="0 0 24 24">
+                                        <g>
+                                            <circle cx="5" cy="12" r="1.5"></circle>
+                                            <circle cx="12" cy="12" r="1.5"></circle>
+                                            <circle cx="19" cy="12" r="1.5"></circle>
+                                        </g>
+                                    </svg>
+                                    <div class="tweet-menu-dropdown">
+                                        <div class="tweet-menu-item">
+                                            <svg class="tweet-menu-item-icon" viewBox="0 0 24 24">
+                                                <path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm-2 15l-5-5 1.41-1.41L10 14.17l7.59-7.59L19 8l-9 9z"/>
+                                            </svg>
+                                            <span>Not interested in this post</span>
+                                        </div>
+                                        <div class="tweet-menu-item">
+                                            <svg class="tweet-menu-item-icon" viewBox="0 0 24 24">
+                                                <path d="M19 13h-6v6h-2v-6H5v-2h6V5h2v6h6v2z"/>
+                                            </svg>
+                                            <span>Follow @elonmusknews30</span>
+                                        </div>
+                                        <div class="tweet-menu-item">
+                                            <svg class="tweet-menu-item-icon" viewBox="0 0 24 24">
+                                                <path d="M19 3H5c-1.1 0-2 .9-2 2v14c0 1.1.9 2 2 2h14c1.1 0 2-.9 2-2V5c0-1.1-.9-2-2-2zm0 16H5V5h14v14zm-5.04-6.71l-2.75 3.54-1.96-2.36L6.5 17h11l-3.54-4.71z"/>
+                                            </svg>
+                                            <span>Add/remove from Lists</span>
+                                        </div>
+                                        <div class="tweet-menu-item">
+                                            <svg class="tweet-menu-item-icon" viewBox="0 0 24 24">
+                                                <path d="M18.5 12c0-1.77-1.02-3.29-2.5-4.03v8.05c1.48-.73 2.5-2.25 2.5-4.02zM5 9v6h4l5 5V4L9 9H5z"/>
+                                            </svg>
+                                            <span>Mute</span>
+                                        </div>
+                                        <div class="tweet-menu-item">
+                                            <svg class="tweet-menu-item-icon" viewBox="0 0 24 24">
+                                                <path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm0 18c-4.42 0-8-3.58-8-8 0-1.85.63-3.55 1.69-4.9L16.9 18.31C15.55 19.37 13.85 20 12 20zm6.31-3.1L7.1 5.69C8.45 4.63 10.15 4 12 4c4.42 0 8 3.58 8 8 0 1.85-.63 3.55-1.69 4.9z"/>
+                                            </svg>
+                                            <span>Block @elonmusknews30</span>
+                                        </div>
+                                        <div class="tweet-menu-item">
+                                            <svg class="tweet-menu-item-icon" viewBox="0 0 24 24">
+                                                <path d="M3 13h8V3H3v10zm0 8h8v-6H3v6zm10 0h8V11h-8v10zm0-18v6h8V3h-8z"/>
+                                            </svg>
+                                            <span>View post engagements</span>
+                                        </div>
+                                        <div class="tweet-menu-item">
+                                            <svg class="tweet-menu-item-icon" viewBox="0 0 24 24">
+                                                <path d="M9.4 16.6L4.8 12l4.6-4.6L8 6l-6 6 6 6 1.4-1.4zm5.2 0L19.2 12l-4.6-4.6L16 6l6 6-6 6-1.4-1.4z"/>
+                                            </svg>
+                                            <span>Embed post</span>
+                                        </div>
+                                        <div class="tweet-menu-item">
+                                            <svg class="tweet-menu-item-icon" viewBox="0 0 24 24">
+                                                <path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/>
+                                            </svg>
+                                            <span>Report post</span>
+                                        </div>
+                                        <div class="tweet-menu-item">
+                                            <svg class="tweet-menu-item-icon" viewBox="0 0 24 24">
+                                                <path d="M3 9v6h4l5 5V4L7 9H3zm13.5 3c0-1.77-1.02-3.29-2.5-4.03v8.05c1.48-.73 2.5-2.25 2.5-4.02zM14 3.23v2.06c2.89.86 5 3.54 5 6.71s-2.11 5.85-5 6.71v2.06c4.01-.91 7-4.49 7-8.77s-2.99-7.86-7-8.77z"/>
+                                            </svg>
+                                            <span>Request Community Note</span>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="tweet-context">
+                            <span class="tweet-context-icon" role="img" aria-hidden="true">🎭</span>
+                            <span>Commentary account</span>
+                        </div>
+                        <div class="tweet-text">
+                            <span>🚨BREAKING: Would you accept a free Tesla?</span><br>
+                            <span>A) Yes</span><br>
+                            <span>B) No</span><br><br>
+                            <span>Give me a Thumbs-Up 👍 if you accept</span>
+                        </div>
+                        <div class="tweet-image-container">
+                            <div class="tweet-image-content">
+                                <img src="assets/Tesla.jpeg" alt="Tesla giveaway question">
+                            </div>
+                        </div>
+                        <div class="tweet-actions">
+                            <div class="tweet-option">
+                                <svg class="tweet-option-icon" viewBox="0 0 24 24">
+                                    <g>
+                                        <path
+                                            d="M14.046 2.242l-4.148-.01h-.002c-4.374 0-7.8 3.427-7.8 7.802 0 4.098 3.186 7.206 7.465 7.37v3.828c0 .108.044.286.12.403.142.225.384.347.632.347.138 0 .277-.038.402-.118.264-.168 6.473-4.14 8.088-5.506 1.902-1.61 3.04-3.97 3.043-6.312v-.017c-.006-4.367-3.43-7.787-7.8-7.788zm3.787 12.972c-1.134.96-4.862 3.405-6.772 4.643V16.67c0-.414-.335-.75-.75-.75h-.396c-3.66 0-6.318-2.476-6.318-5.886 0-3.534 2.768-6.302 6.3-6.302l4.147.01h.002c3.532 0 6.3 2.766 6.302 6.296-.003 1.91-.942 3.844-2.514 5.176z">
+                                        </path>
+                                    </g>
+                                </svg>
+                                <span class="tweet-action-count">2.6K</span>
+                            </div>
+                            <div class="tweet-option">
+                                <svg class="tweet-option-icon" viewBox="0 0 24 24">
+                                    <g>
+                                        <path
+                                            d="M23.77 15.67c-.292-.293-.767-.293-1.06 0l-2.22 2.22V7.65c0-2.068-1.683-3.75-3.75-3.75h-5.85c-.414 0-.75.336-.75.75s.336.75.75.75h5.85c1.24 0 2.25 1.01 2.25 2.25v10.24l-2.22-2.22c-.293-.293-.768-.293-1.06 0s-.294.768 0 1.06l3.5 3.5c.145.147.337.22.53.22s.383-.072.53-.22l3.5-3.5c.294-.292.294-.767 0-1.06zm-10.66 3.28H7.26c-1.24 0-2.25-1.01-2.25-2.25V6.46l2.22 2.22c.148.147.34.22.532.22s.384-.073.53-.22c.293-.293.293-.768 0-1.06l-3.5-3.5c-.293-.294-.768-.294-1.06 0l-3.5 3.5c-.294.292-.294.767 0 1.06s.767.293 1.06 0l2.22-2.22V16.7c0 2.068 1.683 3.75 3.75 3.75h5.85c.414 0 .75-.336.75-.75s-.337-.75-.75-.75z">
+                                        </path>
+                                    </g>
+                                </svg>
+                                <span class="tweet-action-count">156</span>
+                            </div>
+                            <div class="tweet-option">
+                                <svg class="tweet-option-icon" viewBox="0 0 24 24">
+                                    <g>
+                                        <path
+                                            d="M12 21.638h-.014C9.403 21.59 1.95 14.856 1.95 8.478c0-3.064 2.525-5.754 5.403-5.754 2.29 0 3.83 1.58 4.646 2.73.814-1.148 2.354-2.73 4.645-2.73 2.88 0 5.404 2.69 5.404 5.755 0 6.376-7.454 13.11-10.037 13.157H12zM7.354 4.225c-2.08 0-3.903 1.988-3.903 4.255 0 5.74 7.034 11.596 8.55 11.658 1.518-.062 8.55-5.917 8.55-11.658 0-2.267-1.823-4.255-3.903-4.255-2.528 0-3.94 2.936-3.952 2.965-.23.562-1.156.562-1.387 0-.014-.03-1.425-2.965-3.954-2.965z">
+                                        </path>
+                                    </g>
+                                </svg>
+                                <span class="tweet-action-count">1.2K</span>
+                            </div>
+                            <div class="tweet-option">
+                                <svg class="tweet-option-icon" viewBox="0 0 24 24">
+                                    <g>
+                                        <path
+                                            d="M8.75 21V3h2v18h-2zM18 21V8.5h2V21h-2zM11.25 21V3.75h2V21h-2zM15.5 21V5.5h2V21h-2zM5.5 21V10.75h2V21h-2z">
+                                        </path>
+                                    </g>
+                                </svg>
+                                <span class="tweet-action-count">277K</span>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="tweet-bookmark-icon">
+                        <svg class="tweet-option-icon" viewBox="0 0 24 24">
+                            <g>
+                                <path
+                                    d="M19.9 23.5c-.157 0-.312-.05-.442-.144L12 17.928l-7.458 5.43c-.228.164-.53.19-.782.06-.25-.127-.41-.385-.41-.667V5.6c0-1.24 1.01-2.25 2.25-2.25h12.798c1.24 0 2.25 1.01 2.25 2.25v17.15c0 .282-.158.54-.41.668-.106.055-.223.082-.34.082zM12 16.25c.155 0 .31.048.44.144l6.71 4.883V5.6c0-.412-.337-.75-.75-.75H5.6c-.413 0-.75.338-.75.75v15.677l6.71-4.883c.13-.096.285-.144.44-.144z">
+                                </path>
+                            </g>
+                        </svg>
+                    </div>
+                    <div class="tweet-share-icon">
+                        <svg class="tweet-option-icon" viewBox="0 0 24 24">
+                            <g>
+                                <path
+                                    d="M17.53 7.47l-5-5c-.293-.293-.768-.293-1.06 0l-5 5c-.294.293-.294.768 0 1.06s.767.294 1.06 0l3.72-3.72V15c0 .414.336.75.75.75s.75-.336.75-.75V4.81l3.72 3.72c.146.147.338.22.53.22s.384-.072.53-.22c.293-.293.293-.767 0-1.06z">
+                                </path>
+                                <path
+                                    d="M19.708 21.944H4.292C3.028 21.944 2 20.916 2 19.652V14c0-.414.336-.75.75-.75s.75.336.75.75v5.652c0 .437.355.792.792.792h15.416c.437 0 .792-.355.792-.792V14c0-.414.336-.75.75-.75s.75.336.75.75v5.652c0 1.264-1.028 2.292-2.292 2.292z">
+                                </path>
+                            </g>
+                        </svg>
+                    </div>
+                </div>
+                <div class="tweet-card">
+                    <div class="tweet-profile-pic">
+                        <img src="assets/Checkers.png" alt="Checkers Sixty60">
+                    </div>
+                    <div class="tweet">
+                        <div class="tweet-row">
+                            <div class="user-details">
+                                <span class="name">Checkers Sixty60</span>
+                                <svg class="verified-badge" viewBox="0 0 22 22" aria-label="Verified account" role="img" width="18.75" height="18.75">
+                                    <g>
+                                        <linearGradient gradientUnits="userSpaceOnUse" id="checkers-a" x1="4.411" x2="18.083" y1="2.495" y2="21.508">
+                                            <stop offset="0" stop-color="#f4e72a"></stop>
+                                            <stop offset=".539" stop-color="#cd8105"></stop>
+                                            <stop offset=".68" stop-color="#cb7b00"></stop>
+                                            <stop offset="1" stop-color="#f4ec26"></stop>
+                                            <stop offset="1" stop-color="#f4e72a"></stop>
+                                        </linearGradient>
+                                        <linearGradient gradientUnits="userSpaceOnUse" id="checkers-b" x1="5.355" x2="16.361" y1="3.395" y2="19.133">
+                                            <stop offset="0" stop-color="#f9e87f"></stop>
+                                            <stop offset=".406" stop-color="#e2b719"></stop>
+                                            <stop offset=".989" stop-color="#e2b719"></stop>
+                                        </linearGradient>
+                                        <g clip-rule="evenodd" fill-rule="evenodd">
+                                            <path d="M13.324 3.848L11 1.6 8.676 3.848l-3.201-.453-.559 3.184L2.06 8.095 3.48 11l-1.42 2.904 2.856 1.516.559 3.184 3.201-.452L11 20.4l2.324-2.248 3.201.452.559-3.184 2.856-1.516L18.52 11l1.42-2.905-2.856-1.516-.559-3.184zm-7.09 7.575l3.428 3.428 5.683-6.206-1.347-1.247-4.4 4.795-2.072-2.072z" fill="url(#checkers-a)"></path>
+                                            <path d="M13.101 4.533L11 2.5 8.899 4.533l-2.895-.41-.505 2.88-2.583 1.37L4.2 11l-1.284 2.627 2.583 1.37.505 2.88 2.895-.41L11 19.5l2.101-2.033 2.895.41.505-2.88 2.583-1.37L17.8 11l1.284-2.627-2.583-1.37-.505-2.88zm-6.868 6.89l3.429 3.428 5.683-6.206-1.347-1.247-4.4 4.795-2.072-2.072z" fill="url(#checkers-b)"></path>
+                                            <path d="M6.233 11.423l3.429 3.428 5.65-6.17.038-.033-.005 1.398-5.683 6.206-3.429-3.429-.003-1.405.005.003z" fill="#d18800"></path>
+                                        </g>
+                                    </g>
+                                </svg>
+                                <span class="id">@Sixty60_Tweets</span>
+                                <span class="separator">.</span>
+                                <span class="time">12h</span>
+                            </div>
+                            <div class="tweet-arrow">
+                                <span class="ad-indicator">Ad</span>
+                                <svg class="tweet-icon" viewBox="0 0 24 24">
+                                    <g>
+                                        <circle cx="5" cy="12" r="1.5"></circle>
+                                        <circle cx="12" cy="12" r="1.5"></circle>
+                                        <circle cx="19" cy="12" r="1.5"></circle>
+                                    </g>
+                                </svg>
+                            </div>
+                        </div>
+                        <div class="tweet-text">
+                            <span>You can have it all this Singles' Day ⚡. Shop ONLINE ONLY deals on Sixty60. T&Cs apply.</span>
+                        </div>
+                        <div class="tweet-video-container">
+                            <div class="tweet-video-content">
+                                <video class="tweet-video-iframe" controls muted autoplay loop>
+                                    <source src="assets/Sixty 60 Ad.mp4" type="video/mp4">
+                                    Your browser does not support the video tag.
+                                </video>
+                                <div class="video-timer">0:00</div>
+                            </div>
+                        </div>
+                        <div class="tweet-actions">
+                            <div class="tweet-option">
+                                <svg class="tweet-option-icon" viewBox="0 0 24 24">
+                                    <g>
+                                        <path d="M14.046 2.242l-4.148-.01h-.002c-4.374 0-7.8 3.427-7.8 7.802 0 4.098 3.186 7.206 7.465 7.37v3.828c0 .108.044.286.12.403.142.225.384.347.632.347.138 0 .277-.038.402-.118.264-.168 6.473-4.14 8.088-5.506 1.902-1.61 3.04-3.97 3.043-6.312v-.017c-.006-4.367-3.43-7.787-7.8-7.788zm3.787 12.972c-1.134.96-4.862 3.405-6.772 4.643V16.67c0-.414-.335-.75-.75-.75h-.396c-3.66 0-6.318-2.476-6.318-5.886 0-3.534 2.768-6.302 6.3-6.302l4.147.01h.002c3.532 0 6.3 2.766 6.302 6.296-.003 1.91-.942 3.844-2.514 5.176z"></path>
+                                    </g>
+                                </svg>
+                                <span class="tweet-action-count">9</span>
+                            </div>
+                            <div class="tweet-option">
+                                <svg class="tweet-option-icon" viewBox="0 0 24 24">
+                                    <g>
+                                        <path d="M23.77 15.67c-.292-.293-.767-.293-1.06 0l-2.22 2.22V7.65c0-2.068-1.683-3.75-3.75-3.75h-5.85c-.414 0-.75.336-.75.75s.336.75.75.75h5.85c1.24 0 2.25 1.01 2.25 2.25v10.24l-2.22-2.22c-.293-.293-.768-.293-1.06 0s-.294.768 0 1.06l3.5 3.5c.145.147.337.22.53.22s.383-.072.53-.22l3.5-3.5c.294-.292.294-.767 0-1.06zm-10.66 3.28H7.26c-1.24 0-2.25-1.01-2.25-2.25V6.46l2.22 2.22c.148.147.34.22.532.22s.384-.073.53-.22c.293-.293.293-.768 0-1.06l-3.5-3.5c-.293-.294-.768-.294-1.06 0l-3.5 3.5c-.294.292-.294.767 0 1.06s.767.293 1.06 0l2.22-2.22V16.7c0 2.068 1.683 3.75 3.75 3.75h5.85c.414 0 .75-.336.75-.75s-.337-.75-.75-.75z"></path>
+                                    </g>
+                                </svg>
+                                <span class="tweet-action-count">18</span>
+                            </div>
+                            <div class="tweet-option">
+                                <svg class="tweet-option-icon" viewBox="0 0 24 24">
+                                    <g>
+                                        <path d="M12 21.638h-.014C9.403 21.59 1.95 14.856 1.95 8.478c0-3.064 2.525-5.754 5.403-5.754 2.29 0 3.83 1.58 4.646 2.73.814-1.148 2.354-2.73 4.645-2.73 2.88 0 5.404 2.69 5.404 5.755 0 6.376-7.454 13.11-10.037 13.157H12zM7.354 4.225c-2.08 0-3.903 1.988-3.903 4.255 0 5.74 7.034 11.596 8.55 11.658 1.518-.062 8.55-5.917 8.55-11.658 0-2.267-1.823-4.255-3.903-4.255-2.528 0-3.94 2.936-3.952 2.965-.23.562-1.156.562-1.387 0-.014-.03-1.425-2.965-3.954-2.965z"></path>
+                                    </g>
+                                </svg>
+                                <span class="tweet-action-count">363</span>
+                            </div>
+                            <div class="tweet-option">
+                                <svg class="tweet-option-icon" viewBox="0 0 24 24">
+                                    <g>
+                                        <path d="M8.75 21V3h2v18h-2zM18 21V8.5h2V21h-2zM11.25 21V3.75h2V21h-2zM15.5 21V5.5h2V21h-2zM5.5 21V10.75h2V21h-2z"></path>
+                                    </g>
+                                </svg>
+                                <span class="tweet-action-count">1M Views</span>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="tweet-bookmark-icon">
+                        <svg class="tweet-option-icon" viewBox="0 0 24 24">
+                            <g>
+                                <path d="M19.9 23.5c-.157 0-.312-.05-.442-.144L12 17.928l-7.458 5.43c-.228.164-.53.19-.782.06-.25-.127-.41-.385-.41-.667V5.6c0-1.24 1.01-2.25 2.25-2.25h12.798c1.24 0 2.25 1.01 2.25 2.25v17.15c0 .282-.158.54-.41.668-.106.055-.223.082-.34.082zM12 16.25c.155 0 .31.048.44.144l6.71 4.883V5.6c0-.412-.337-.75-.75-.75H5.6c-.413 0-.75.338-.75.75v15.677l6.71-4.883c.13-.096.285-.144.44-.144z"></path>
+                            </g>
+                        </svg>
+                    </div>
+                    <div class="tweet-share-icon">
+                        <svg class="tweet-option-icon" viewBox="0 0 24 24">
+                            <g>
+                                <path d="M17.53 7.47l-5-5c-.293-.293-.768-.293-1.06 0l-5 5c-.294.293-.294.768 0 1.06s.767.294 1.06 0l3.72-3.72V15c0 .414.336.75.75.75s.75-.336.75-.75V4.81l3.72 3.72c.146.147.338.22.53.22s.384-.072.53-.22c.293-.293.293-.767 0-1.06z"></path>
+                                <path d="M19.708 21.944H4.292C3.028 21.944 2 20.916 2 19.652V14c0-.414.336-.75.75-.75s.75.336.75.75v5.652c0 .437.355.792.792.792h15.416c.437 0 .792-.355.792-.792V14c0-.414.336-.75.75-.75s.75.336.75.75v5.652c0 1.264-1.028 2.292-2.292 2.292z"></path>
+                            </g>
+                        </svg>
+                    </div>
+                </div>
+                <div class="tweet-card">
+                    <div class="tweet-profile-pic">
+                        <img src="assets/HD Sports.jpg" alt="Hsports_HD">
+                    </div>
+                    <div class="tweet">
+                        <div class="tweet-row">
+                            <div class="user-details">
+                                <span class="name">Hsports_HD</span>
+                                <svg class="verified-badge" viewBox="0 0 22 22" aria-label="Verified account" role="img" width="18.75" height="18.75">
+                                    <g>
+                                        <linearGradient gradientUnits="userSpaceOnUse" id="hdsports-a" x1="4.411" x2="18.083" y1="2.495" y2="21.508">
+                                            <stop offset="0" stop-color="#8ec5ff"></stop>
+                                            <stop offset=".539" stop-color="#1d9bf0"></stop>
+                                            <stop offset=".68" stop-color="#177ddc"></stop>
+                                            <stop offset="1" stop-color="#1d9bf0"></stop>
+                                            <stop offset="1" stop-color="#8ec5ff"></stop>
+                                        </linearGradient>
+                                        <linearGradient gradientUnits="userSpaceOnUse" id="hdsports-b" x1="5.355" x2="16.361" y1="3.395" y2="19.133">
+                                            <stop offset="0" stop-color="#c0e4ff"></stop>
+                                            <stop offset=".406" stop-color="#4ab3ff"></stop>
+                                            <stop offset=".989" stop-color="#1d9bf0"></stop>
+                                        </linearGradient>
+                                        <g clip-rule="evenodd" fill-rule="evenodd">
+                                            <path d="M13.324 3.848L11 1.6 8.676 3.848l-3.201-.453-.559 3.184L2.06 8.095 3.48 11l-1.42 2.904 2.856 1.516.559 3.184 3.201-.452L11 20.4l2.324-2.248 3.201.452.559-3.184 2.856-1.516L18.52 11l1.42-2.905-2.856-1.516-.559-3.184zm-7.09 7.575l3.428 3.428 5.683-6.206-1.347-1.247-4.4 4.795-2.072-2.072z" fill="url(#hdsports-a)"></path>
+                                            <path d="M13.101 4.533L11 2.5 8.899 4.533l-2.895-.41-.505 2.88-2.583 1.37L4.2 11l-1.284 2.627 2.583 1.37.505 2.88 2.895-.41L11 19.5l2.101-2.033 2.895.41.505-2.88 2.583-1.37L17.8 11l1.284-2.627-2.583-1.37-.505-2.88zm-6.868 6.89l3.429 3.428 5.683-6.206-1.347-1.247-4.4 4.795-2.072-2.072z" fill="url(#hdsports-b)"></path>
+                                            <path d="M6.233 11.423l3.429 3.428 5.65-6.17.038-.033-.005 1.398-5.683 6.206-3.429-3.429-.003-1.405.005.003z" fill="#177ddc"></path>
+                                        </g>
+                                    </g>
+                                </svg>
+                                <span class="id">@Hsports_HD</span>
+                                <span class="separator">.</span>
+                                <span class="time">Nov 10</span>
+                            </div>
+                            <div class="tweet-arrow">
+                                <svg class="tweet-grok-icon" viewBox="0 0 33 32" fill="currentColor">
+                                    <path d="M12.745 20.54l10.97-8.19c.539-.4 1.307-.244 1.564.38 1.349 3.288.746 7.241-1.938 9.955-2.683 2.714-6.417 3.31-9.83 1.954l-3.728 1.745c5.347 3.697 11.84 2.782 15.898-1.324 3.219-3.255 4.216-7.692 3.284-11.693l.008.009c-1.351-5.878.332-8.227 3.782-13.031L33 0l-4.54 4.59v-.014L12.743 20.544m-2.263 1.987c-3.837-3.707-3.175-9.446.1-12.755 2.42-2.449 6.388-3.448 9.852-1.979l3.72-1.737c-.67-.49-1.53-1.017-2.515-1.387-4.455-1.854-9.789-.931-13.41 2.728-3.483 3.523-4.579 8.94-2.697 13.561 1.405 3.454-.899 5.898-3.22 8.364C1.49 30.2.666 31.074 0 32l10.478-9.466"/>
+                                </svg>
+                                <div class="tweet-menu-wrapper" style="position: relative;">
+                                    <svg class="tweet-menu-icon" viewBox="0 0 24 24">
+                                        <g>
+                                            <circle cx="5" cy="12" r="1.5"></circle>
+                                            <circle cx="12" cy="12" r="1.5"></circle>
+                                            <circle cx="19" cy="12" r="1.5"></circle>
+                                        </g>
+                                    </svg>
+                                    <div class="tweet-menu-dropdown">
+                                        <div class="tweet-menu-item">
+                                            <svg class="tweet-menu-item-icon" viewBox="0 0 24 24">
+                                                <path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm-2 15l-5-5 1.41-1.41L10 14.17l7.59-7.59L19 8l-9 9z"/>
+                                            </svg>
+                                            <span>Not interested in this post</span>
+                                        </div>
+                                        <div class="tweet-menu-item">
+                                            <svg class="tweet-menu-item-icon" viewBox="0 0 24 24">
+                                                <path d="M19 13h-6v6h-2v-6H5v-2h6V5h2v6h6v2z"/>
+                                            </svg>
+                                            <span>Follow @Hsports_HD</span>
+                                        </div>
+                                        <div class="tweet-menu-item">
+                                            <svg class="tweet-menu-item-icon" viewBox="0 0 24 24">
+                                                <path d="M19 3H5c-1.1 0-2 .9-2 2v14c0 1.1.9 2 2 2h14c1.1 0 2-.9 2-2V5c0-1.1-.9-2-2-2zm0 16H5V5h14v14zm-5.04-6.71l-2.75 3.54-1.96-2.36L6.5 17h11l-3.54-4.71z"/>
+                                            </svg>
+                                            <span>Add/remove from Lists</span>
+                                        </div>
+                                        <div class="tweet-menu-item">
+                                            <svg class="tweet-menu-item-icon" viewBox="0 0 24 24">
+                                                <path d="M18.5 12c0-1.77-1.02-3.29-2.5-4.03v8.05c1.48-.73 2.5-2.25 2.5-4.02zM5 9v6h4l5 5V4L9 9H5z"/>
+                                            </svg>
+                                            <span>Mute</span>
+                                        </div>
+                                        <div class="tweet-menu-item">
+                                            <svg class="tweet-menu-item-icon" viewBox="0 0 24 24">
+                                                <path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm0 18c-4.42 0-8-3.58-8-8 0-1.85.63-3.55 1.69-4.9L16.9 18.31C15.55 19.37 13.85 20 12 20zm6.31-3.1L7.1 5.69C8.45 4.63 10.15 4 12 4c4.42 0 8 3.58 8 8 0 1.85-.63 3.55-1.69 4.9z"/>
+                                            </svg>
+                                            <span>Block @Hsports_HD</span>
+                                        </div>
+                                        <div class="tweet-menu-item">
+                                            <svg class="tweet-menu-item-icon" viewBox="0 0 24 24">
+                                                <path d="M3 13h8V3H3v10zm0 8h8v-6H3v6zm10 0h8V11h-8v10zm0-18v6h8V3h-8z"/>
+                                            </svg>
+                                            <span>View post engagements</span>
+                                        </div>
+                                        <div class="tweet-menu-item">
+                                            <svg class="tweet-menu-item-icon" viewBox="0 0 24 24">
+                                                <path d="M9.4 16.6L4.8 12l4.6-4.6L8 6l-6 6 6 6 1.4-1.4zm5.2 0L19.2 12l-4.6-4.6L16 6l6 6-6 6-1.4-1.4z"/>
+                                            </svg>
+                                            <span>Embed post</span>
+                                        </div>
+                                        <div class="tweet-menu-item">
+                                            <svg class="tweet-menu-item-icon" viewBox="0 0 24 24">
+                                                <path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/>
+                                            </svg>
+                                            <span>Report post</span>
+                                        </div>
+                                        <div class="tweet-menu-item">
+                                            <svg class="tweet-menu-item-icon" viewBox="0 0 24 24">
+                                                <path d="M3 9v6h4l5 5V4L7 9H3zm13.5 3c0-1.77-1.02-3.29-2.5-4.03v8.05c1.48-.73 2.5-2.25 2.5-4.02zM14 3.23v2.06c2.89.86 5 3.54 5 6.71s-2.11 5.85-5 6.71v2.06c4.01-.91 7-4.49 7-8.77s-2.99-7.86-7-8.77z"/>
+                                            </svg>
+                                            <span>Request Community Note</span>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="tweet-text">
+                            <span>Who has been the best signing so far?</span>
+                        </div>
+                        <div class="tweet-image-container">
+                            <div class="tweet-image-content">
+                                <img src="assets/Which Player.jpeg" alt="Football players poll">
+                            </div>
+                        </div>
+                        <div class="tweet-actions">
+                            <div class="tweet-option">
+                                <svg class="tweet-option-icon" viewBox="0 0 24 24">
+                                    <g>
+                                        <path d="M14.046 2.242l-4.148-.01h-.002c-4.374 0-7.8 3.427-7.8 7.802 0 4.098 3.186 7.206 7.465 7.37v3.828c0 .108.044.286.12.403.142.225.384.347.632.347.138 0 .277-.038.402-.118.264-.168 6.473-4.14 8.088-5.506 1.902-1.61 3.04-3.97 3.043-6.312v-.017c-.006-4.367-3.43-7.787-7.8-7.788zm3.787 12.972c-1.134.96-4.862 3.405-6.772 4.643V16.67c0-.414-.335-.75-.75-.75h-.396c-3.66 0-6.318-2.476-6.318-5.886 0-3.534 2.768-6.302 6.3-6.302l4.147.01h.002c3.532 0 6.3 2.766 6.302 6.296-.003 1.91-.942 3.844-2.514 5.176z"></path>
+                                    </g>
+                                </svg>
+                                <span class="tweet-action-count">594</span>
+                            </div>
+                            <div class="tweet-option">
+                                <svg class="tweet-option-icon" viewBox="0 0 24 24">
+                                    <g>
+                                        <path d="M23.77 15.67c-.292-.293-.767-.293-1.06 0l-2.22 2.22V7.65c0-2.068-1.683-3.75-3.75-3.75h-5.85c-.414 0-.75.336-.75.75s.336.75.75.75h5.85c1.24 0 2.25 1.01 2.25 2.25v10.24l-2.22-2.22c-.293-.293-.768-.293-1.06 0s-.294.768 0 1.06l3.5 3.5c.145.147.337.22.53.22s.383-.072.53-.22l3.5-3.5c.294-.292.294-.767 0-1.06zm-10.66 3.28H7.26c-1.24 0-2.25-1.01-2.25-2.25V6.46l2.22 2.22c.148.147.34.22.532.22s.384-.073.53-.22c.293-.293.293-.768 0-1.06l-3.5-3.5c-.293-.294-.768-.294-1.06 0l-3.5 3.5c-.294.292-.294.767 0 1.06s.767.293 1.06 0l2.22-2.22V16.7c0 2.068 1.683 3.75 3.75 3.75h5.85c.414 0 .75-.336.75-.75s-.337-.75-.75-.75z"></path>
+                                    </g>
+                                </svg>
+                                <span class="tweet-action-count">408</span>
+                            </div>
+                            <div class="tweet-option">
+                                <svg class="tweet-option-icon" viewBox="0 0 24 24">
+                                    <g>
+                                        <path d="M12 21.638h-.014C9.403 21.59 1.95 14.856 1.95 8.478c0-3.064 2.525-5.754 5.403-5.754 2.29 0 3.83 1.58 4.646 2.73.814-1.148 2.354-2.73 4.645-2.73 2.88 0 5.404 2.69 5.404 5.755 0 6.376-7.454 13.11-10.037 13.157H12zM7.354 4.225c-2.08 0-3.903 1.988-3.903 4.255 0 5.74 7.034 11.596 8.55 11.658 1.518-.062 8.55-5.917 8.55-11.658 0-2.267-1.823-4.255-3.903-4.255-2.528 0-3.94 2.936-3.952 2.965-.23.562-1.156.562-1.387 0-.014-.03-1.425-2.965-3.954-2.965z"></path>
+                                    </g>
+                                </svg>
+                                <span class="tweet-action-count">6.6K</span>
+                            </div>
+                            <div class="tweet-option">
+                                <svg class="tweet-option-icon" viewBox="0 0 24 24">
+                                    <g>
+                                        <path d="M8.75 21V3h2v18h-2zM18 21V8.5h2V21h-2zM11.25 21V3.75h2V21h-2zM15.5 21V5.5h2V21h-2zM5.5 21V10.75h2V21h-2z"></path>
+                                    </g>
+                                </svg>
+                                <span class="tweet-action-count">204K</span>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="tweet-bookmark-icon">
+                        <svg class="tweet-option-icon" viewBox="0 0 24 24">
+                            <g>
+                                <path d="M19.9 23.5c-.157 0-.312-.05-.442-.144L12 17.928l-7.458 5.43c-.228.164-.53.19-.782.06-.25-.127-.41-.385-.41-.667V5.6c0-1.24 1.01-2.25 2.25-2.25h12.798c1.24 0 2.25 1.01 2.25 2.25v17.15c0 .282-.158.54-.41.668-.106.055-.223.082-.34.082zM12 16.25c.155 0 .31.048.44.144l6.71 4.883V5.6c0-.412-.337-.75-.75-.75H5.6c-.413 0-.75.338-.75.75v15.677l6.71-4.883c.13-.096.285-.144.44-.144z"></path>
+                            </g>
+                        </svg>
+                    </div>
+                    <div class="tweet-share-icon">
+                        <svg class="tweet-option-icon" viewBox="0 0 24 24">
+                            <g>
+                                <path d="M17.53 7.47l-5-5c-.293-.293-.768-.293-1.06 0l-5 5c-.294.293-.294.768 0 1.06s.767.294 1.06 0l3.72-3.72V15c0 .414.336.75.75.75s.75-.336.75-.75V4.81l3.72 3.72c.146.147.338.22.53.22s.384-.072.53-.22c.293-.293.293-.767 0-1.06z"></path>
+                                <path d="M19.708 21.944H4.292C3.028 21.944 2 20.916 2 19.652V14c0-.414.336-.75.75-.75s.75.336.75.75v5.652c0 .437.355.792.792.792h15.416c.437 0 .792-.355.792-.792V14c0-.414.336-.75.75-.75s.75.336.75.75v5.652c0 1.264-1.028 2.292-2.292 2.292z"></path>
+                            </g>
+                        </svg>
+                    </div>
+                </div>
+                    </div>
+                    
+                    <!-- Following Tab Content -->
+                    <div class="tab-content" id="following-content" style="display: none;">
+                        <div class="show-posts-container">
+                            <span class="show-posts-text">Show 4 posts</span>
+                        </div>
+                        <div class="tweet-card">
+                            <div class="tweet-profile-pic">
+                                <img src="assets/Elon Logo.jpg" alt="Elon Musk">
+                            </div>
+                            <div class="tweet">
+                                <div class="tweet-row">
+                                    <div class="user-details">
+                                        <span class="name">Elon Musk</span>
+                                        <svg class="verified-badge" viewBox="0 0 22 22" aria-label="Verified account" role="img" width="18.75" height="18.75">
+                                            <g>
+                                                <linearGradient gradientUnits="userSpaceOnUse" id="elon-a" x1="4.411" x2="18.083" y1="2.495" y2="21.508">
+                                                    <stop offset="0" stop-color="#8ec5ff"></stop>
+                                                    <stop offset=".539" stop-color="#1d9bf0"></stop>
+                                                    <stop offset=".68" stop-color="#177ddc"></stop>
+                                                    <stop offset="1" stop-color="#1d9bf0"></stop>
+                                                    <stop offset="1" stop-color="#8ec5ff"></stop>
+                                                </linearGradient>
+                                                <linearGradient gradientUnits="userSpaceOnUse" id="elon-b" x1="5.355" x2="16.361" y1="3.395" y2="19.133">
+                                                    <stop offset="0" stop-color="#c0e4ff"></stop>
+                                                    <stop offset=".406" stop-color="#4ab3ff"></stop>
+                                                    <stop offset=".989" stop-color="#1d9bf0"></stop>
+                                                </linearGradient>
+                                                <g clip-rule="evenodd" fill-rule="evenodd">
+                                                    <path d="M13.324 3.848L11 1.6 8.676 3.848l-3.201-.453-.559 3.184L2.06 8.095 3.48 11l-1.42 2.904 2.856 1.516.559 3.184 3.201-.452L11 20.4l2.324-2.248 3.201.452.559-3.184 2.856-1.516L18.52 11l1.42-2.905-2.856-1.516-.559-3.184zm-7.09 7.575l3.428 3.428 5.683-6.206-1.347-1.247-4.4 4.795-2.072-2.072z" fill="url(#elon-a)"></path>
+                                                    <path d="M13.101 4.533L11 2.5 8.899 4.533l-2.895-.41-.505 2.88-2.583 1.37L4.2 11l-1.284 2.627 2.583 1.37.505 2.88 2.895-.41L11 19.5l2.101-2.033 2.895.41.505-2.88 2.583-1.37L17.8 11l1.284-2.627-2.583-1.37-.505-2.88zm-6.868 6.89l3.429 3.428 5.683-6.206-1.347-1.247-4.4 4.795-2.072-2.072z" fill="url(#elon-b)"></path>
+                                                    <path d="M6.233 11.423l3.429 3.428 5.65-6.17.038-.033-.005 1.398-5.683 6.206-3.429-3.429-.003-1.405.005.003z" fill="#177ddc"></path>
+                                                </g>
+                                            </g>
+                                        </svg>
+                                        <span class="id">@elonmusk</span>
+                                        <span class="separator">.</span>
+                                        <span class="time">15m</span>
+                                    </div>
+                                    <div class="tweet-arrow">
+                                        <svg class="tweet-grok-icon" viewBox="0 0 33 32" fill="currentColor">
+                                            <path d="M12.745 20.54l10.97-8.19c.539-.4 1.307-.244 1.564.38 1.349 3.288.746 7.241-1.938 9.955-2.683 2.714-6.417 3.31-9.83 1.954l-3.728 1.745c5.347 3.697 11.84 2.782 15.898-1.324 3.219-3.255 4.216-7.692 3.284-11.693l.008.009c-1.351-5.878.332-8.227 3.782-13.031L33 0l-4.54 4.59v-.014L12.743 20.544m-2.263 1.987c-3.837-3.707-3.175-9.446.1-12.755 2.42-2.449 6.388-3.448 9.852-1.979l3.72-1.737c-.67-.49-1.53-1.017-2.515-1.387-4.455-1.854-9.789-.931-13.41 2.728-3.483 3.523-4.579 8.94-2.697 13.561 1.405 3.454-.899 5.898-3.22 8.364C1.49 30.2.666 31.074 0 32l10.478-9.466"/>
+                                        </svg>
+                                        <div class="tweet-menu-wrapper">
+                                            <svg class="tweet-menu-icon" viewBox="0 0 24 24">
+                                                <g>
+                                                    <circle cx="5" cy="12" r="1.5"></circle>
+                                                    <circle cx="12" cy="12" r="1.5"></circle>
+                                                    <circle cx="19" cy="12" r="1.5"></circle>
+                                                </g>
+                                            </svg>
+                                            <div class="tweet-menu-dropdown">
+                                                <div class="tweet-menu-item">
+                                                    <svg class="tweet-menu-item-icon" viewBox="0 0 24 24">
+                                                        <path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm-2 15l-5-5 1.41-1.41L10 14.17l7.59-7.59L19 8l-9 9z"/>
+                                                    </svg>
+                                                    <span>Not interested in this post</span>
+                                                </div>
+                                                <div class="tweet-menu-item">
+                                                    <svg class="tweet-menu-item-icon" viewBox="0 0 24 24">
+                                                        <path d="M19 13h-6v6h-2v-6H5v-2h6V5h2v6h6v2z"/>
+                                                    </svg>
+                                                    <span>Follow @elonmusk</span>
+                                                </div>
+                                                <div class="tweet-menu-item">
+                                                    <svg class="tweet-menu-item-icon" viewBox="0 0 24 24">
+                                                        <path d="M19 3H5c-1.1 0-2 .9-2 2v14c0 1.1.9 2 2 2h14c1.1 0 2-.9 2-2V5c0-1.1-.9-2-2-2zm0 16H5V5h14v14zm-5.04-6.71l-2.75 3.54-1.96-2.36L6.5 17h11l-3.54-4.71z"/>
+                                                    </svg>
+                                                    <span>Add/remove from Lists</span>
+                                                </div>
+                                                <div class="tweet-menu-item">
+                                                    <svg class="tweet-menu-item-icon" viewBox="0 0 24 24">
+                                                        <path d="M18.5 12c0-1.77-1.02-3.29-2.5-4.03v8.05c1.48-.73 2.5-2.25 2.5-4.02zM5 9v6h4l5 5V4L9 9H5z"/>
+                                                    </svg>
+                                                    <span>Mute</span>
+                                                </div>
+                                                <div class="tweet-menu-item">
+                                                    <svg class="tweet-menu-item-icon" viewBox="0 0 24 24">
+                                                        <path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm0 18c-4.42 0-8-3.58-8-8 0-1.85.63-3.55 1.69-4.9L16.9 18.31C15.55 19.37 13.85 20 12 20zm6.31-3.1L7.1 5.69C8.45 4.63 10.15 4 12 4c4.42 0 8 3.58 8 8 0 1.85-.63 3.55-1.69 4.9z"/>
+                                                    </svg>
+                                                    <span>Block @elonmusk</span>
+                                                </div>
+                                                <div class="tweet-menu-item">
+                                                    <svg class="tweet-menu-item-icon" viewBox="0 0 24 24">
+                                                        <path d="M3 13h8V3H3v10zm0 8h8v-6H3v6zm10 0h8V11h-8v10zm0-18v6h8V3h-8z"/>
+                                                    </svg>
+                                                    <span>View post engagements</span>
+                                                </div>
+                                                <div class="tweet-menu-item">
+                                                    <svg class="tweet-menu-item-icon" viewBox="0 0 24 24">
+                                                        <path d="M9.4 16.6L4.8 12l4.6-4.6L8 6l-6 6 6 6 1.4-1.4zm5.2 0L19.2 12l-4.6-4.6L16 6l6 6-6 6-1.4-1.4z"/>
+                                                    </svg>
+                                                    <span>Embed post</span>
+                                                </div>
+                                                <div class="tweet-menu-item">
+                                                    <svg class="tweet-menu-item-icon" viewBox="0 0 24 24">
+                                                        <path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/>
+                                                    </svg>
+                                                    <span>Report post</span>
+                                                </div>
+                                                <div class="tweet-menu-item">
+                                                    <svg class="tweet-menu-item-icon" viewBox="0 0 24 24">
+                                                        <path d="M3 9v6h4l5 5V4L7 9H3zm13.5 3c0-1.77-1.02-3.29-2.5-4.03v8.05c1.48-.73 2.5-2.25 2.5-4.02zM14 3.23v2.06c2.89.86 5 3.54 5 6.71s-2.11 5.85-5 6.71v2.06c4.01-.91 7-4.49 7-8.77s-2.99-7.86-7-8.77z"/>
+                                                    </svg>
+                                                    <span>Request Community Note</span>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="tweet-text">
+                                    Move to Austin! It gets better very year. So many cool, world-class people are moving to Austin from SF, LA, NY, London and many other parts of the world! Austin++
+                                </div>
+                                <div class="tweet-actions">
+                                    <div class="tweet-option">
+                                        <svg class="tweet-option-icon" viewBox="0 0 24 24">
+                                            <g>
+                                                <path d="M14.046 2.242l-4.148-.01h-.002c-4.374 0-7.8 3.427-7.8 7.802 0 4.098 3.186 7.206 7.465 7.37v3.828c0 .108.044.286.12.403.142.225.384.347.632.347.138 0 .277-.038.402-.118.264-.168 6.473-4.14 8.088-5.506 1.902-1.61 3.04-3.97 3.043-6.312v-.017c-.006-4.367-3.43-7.787-7.8-7.788zm3.787 12.972c-1.134.96-4.862 3.405-6.772 4.643V16.67c0-.414-.335-.75-.75-.75h-.396c-3.66 0-6.318-2.476-6.318-5.886 0-3.534 2.768-6.302 6.3-6.302l4.147.01h.002c3.532 0 6.3 2.766 6.302 6.296-.003 1.91-.942 3.844-2.514 5.176z"></path>
+                                            </g>
+                                        </svg>
+                                        <span class="tweet-action-count">1.1K</span>
+                                    </div>
+                                    <div class="tweet-option">
+                                        <svg class="tweet-option-icon" viewBox="0 0 24 24">
+                                            <g>
+                                                <path d="M23.77 15.67c-.292-.293-.767-.293-1.06 0l-2.22 2.22V7.65c0-2.068-1.683-3.75-3.75-3.75h-5.85c-.414 0-.75.336-.75.75s.336.75.75.75h5.85c1.24 0 2.25 1.01 2.25 2.25v10.24l-2.22-2.22c-.293-.293-.768-.293-1.06 0s-.294.768 0 1.06l3.5 3.5c.145.147.337.22.53.22s.383-.072.53-.22l3.5-3.5c.294-.292.294-.767 0-1.06zm-10.66 3.28H7.26c-1.24 0-2.25-1.01-2.25-2.25V6.46l2.22 2.22c.148.147.34.22.532.22s.384-.073.53-.22c.293-.293.293-.768 0-1.06l-3.5-3.5c-.293-.294-.768-.294-1.06 0l-3.5 3.5c-.294.292-.294.767 0 1.06s.767.293 1.06 0l2.22-2.22V16.7c0 2.068 1.683 3.75 3.75 3.75h5.85c.414 0 .75-.336.75-.75s-.337-.75-.75-.75z"></path>
+                                            </g>
+                                        </svg>
+                                        <span class="tweet-action-count">393</span>
+                                    </div>
+                                    <div class="tweet-option">
+                                        <svg class="tweet-option-icon" viewBox="0 0 24 24">
+                                            <g>
+                                                <path d="M12 21.638h-.014C9.403 21.59 1.95 14.856 1.95 8.478c0-3.064 2.525-5.754 5.403-5.754 2.29 0 3.83 1.58 4.646 2.73.814-1.148 2.354-2.73 4.645-2.73 2.88 0 5.404 2.69 5.404 5.755 0 6.376-7.454 13.11-10.037 13.157H12zM7.354 4.225c-2.08 0-3.903 1.988-3.903 4.255 0 5.74 7.034 11.596 8.55 11.658 1.518-.062 8.55-5.917 8.55-11.658 0-2.267-1.823-4.255-3.903-4.255-2.528 0-3.94 2.936-3.952 2.965-.23.562-1.156.562-1.387 0-.014-.03-1.425-2.965-3.954-2.965z"></path>
+                                            </g>
+                                        </svg>
+                                        <span class="tweet-action-count">4K</span>
+                                    </div>
+                                    <div class="tweet-option">
+                                        <svg class="tweet-option-icon" viewBox="0 0 24 24">
+                                            <g>
+                                                <path d="M8.75 21V3h2v18h-2zM18 21V8.5h2V21h-2zM11.25 21V3.75h2V21h-2zM15.5 21V5.5h2V21h-2zM5.5 21V10.75h2V21h-2z"></path>
+                                            </g>
+                                        </svg>
+                                        <span class="tweet-action-count">493K</span>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="tweet-bookmark-icon">
+                                <svg class="tweet-option-icon" viewBox="0 0 24 24">
+                                    <g>
+                                        <path d="M19.9 23.5c-.157 0-.312-.05-.442-.144L12 17.928l-7.458 5.43c-.228.164-.53.19-.782.06-.25-.127-.41-.385-.41-.667V5.6c0-1.24 1.01-2.25 2.25-2.25h12.798c1.24 0 2.25 1.01 2.25 2.25v17.15c0 .282-.158.54-.41.668-.106.055-.223.082-.34.082zM12 16.25c.155 0 .31.048.44.144l6.71 4.883V5.6c0-.412-.337-.75-.75-.75H5.6c-.413 0-.75.338-.75.75v15.677l6.71-4.883c.13-.096.285-.144.44-.144z"></path>
+                                    </g>
+                                </svg>
+                            </div>
+                            <div class="tweet-share-icon">
+                                <svg class="tweet-option-icon" viewBox="0 0 24 24">
+                                    <g>
+                                        <path d="M17.53 7.47l-5-5c-.293-.293-.768-.293-1.06 0l-5 5c-.294.293-.294.768 0 1.06s.767.294 1.06 0l3.72-3.72V15c0 .414.336.75.75.75s.75-.336.75-.75V4.81l3.72 3.72c.146.147.338.22.53.22s.384-.072.53-.22c.293-.293.293-.767 0-1.06z"></path>
+                                        <path d="M19.708 21.944H4.292C3.028 21.944 2 20.916 2 19.652V14c0-.414.336-.75.75-.75s.75.336.75.75v5.652c0 .437.355.792.792.792h15.416c.437 0 .792-.355.792-.792V14c0-.414.336-.75.75-.75s.75.336.75.75v5.652c0 1.264-1.028 2.292-2.292 2.292z"></path>
+                                    </g>
+                                </svg>
+                            </div>
+                        </div>
+                        <div class="tweet-card">
+                            <div class="tweet-profile-pic">
+                                <img src="assets/Troll logo.jpg" alt="Troll Football">
+                            </div>
+                            <div class="tweet">
+                                <div class="tweet-row">
+                                    <div class="user-details">
+                                        <span class="name">Troll Football</span>
+                                        <svg class="verified-badge" viewBox="0 0 22 22" aria-label="Verified account" role="img" width="18.75" height="18.75">
+                                            <g>
+                                                <linearGradient gradientUnits="userSpaceOnUse" id="troll-a" x1="4.411" x2="18.083" y1="2.495" y2="21.508">
+                                                    <stop offset="0" stop-color="#8ec5ff"></stop>
+                                                    <stop offset=".539" stop-color="#1d9bf0"></stop>
+                                                    <stop offset=".68" stop-color="#177ddc"></stop>
+                                                    <stop offset="1" stop-color="#1d9bf0"></stop>
+                                                    <stop offset="1" stop-color="#8ec5ff"></stop>
+                                                </linearGradient>
+                                                <linearGradient gradientUnits="userSpaceOnUse" id="troll-b" x1="5.355" x2="16.361" y1="3.395" y2="19.133">
+                                                    <stop offset="0" stop-color="#c0e4ff"></stop>
+                                                    <stop offset=".406" stop-color="#4ab3ff"></stop>
+                                                    <stop offset=".989" stop-color="#1d9bf0"></stop>
+                                                </linearGradient>
+                                                <g clip-rule="evenodd" fill-rule="evenodd">
+                                                    <path d="M13.324 3.848L11 1.6 8.676 3.848l-3.201-.453-.559 3.184L2.06 8.095 3.48 11l-1.42 2.904 2.856 1.516.559 3.184 3.201-.452L11 20.4l2.324-2.248 3.201.452.559-3.184 2.856-1.516L18.52 11l1.42-2.905-2.856-1.516-.559-3.184zm-7.09 7.575l3.428 3.428 5.683-6.206-1.347-1.247-4.4 4.795-2.072-2.072z" fill="url(#troll-a)"></path>
+                                                    <path d="M13.101 4.533L11 2.5 8.899 4.533l-2.895-.41-.505 2.88-2.583 1.37L4.2 11l-1.284 2.627 2.583 1.37.505 2.88 2.895-.41L11 19.5l2.101-2.033 2.895.41.505-2.88 2.583-1.37L17.8 11l1.284-2.627-2.583-1.37-.505-2.88zm-6.868 6.89l3.429 3.428 5.683-6.206-1.347-1.247-4.4 4.795-2.072-2.072z" fill="url(#troll-b)"></path>
+                                                    <path d="M6.233 11.423l3.429 3.428 5.65-6.17.038-.033-.005 1.398-5.683 6.206-3.429-3.429-.003-1.405.005.003z" fill="#177ddc"></path>
+                                                </g>
+                                            </g>
+                                        </svg>
+                                        <span class="id">@TrollFootball</span>
+                                        <span class="separator">.</span>
+                                        <span class="time">18m</span>
+                                    </div>
+                                    <div class="tweet-arrow">
+                                        <svg class="tweet-grok-icon" viewBox="0 0 33 32" fill="currentColor">
+                                            <path d="M12.745 20.54l10.97-8.19c.539-.4 1.307-.244 1.564.38 1.349 3.288.746 7.241-1.938 9.955-2.683 2.714-6.417 3.31-9.83 1.954l-3.728 1.745c5.347 3.697 11.84 2.782 15.898-1.324 3.219-3.255 4.216-7.692 3.284-11.693l.008.009c-1.351-5.878.332-8.227 3.782-13.031L33 0l-4.54 4.59v-.014L12.743 20.544m-2.263 1.987c-3.837-3.707-3.175-9.446.1-12.755 2.42-2.449 6.388-3.448 9.852-1.979l3.72-1.737c-.67-.49-1.53-1.017-2.515-1.387-4.455-1.854-9.789-.931-13.41 2.728-3.483 3.523-4.579 8.94-2.697 13.561 1.405 3.454-.899 5.898-3.22 8.364C1.49 30.2.666 31.074 0 32l10.478-9.466"/>
+                                        </svg>
+                                        <div class="tweet-menu-wrapper">
+                                            <svg class="tweet-menu-icon" viewBox="0 0 24 24">
+                                                <g>
+                                                    <circle cx="5" cy="12" r="1.5"></circle>
+                                                    <circle cx="12" cy="12" r="1.5"></circle>
+                                                    <circle cx="19" cy="12" r="1.5"></circle>
+                                                </g>
+                                            </svg>
+                                            <div class="tweet-menu-dropdown">
+                                                <div class="tweet-menu-item">
+                                                    <svg class="tweet-menu-item-icon" viewBox="0 0 24 24">
+                                                        <path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm-2 15l-5-5 1.41-1.41L10 14.17l7.59-7.59L19 8l-9 9z"/>
+                                                    </svg>
+                                                    <span>Not interested in this post</span>
+                                                </div>
+                                                <div class="tweet-menu-item">
+                                                    <svg class="tweet-menu-item-icon" viewBox="0 0 24 24">
+                                                        <path d="M19 13h-6v6h-2v-6H5v-2h6V5h2v6h6v2z"/>
+                                                    </svg>
+                                                    <span>Follow @TrollFootball</span>
+                                                </div>
+                                                <div class="tweet-menu-item">
+                                                    <svg class="tweet-menu-item-icon" viewBox="0 0 24 24">
+                                                        <path d="M19 3H5c-1.1 0-2 .9-2 2v14c0 1.1.9 2 2 2h14c1.1 0 2-.9 2-2V5c0-1.1-.9-2-2-2zm0 16H5V5h14v14zm-5.04-6.71l-2.75 3.54-1.96-2.36L6.5 17h11l-3.54-4.71z"/>
+                                                    </svg>
+                                                    <span>Add/remove from Lists</span>
+                                                </div>
+                                                <div class="tweet-menu-item">
+                                                    <svg class="tweet-menu-item-icon" viewBox="0 0 24 24">
+                                                        <path d="M18.5 12c0-1.77-1.02-3.29-2.5-4.03v8.05c1.48-.73 2.5-2.25 2.5-4.02zM5 9v6h4l5 5V4L9 9H5z"/>
+                                                    </svg>
+                                                    <span>Mute</span>
+                                                </div>
+                                                <div class="tweet-menu-item">
+                                                    <svg class="tweet-menu-item-icon" viewBox="0 0 24 24">
+                                                        <path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm0 18c-4.42 0-8-3.58-8-8 0-1.85.63-3.55 1.69-4.9L16.9 18.31C15.55 19.37 13.85 20 12 20zm6.31-3.1L7.1 5.69C8.45 4.63 10.15 4 12 4c4.42 0 8 3.58 8 8 0 1.85-.63 3.55-1.69 4.9z"/>
+                                                    </svg>
+                                                    <span>Block @TrollFootball</span>
+                                                </div>
+                                                <div class="tweet-menu-item">
+                                                    <svg class="tweet-menu-item-icon" viewBox="0 0 24 24">
+                                                        <path d="M3 13h8V3H3v10zm0 8h8v-6H3v6zm10 0h8V11h-8v10zm0-18v6h8V3h-8z"/>
+                                                    </svg>
+                                                    <span>View post engagements</span>
+                                                </div>
+                                                <div class="tweet-menu-item">
+                                                    <svg class="tweet-menu-item-icon" viewBox="0 0 24 24">
+                                                        <path d="M9.4 16.6L4.8 12l4.6-4.6L8 6l-6 6 6 6 1.4-1.4zm5.2 0L19.2 12l-4.6-4.6L16 6l6 6-6 6-1.4-1.4z"/>
+                                                    </svg>
+                                                    <span>Embed post</span>
+                                                </div>
+                                                <div class="tweet-menu-item">
+                                                    <svg class="tweet-menu-item-icon" viewBox="0 0 24 24">
+                                                        <path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/>
+                                                    </svg>
+                                                    <span>Report post</span>
+                                                </div>
+                                                <div class="tweet-menu-item">
+                                                    <svg class="tweet-menu-item-icon" viewBox="0 0 24 24">
+                                                        <path d="M3 9v6h4l5 5V4L7 9H3zm13.5 3c0-1.77-1.02-3.29-2.5-4.03v8.05c1.48-.73 2.5-2.25 2.5-4.02zM14 3.23v2.06c2.89.86 5 3.54 5 6.71s-2.11 5.85-5 6.71v2.06c4.01-.91 7-4.49 7-8.77s-2.99-7.86-7-8.77z"/>
+                                                    </svg>
+                                                    <span>Request Community Note</span>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="tweet-text">
+                                    Arsenal got schooled by Bayern Munich... yet again.
+                                </div>
+                                <div class="tweet-image-container">
+                                    <div class="tweet-image-content">
+                                        <img src="assets/Troll Football.jpeg" alt="Arsenal vs Bayern Munich">
+                                    </div>
+                                </div>
+                                <div class="tweet-actions">
+                                    <div class="tweet-option">
+                                        <svg class="tweet-option-icon" viewBox="0 0 24 24">
+                                            <g>
+                                                <path d="M14.046 2.242l-4.148-.01h-.002c-4.374 0-7.8 3.427-7.8 7.802 0 4.098 3.186 7.206 7.465 7.37v3.828c0 .108.044.286.12.403.142.225.384.347.632.347.138 0 .277-.038.402-.118.264-.168 6.473-4.14 8.088-5.506 1.902-1.61 3.04-3.97 3.043-6.312v-.017c-.006-4.367-3.43-7.787-7.8-7.788zm3.787 12.972c-1.134.96-4.862 3.405-6.772 4.643V16.67c0-.414-.335-.75-.75-.75h-.396c-3.66 0-6.318-2.476-6.318-5.886 0-3.534 2.768-6.302 6.3-6.302l4.147.01h.002c3.532 0 6.3 2.766 6.302 6.296-.003 1.91-.942 3.844-2.514 5.176z"></path>
+                                            </g>
+                                        </svg>
+                                        <span class="tweet-action-count">71</span>
+                                    </div>
+                                    <div class="tweet-option">
+                                        <svg class="tweet-option-icon" viewBox="0 0 24 24">
+                                            <g>
+                                                <path d="M23.77 15.67c-.292-.293-.767-.293-1.06 0l-2.22 2.22V7.65c0-2.068-1.683-3.75-3.75-3.75h-5.85c-.414 0-.75.336-.75.75s.336.75.75.75h5.85c1.24 0 2.25 1.01 2.25 2.25v10.24l-2.22-2.22c-.293-.293-.768-.293-1.06 0s-.294.768 0 1.06l3.5 3.5c.145.147.337.22.53.22s.383-.072.53-.22l3.5-3.5c.294-.292.294-.767 0-1.06zm-10.66 3.28H7.26c-1.24 0-2.25-1.01-2.25-2.25V6.46l2.22 2.22c.148.147.34.22.532.22s.384-.073.53-.22c.293-.293.293-.768 0-1.06l-3.5-3.5c-.293-.294-.768-.294-1.06 0l-3.5 3.5c-.294.292-.294.767 0 1.06s.767.293 1.06 0l2.22-2.22V16.7c0 2.068 1.683 3.75 3.75 3.75h5.85c.414 0 .75-.336.75-.75s-.337-.75-.75-.75z"></path>
+                                            </g>
+                                        </svg>
+                                        <span class="tweet-action-count">31</span>
+                                    </div>
+                                    <div class="tweet-option">
+                                        <svg class="tweet-option-icon" viewBox="0 0 24 24">
+                                            <g>
+                                                <path d="M12 21.638h-.014C9.403 21.59 1.95 14.856 1.95 8.478c0-3.064 2.525-5.754 5.403-5.754 2.29 0 3.83 1.58 4.646 2.73.814-1.148 2.354-2.73 4.645-2.73 2.88 0 5.404 2.69 5.404 5.755 0 6.376-7.454 13.11-10.037 13.157H12zM7.354 4.225c-2.08 0-3.903 1.988-3.903 4.255 0 5.74 7.034 11.596 8.55 11.658 1.518-.062 8.55-5.917 8.55-11.658 0-2.267-1.823-4.255-3.903-4.255-2.528 0-3.94 2.936-3.952 2.965-.23.562-1.156.562-1.387 0-.014-.03-1.425-2.965-3.954-2.965z"></path>
+                                            </g>
+                                        </svg>
+                                        <span class="tweet-action-count">278</span>
+                                    </div>
+                                    <div class="tweet-option">
+                                        <svg class="tweet-option-icon" viewBox="0 0 24 24">
+                                            <g>
+                                                <path d="M8.75 21V3h2v18h-2zM18 21V8.5h2V21h-2zM11.25 21V3.75h2V21h-2zM15.5 21V5.5h2V21h-2zM5.5 21V10.75h2V21h-2z"></path>
+                                            </g>
+                                        </svg>
+                                        <span class="tweet-action-count">16K</span>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="tweet-bookmark-icon">
+                                <svg class="tweet-option-icon" viewBox="0 0 24 24">
+                                    <g>
+                                        <path d="M19.9 23.5c-.157 0-.312-.05-.442-.144L12 17.928l-7.458 5.43c-.228.164-.53.19-.782.06-.25-.127-.41-.385-.41-.667V5.6c0-1.24 1.01-2.25 2.25-2.25h12.798c1.24 0 2.25 1.01 2.25 2.25v17.15c0 .282-.158.54-.41.668-.106.055-.223.082-.34.082zM12 16.25c.155 0 .31.048.44.144l6.71 4.883V5.6c0-.412-.337-.75-.75-.75H5.6c-.413 0-.75.338-.75.75v15.677l6.71-4.883c.13-.096.285-.144.44-.144z"></path>
+                                    </g>
+                                </svg>
+                            </div>
+                            <div class="tweet-share-icon">
+                                <svg class="tweet-option-icon" viewBox="0 0 24 24">
+                                    <g>
+                                        <path d="M17.53 7.47l-5-5c-.293-.293-.768-.293-1.06 0l-5 5c-.294.293-.294.768 0 1.06s.767.294 1.06 0l3.72-3.72V15c0 .414.336.75.75.75s.75-.336.75-.75V4.81l3.72 3.72c.146.147.338.22.53.22s.384-.072.53-.22c.293-.293.293-.767 0-1.06z"></path>
+                                        <path d="M19.708 21.944H4.292C3.028 21.944 2 20.916 2 19.652V14c0-.414.336-.75.75-.75s.75.336.75.75v5.652c0 .437.355.792.792.792h15.416c.437 0 .792-.355.792-.792V14c0-.414.336-.75.75-.75s.75.336.75.75v5.652c0 1.264-1.028 2.292-2.292 2.292z"></path>
+                                    </g>
+                                </svg>
+                            </div>
+                        </div>
+                        <div class="tweet-card thread-start">
+                            <div class="tweet-profile-pic">
+                                <img src="assets/Chelsea Dodgers Logo.jpg" alt="Chelsea Dodgers">
+                            </div>
+                            <div class="tweet-thread-line"></div>
+                            <div class="tweet">
+                                <div class="tweet-row">
+                                    <div class="user-details">
+                                        <span class="name">Chelsea Dodgers</span>
+                                        <svg class="verified-badge" viewBox="0 0 22 22" aria-label="Verified account" role="img" width="18.75" height="18.75">
+                                            <g>
+                                                <linearGradient gradientUnits="userSpaceOnUse" id="chelsea-dodgers-a" x1="4.411" x2="18.083" y1="2.495" y2="21.508">
+                                                    <stop offset="0" stop-color="#8ec5ff"></stop>
+                                                    <stop offset=".539" stop-color="#1d9bf0"></stop>
+                                                    <stop offset=".68" stop-color="#177ddc"></stop>
+                                                    <stop offset="1" stop-color="#1d9bf0"></stop>
+                                                    <stop offset="1" stop-color="#8ec5ff"></stop>
+                                                </linearGradient>
+                                                <linearGradient gradientUnits="userSpaceOnUse" id="chelsea-dodgers-b" x1="5.355" x2="16.361" y1="3.395" y2="19.133">
+                                                    <stop offset="0" stop-color="#c0e4ff"></stop>
+                                                    <stop offset=".406" stop-color="#4ab3ff"></stop>
+                                                    <stop offset=".989" stop-color="#1d9bf0"></stop>
+                                                </linearGradient>
+                                                <g clip-rule="evenodd" fill-rule="evenodd">
+                                                    <path d="M13.324 3.848L11 1.6 8.676 3.848l-3.201-.453-.559 3.184L2.06 8.095 3.48 11l-1.42 2.904 2.856 1.516.559 3.184 3.201-.452L11 20.4l2.324-2.248 3.201.452.559-3.184 2.856-1.516L18.52 11l1.42-2.905-2.856-1.516-.559-3.184zm-7.09 7.575l3.428 3.428 5.683-6.206-1.347-1.247-4.4 4.795-2.072-2.072z" fill="url(#chelsea-dodgers-a)"></path>
+                                                    <path d="M13.101 4.533L11 2.5 8.899 4.533l-2.895-.41-.505 2.88-2.583 1.37L4.2 11l-1.284 2.627 2.583 1.37.505 2.88 2.895-.41L11 19.5l2.101-2.033 2.895.41.505-2.88 2.583-1.37L17.8 11l1.284-2.627-2.583-1.37-.505-2.88zm-6.868 6.89l3.429 3.428 5.683-6.206-1.347-1.247-4.4 4.795-2.072-2.072z" fill="url(#chelsea-dodgers-b)"></path>
+                                                    <path d="M6.233 11.423l3.429 3.428 5.65-6.17.038-.033-.005 1.398-5.683 6.206-3.429-3.429-.003-1.405.005.003z" fill="#177ddc"></path>
+                                                </g>
+                                            </g>
+                                        </svg>
+                                        <span class="id">@TheBlueDodger</span>
+                                        <span class="separator">.</span>
+                                        <span class="time">48m</span>
+                                    </div>
+                                    <div class="tweet-arrow">
+                                        <svg class="tweet-grok-icon" viewBox="0 0 33 32" fill="currentColor">
+                                            <path d="M12.745 20.54l10.97-8.19c.539-.4 1.307-.244 1.564.38 1.349 3.288.746 7.241-1.938 9.955-2.683 2.714-6.417 3.31-9.83 1.954l-3.728 1.745c5.347 3.697 11.84 2.782 15.898-1.324 3.219-3.255 4.216-7.692 3.284-11.693l.008.009c-1.351-5.878.332-8.227 3.782-13.031L33 0l-4.54 4.59v-.014L12.743 20.544m-2.263 1.987c-3.837-3.707-3.175-9.446.1-12.755 2.42-2.449 6.388-3.448 9.852-1.979l3.72-1.737c-.67-.49-1.53-1.017-2.515-1.387-4.455-1.854-9.789-.931-13.41 2.728-3.483 3.523-4.579 8.94-2.697 13.561 1.405 3.454-.899 5.898-3.22 8.364C1.49 30.2.666 31.074 0 32l10.478-9.466"/>
+                                        </svg>
+                                        <div class="tweet-menu-wrapper">
+                                            <svg class="tweet-menu-icon" viewBox="0 0 24 24">
+                                                <g>
+                                                    <circle cx="5" cy="12" r="1.5"></circle>
+                                                    <circle cx="12" cy="12" r="1.5"></circle>
+                                                    <circle cx="19" cy="12" r="1.5"></circle>
+                                                </g>
+                                            </svg>
+                                            <div class="tweet-menu-dropdown">
+                                                <div class="tweet-menu-item">
+                                                    <svg class="tweet-menu-item-icon" viewBox="0 0 24 24">
+                                                        <path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm-2 15l-5-5 1.41-1.41L10 14.17l7.59-7.59L19 8l-9 9z"/>
+                                                    </svg>
+                                                    <span>Not interested in this post</span>
+                                                </div>
+                                                <div class="tweet-menu-item">
+                                                    <svg class="tweet-menu-item-icon" viewBox="0 0 24 24">
+                                                        <path d="M19 13h-6v6h-2v-6H5v-2h6V5h2v6h6v2z"/>
+                                                    </svg>
+                                                    <span>Follow @TheBlueDodger</span>
+                                                </div>
+                                                <div class="tweet-menu-item">
+                                                    <svg class="tweet-menu-item-icon" viewBox="0 0 24 24">
+                                                        <path d="M19 3H5c-1.1 0-2 .9-2 2v14c0 1.1.9 2 2 2h14c1.1 0 2-.9 2-2V5c0-1.1-.9-2-2-2zm0 16H5V5h14v14zm-5.04-6.71l-2.75 3.54-1.96-2.36L6.5 17h11l-3.54-4.71z"/>
+                                                    </svg>
+                                                    <span>Add/remove from Lists</span>
+                                                </div>
+                                                <div class="tweet-menu-item">
+                                                    <svg class="tweet-menu-item-icon" viewBox="0 0 24 24">
+                                                        <path d="M18.5 12c0-1.77-1.02-3.29-2.5-4.03v8.05c1.48-.73 2.5-2.25 2.5-4.02zM5 9v6h4l5 5V4L9 9H5z"/>
+                                                    </svg>
+                                                    <span>Mute</span>
+                                                </div>
+                                                <div class="tweet-menu-item">
+                                                    <svg class="tweet-menu-item-icon" viewBox="0 0 24 24">
+                                                        <path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm0 18c-4.42 0-8-3.58-8-8 0-1.85.63-3.55 1.69-4.9L16.9 18.31C15.55 19.37 13.85 20 12 20zm6.31-3.1L7.1 5.69C8.45 4.63 10.15 4 12 4c4.42 0 8 3.58 8 8 0 1.85-.63 3.55-1.69 4.9z"/>
+                                                    </svg>
+                                                    <span>Block @TheBlueDodger</span>
+                                                </div>
+                                                <div class="tweet-menu-item">
+                                                    <svg class="tweet-menu-item-icon" viewBox="0 0 24 24">
+                                                        <path d="M3 13h8V3H3v10zm0 8h8v-6H3v6zm10 0h8V11h-8v10zm0-18v6h8V3h-8z"/>
+                                                    </svg>
+                                                    <span>View post engagements</span>
+                                                </div>
+                                                <div class="tweet-menu-item">
+                                                    <svg class="tweet-menu-item-icon" viewBox="0 0 24 24">
+                                                        <path d="M9.4 16.6L4.8 12l4.6-4.6L8 6l-6 6 6 6 1.4-1.4zm5.2 0L19.2 12l-4.6-4.6L16 6l6 6-6 6-1.4-1.4z"/>
+                                                    </svg>
+                                                    <span>Embed post</span>
+                                                </div>
+                                                <div class="tweet-menu-item">
+                                                    <svg class="tweet-menu-item-icon" viewBox="0 0 24 24">
+                                                        <path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/>
+                                                    </svg>
+                                                    <span>Report post</span>
+                                                </div>
+                                                <div class="tweet-menu-item">
+                                                    <svg class="tweet-menu-item-icon" viewBox="0 0 24 24">
+                                                        <path d="M3 9v6h4l5 5V4L7 9H3zm13.5 3c0-1.77-1.02-3.29-2.5-4.03v8.05c1.48-.73 2.5-2.25 2.5-4.02zM14 3.23v2.06c2.89.86 5 3.54 5 6.71s-2.11 5.85-5 6.71v2.06c4.01-.91 7-4.49 7-8.77s-2.99-7.86-7-8.77z"/>
+                                                    </svg>
+                                                    <span>Request Community Note</span>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="tweet-text">
+                                    ⚽👕 Chelsea's 2026-2027 third kit will mark the club's return to a white base color - the first time in nearly a decade that Chelsea's third shirt will be primarily white. (@Footy_Headlines) #CFC
+                                </div>
+                                <div class="tweet-image-container">
+                                    <div class="tweet-image-content">
+                                        <img src="assets/Chelsea Dodgers.jpeg" alt="Chelsea 26-27 Third Kit">
+                                    </div>
+                                </div>
+                                <div class="tweet-actions">
+                                    <div class="tweet-option">
+                                        <svg class="tweet-option-icon" viewBox="0 0 24 24">
+                                            <g>
+                                                <path d="M14.046 2.242l-4.148-.01h-.002c-4.374 0-7.8 3.427-7.8 7.802 0 4.098 3.186 7.206 7.465 7.37v3.828c0 .108.044.286.12.403.142.225.384.347.632.347.138 0 .277-.038.402-.118.264-.168 6.473-4.14 8.088-5.506 1.902-1.61 3.04-3.97 3.043-6.312v-.017c-.006-4.367-3.43-7.787-7.8-7.788zm3.787 12.972c-1.134.96-4.862 3.405-6.772 4.643V16.67c0-.414-.335-.75-.75-.75h-.396c-3.66 0-6.318-2.476-6.318-5.886 0-3.534 2.768-6.302 6.3-6.302l4.147.01h.002c3.532 0 6.3 2.766 6.302 6.296-.003 1.91-.942 3.844-2.514 5.176z"></path>
+                                            </g>
+                                        </svg>
+                                        <span class="tweet-action-count">13</span>
+                                    </div>
+                                    <div class="tweet-option">
+                                        <svg class="tweet-option-icon" viewBox="0 0 24 24">
+                                            <g>
+                                                <path d="M23.77 15.67c-.292-.293-.767-.293-1.06 0l-2.22 2.22V7.65c0-2.068-1.683-3.75-3.75-3.75h-5.85c-.414 0-.75.336-.75.75s.336.75.75.75h5.85c1.24 0 2.25 1.01 2.25 2.25v10.24l-2.22-2.22c-.293-.293-.768-.293-1.06 0s-.294.768 0 1.06l3.5 3.5c.145.147.337.22.53.22s.383-.072.53-.22l3.5-3.5c.294-.292.294-.767 0-1.06zm-10.66 3.28H7.26c-1.24 0-2.25-1.01-2.25-2.25V6.46l2.22 2.22c.148.147.34.22.532.22s.384-.073.53-.22c.293-.293.293-.768 0-1.06l-3.5-3.5c-.293-.294-.768-.294-1.06 0l-3.5 3.5c-.294.292-.294.767 0 1.06s.767.293 1.06 0l2.22-2.22V16.7c0 2.068 1.683 3.75 3.75 3.75h5.85c.414 0 .75-.336.75-.75s-.337-.75-.75-.75z"></path>
+                                            </g>
+                                        </svg>
+                                        <span class="tweet-action-count">23</span>
+                                    </div>
+                                    <div class="tweet-option">
+                                        <svg class="tweet-option-icon" viewBox="0 0 24 24">
+                                            <g>
+                                                <path d="M12 21.638h-.014C9.403 21.59 1.95 14.856 1.95 8.478c0-3.064 2.525-5.754 5.403-5.754 2.29 0 3.83 1.58 4.646 2.73.814-1.148 2.354-2.73 4.645-2.73 2.88 0 5.404 2.69 5.404 5.755 0 6.376-7.454 13.11-10.037 13.157H12zM7.354 4.225c-2.08 0-3.903 1.988-3.903 4.255 0 5.74 7.034 11.596 8.55 11.658 1.518-.062 8.55-5.917 8.55-11.658 0-2.267-1.823-4.255-3.903-4.255-2.528 0-3.94 2.936-3.952 2.965-.23.562-1.156.562-1.387 0-.014-.03-1.425-2.965-3.954-2.965z"></path>
+                                            </g>
+                                        </svg>
+                                        <span class="tweet-action-count">398</span>
+                                    </div>
+                                    <div class="tweet-option">
+                                        <svg class="tweet-option-icon" viewBox="0 0 24 24">
+                                            <g>
+                                                <path d="M8.75 21V3h2v18h-2zM18 21V8.5h2V21h-2zM11.25 21V3.75h2V21h-2zM15.5 21V5.5h2V21h-2zM5.5 21V10.75h2V21h-2z"></path>
+                                            </g>
+                                        </svg>
+                                        <span class="tweet-action-count">9K</span>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="tweet-bookmark-icon">
+                                <svg class="tweet-option-icon" viewBox="0 0 24 24">
+                                    <g>
+                                        <path d="M19.9 23.5c-.157 0-.312-.05-.442-.144L12 17.928l-7.458 5.43c-.228.164-.53.19-.782.06-.25-.127-.41-.385-.41-.667V5.6c0-1.24 1.01-2.25 2.25-2.25h12.798c1.24 0 2.25 1.01 2.25 2.25v17.15c0 .282-.158.54-.41.668-.106.055-.223.082-.34.082zM12 16.25c.155 0 .31.048.44.144l6.71 4.883V5.6c0-.412-.337-.75-.75-.75H5.6c-.413 0-.75.338-.75.75v15.677l6.71-4.883c.13-.096.285-.144.44-.144z"></path>
+                                    </g>
+                                </svg>
+                            </div>
+                            <div class="tweet-share-icon">
+                                <svg class="tweet-option-icon" viewBox="0 0 24 24">
+                                    <g>
+                                        <path d="M17.53 7.47l-5-5c-.293-.293-.768-.293-1.06 0l-5 5c-.294.293-.294.768 0 1.06s.767.294 1.06 0l3.72-3.72V15c0 .414.336.75.75.75s.75-.336.75-.75V4.81l3.72 3.72c.146.147.338.22.53.22s.384-.072.53-.22c.293-.293.293-.767 0-1.06z"></path>
+                                        <path d="M19.708 21.944H4.292C3.028 21.944 2 20.916 2 19.652V14c0-.414.336-.75.75-.75s.75.336.75.75v5.652c0 .437.355.792.792.792h15.416c.437 0 .792-.355.792-.792V14c0-.414.336-.75.75-.75s.75.336.75.75v5.652c0 1.264-1.028 2.292-2.292 2.292z"></path>
+                                    </g>
+                                </svg>
+                            </div>
+                        </div>
+                        <div class="tweet-card thread-continue">
+                            <div class="tweet-profile-pic">
+                                <img src="assets/Chelsea Dodgers Logo.jpg" alt="Chelsea Dodgers">
+                            </div>
+                            <div class="tweet-thread-line"></div>
+                            <div class="tweet">
+                                <div class="tweet-row">
+                                    <div class="user-details">
+                                        <span class="name">Chelsea Dodgers</span>
+                                        <svg class="verified-badge" viewBox="0 0 22 22" aria-label="Verified account" role="img" width="18.75" height="18.75">
+                                            <g>
+                                                <linearGradient gradientUnits="userSpaceOnUse" id="chelsea-dodgers-2-a" x1="4.411" x2="18.083" y1="2.495" y2="21.508">
+                                                    <stop offset="0" stop-color="#8ec5ff"></stop>
+                                                    <stop offset=".539" stop-color="#1d9bf0"></stop>
+                                                    <stop offset=".68" stop-color="#177ddc"></stop>
+                                                    <stop offset="1" stop-color="#1d9bf0"></stop>
+                                                    <stop offset="1" stop-color="#8ec5ff"></stop>
+                                                </linearGradient>
+                                                <linearGradient gradientUnits="userSpaceOnUse" id="chelsea-dodgers-2-b" x1="5.355" x2="16.361" y1="3.395" y2="19.133">
+                                                    <stop offset="0" stop-color="#c0e4ff"></stop>
+                                                    <stop offset=".406" stop-color="#4ab3ff"></stop>
+                                                    <stop offset=".989" stop-color="#1d9bf0"></stop>
+                                                </linearGradient>
+                                                <g clip-rule="evenodd" fill-rule="evenodd">
+                                                    <path d="M13.324 3.848L11 1.6 8.676 3.848l-3.201-.453-.559 3.184L2.06 8.095 3.48 11l-1.42 2.904 2.856 1.516.559 3.184 3.201-.452L11 20.4l2.324-2.248 3.201.452.559-3.184 2.856-1.516L18.52 11l1.42-2.905-2.856-1.516-.559-3.184zm-7.09 7.575l3.428 3.428 5.683-6.206-1.347-1.247-4.4 4.795-2.072-2.072z" fill="url(#chelsea-dodgers-2-a)"></path>
+                                                    <path d="M13.101 4.533L11 2.5 8.899 4.533l-2.895-.41-.505 2.88-2.583 1.37L4.2 11l-1.284 2.627 2.583 1.37.505 2.88 2.895-.41L11 19.5l2.101-2.033 2.895.41.505-2.88 2.583-1.37L17.8 11l1.284-2.627-2.583-1.37-.505-2.88zm-6.868 6.89l3.429 3.428 5.683-6.206-1.347-1.247-4.4 4.795-2.072-2.072z" fill="url(#chelsea-dodgers-2-b)"></path>
+                                                    <path d="M6.233 11.423l3.429 3.428 5.65-6.17.038-.033-.005 1.398-5.683 6.206-3.429-3.429-.003-1.405.005.003z" fill="#177ddc"></path>
+                                                </g>
+                                            </g>
+                                        </svg>
+                                        <span class="id">@TheBlueDodger</span>
+                                        <span class="separator">.</span>
+                                        <span class="time">45m</span>
+                                    </div>
+                                    <div class="tweet-arrow">
+                                        <svg class="tweet-grok-icon" viewBox="0 0 33 32" fill="currentColor">
+                                            <path d="M12.745 20.54l10.97-8.19c.539-.4 1.307-.244 1.564.38 1.349 3.288.746 7.241-1.938 9.955-2.683 2.714-6.417 3.31-9.83 1.954l-3.728 1.745c5.347 3.697 11.84 2.782 15.898-1.324 3.219-3.255 4.216-7.692 3.284-11.693l.008.009c-1.351-5.878.332-8.227 3.782-13.031L33 0l-4.54 4.59v-.014L12.743 20.544m-2.263 1.987c-3.837-3.707-3.175-9.446.1-12.755 2.42-2.449 6.388-3.448 9.852-1.979l3.72-1.737c-.67-.49-1.53-1.017-2.515-1.387-4.455-1.854-9.789-.931-13.41 2.728-3.483 3.523-4.579 8.94-2.697 13.561 1.405 3.454-.899 5.898-3.22 8.364C1.49 30.2.666 31.074 0 32l10.478-9.466"/>
+                                        </svg>
+                                        <div class="tweet-menu-wrapper">
+                                            <svg class="tweet-menu-icon" viewBox="0 0 24 24">
+                                                <g>
+                                                    <circle cx="5" cy="12" r="1.5"></circle>
+                                                    <circle cx="12" cy="12" r="1.5"></circle>
+                                                    <circle cx="19" cy="12" r="1.5"></circle>
+                                                </g>
+                                            </svg>
+                                            <div class="tweet-menu-dropdown">
+                                                <div class="tweet-menu-item">
+                                                    <svg class="tweet-menu-item-icon" viewBox="0 0 24 24">
+                                                        <path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm-2 15l-5-5 1.41-1.41L10 14.17l7.59-7.59L19 8l-9 9z"/>
+                                                    </svg>
+                                                    <span>Not interested in this post</span>
+                                                </div>
+                                                <div class="tweet-menu-item">
+                                                    <svg class="tweet-menu-item-icon" viewBox="0 0 24 24">
+                                                        <path d="M19 13h-6v6h-2v-6H5v-2h6V5h2v6h6v2z"/>
+                                                    </svg>
+                                                    <span>Follow @TheBlueDodger</span>
+                                                </div>
+                                                <div class="tweet-menu-item">
+                                                    <svg class="tweet-menu-item-icon" viewBox="0 0 24 24">
+                                                        <path d="M19 3H5c-1.1 0-2 .9-2 2v14c0 1.1.9 2 2 2h14c1.1 0 2-.9 2-2V5c0-1.1-.9-2-2-2zm0 16H5V5h14v14zm-5.04-6.71l-2.75 3.54-1.96-2.36L6.5 17h11l-3.54-4.71z"/>
+                                                    </svg>
+                                                    <span>Add/remove from Lists</span>
+                                                </div>
+                                                <div class="tweet-menu-item">
+                                                    <svg class="tweet-menu-item-icon" viewBox="0 0 24 24">
+                                                        <path d="M18.5 12c0-1.77-1.02-3.29-2.5-4.03v8.05c1.48-.73 2.5-2.25 2.5-4.02zM5 9v6h4l5 5V4L9 9H5z"/>
+                                                    </svg>
+                                                    <span>Mute</span>
+                                                </div>
+                                                <div class="tweet-menu-item">
+                                                    <svg class="tweet-menu-item-icon" viewBox="0 0 24 24">
+                                                        <path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm0 18c-4.42 0-8-3.58-8-8 0-1.85.63-3.55 1.69-4.9L16.9 18.31C15.55 19.37 13.85 20 12 20zm6.31-3.1L7.1 5.69C8.45 4.63 10.15 4 12 4c4.42 0 8 3.58 8 8 0 1.85-.63 3.55-1.69 4.9z"/>
+                                                    </svg>
+                                                    <span>Block @TheBlueDodger</span>
+                                                </div>
+                                                <div class="tweet-menu-item">
+                                                    <svg class="tweet-menu-item-icon" viewBox="0 0 24 24">
+                                                        <path d="M3 13h8V3H3v10zm0 8h8v-6H3v6zm10 0h8V11h-8v10zm0-18v6h8V3h-8z"/>
+                                                    </svg>
+                                                    <span>View post engagements</span>
+                                                </div>
+                                                <div class="tweet-menu-item">
+                                                    <svg class="tweet-menu-item-icon" viewBox="0 0 24 24">
+                                                        <path d="M9.4 16.6L4.8 12l4.6-4.6L8 6l-6 6 6 6 1.4-1.4zm5.2 0L19.2 12l-4.6-4.6L16 6l6 6-6 6-1.4-1.4z"/>
+                                                    </svg>
+                                                    <span>Embed post</span>
+                                                </div>
+                                                <div class="tweet-menu-item">
+                                                    <svg class="tweet-menu-item-icon" viewBox="0 0 24 24">
+                                                        <path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/>
+                                                    </svg>
+                                                    <span>Report post</span>
+                                                </div>
+                                                <div class="tweet-menu-item">
+                                                    <svg class="tweet-menu-item-icon" viewBox="0 0 24 24">
+                                                        <path d="M3 9v6h4l5 5V4L7 9H3zm13.5 3c0-1.77-1.02-3.29-2.5-4.03v8.05c1.48-.73 2.5-2.25 2.5-4.02zM14 3.23v2.06c2.89.86 5 3.54 5 6.71s-2.11 5.85-5 6.71v2.06c4.01-.91 7-4.49 7-8.77s-2.99-7.86-7-8.77z"/>
+                                                    </svg>
+                                                    <span>Request Community Note</span>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="tweet-text">
+                                    #CFC
+                                </div>
+                                <div class="tweet-image-container">
+                                    <div class="tweet-image-content">
+                                        <img src="assets/Chelsea Dodgers 2.jpeg" alt="Chelsea 26-27 Third Kit Exclusive">
+                                    </div>
+                                </div>
+                                <div class="tweet-actions">
+                                    <div class="tweet-option">
+                                        <svg class="tweet-option-icon" viewBox="0 0 24 24">
+                                            <g>
+                                                <path d="M14.046 2.242l-4.148-.01h-.002c-4.374 0-7.8 3.427-7.8 7.802 0 4.098 3.186 7.206 7.465 7.37v3.828c0 .108.044.286.12.403.142.225.384.347.632.347.138 0 .277-.038.402-.118.264-.168 6.473-4.14 8.088-5.506 1.902-1.61 3.04-3.97 3.043-6.312v-.017c-.006-4.367-3.43-7.787-7.8-7.788zm3.787 12.972c-1.134.96-4.862 3.405-6.772 4.643V16.67c0-.414-.335-.75-.75-.75h-.396c-3.66 0-6.318-2.476-6.318-5.886 0-3.534 2.768-6.302 6.3-6.302l4.147.01h.002c3.532 0 6.3 2.766 6.302 6.296-.003 1.91-.942 3.844-2.514 5.176z"></path>
+                                            </g>
+                                        </svg>
+                                        <span class="tweet-action-count">2</span>
+                                    </div>
+                                    <div class="tweet-option">
+                                        <svg class="tweet-option-icon" viewBox="0 0 24 24">
+                                            <g>
+                                                <path d="M23.77 15.67c-.292-.293-.767-.293-1.06 0l-2.22 2.22V7.65c0-2.068-1.683-3.75-3.75-3.75h-5.85c-.414 0-.75.336-.75.75s.336.75.75.75h5.85c1.24 0 2.25 1.01 2.25 2.25v10.24l-2.22-2.22c-.293-.293-.768-.293-1.06 0s-.294.768 0 1.06l3.5 3.5c.145.147.337.22.53.22s.383-.072.53-.22l3.5-3.5c.294-.292.294-.767 0-1.06zm-10.66 3.28H7.26c-1.24 0-2.25-1.01-2.25-2.25V6.46l2.22 2.22c.148.147.34.22.532.22s.384-.073.53-.22c.293-.293.293-.768 0-1.06l-3.5-3.5c-.293-.294-.768-.294-1.06 0l-3.5 3.5c-.294.292-.294.767 0 1.06s.767.293 1.06 0l2.22-2.22V16.7c0 2.068 1.683 3.75 3.75 3.75h5.85c.414 0 .75-.336.75-.75s-.337-.75-.75-.75z"></path>
+                                            </g>
+                                        </svg>
+                                        <span class="tweet-action-count">2</span>
+                                    </div>
+                                    <div class="tweet-option">
+                                        <svg class="tweet-option-icon" viewBox="0 0 24 24">
+                                            <g>
+                                                <path d="M12 21.638h-.014C9.403 21.59 1.95 14.856 1.95 8.478c0-3.064 2.525-5.754 5.403-5.754 2.29 0 3.83 1.58 4.646 2.73.814-1.148 2.354-2.73 4.645-2.73 2.88 0 5.404 2.69 5.404 5.755 0 6.376-7.454 13.11-10.037 13.157H12zM7.354 4.225c-2.08 0-3.903 1.988-3.903 4.255 0 5.74 7.034 11.596 8.55 11.658 1.518-.062 8.55-5.917 8.55-11.658 0-2.267-1.823-4.255-3.903-4.255-2.528 0-3.94 2.936-3.952 2.965-.23.562-1.156.562-1.387 0-.014-.03-1.425-2.965-3.954-2.965z"></path>
+                                            </g>
+                                        </svg>
+                                        <span class="tweet-action-count">56</span>
+                                    </div>
+                                    <div class="tweet-option">
+                                        <svg class="tweet-option-icon" viewBox="0 0 24 24">
+                                            <g>
+                                                <path d="M8.75 21V3h2v18h-2zM18 21V8.5h2V21h-2zM11.25 21V3.75h2V21h-2zM15.5 21V5.5h2V21h-2zM5.5 21V10.75h2V21h-2z"></path>
+                                            </g>
+                                        </svg>
+                                        <span class="tweet-action-count">4.4K</span>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="tweet-bookmark-icon">
+                                <svg class="tweet-option-icon" viewBox="0 0 24 24">
+                                    <g>
+                                        <path d="M19.9 23.5c-.157 0-.312-.05-.442-.144L12 17.928l-7.458 5.43c-.228.164-.53.19-.782.06-.25-.127-.41-.385-.41-.667V5.6c0-1.24 1.01-2.25 2.25-2.25h12.798c1.24 0 2.25 1.01 2.25 2.25v17.15c0 .282-.158.54-.41.668-.106.055-.223.082-.34.082zM12 16.25c.155 0 .31.048.44.144l6.71 4.883V5.6c0-.412-.337-.75-.75-.75H5.6c-.413 0-.75.338-.75.75v15.677l6.71-4.883c.13-.096.285-.144.44-.144z"></path>
+                                    </g>
+                                </svg>
+                            </div>
+                            <div class="tweet-share-icon">
+                                <svg class="tweet-option-icon" viewBox="0 0 24 24">
+                                    <g>
+                                        <path d="M17.53 7.47l-5-5c-.293-.293-.768-.293-1.06 0l-5 5c-.294.293-.294.768 0 1.06s.767.294 1.06 0l3.72-3.72V15c0 .414.336.75.75.75s.75-.336.75-.75V4.81l3.72 3.72c.146.147.338.22.53.22s.384-.072.53-.22c.293-.293.293-.767 0-1.06z"></path>
+                                        <path d="M19.708 21.944H4.292C3.028 21.944 2 20.916 2 19.652V14c0-.414.336-.75.75-.75s.75.336.75.75v5.652c0 .437.355.792.792.792h15.416c.437 0 .792-.355.792-.792V14c0-.414.336-.75.75-.75s.75.336.75.75v5.652c0 1.264-1.028 2.292-2.292 2.292z"></path>
+                                    </g>
+                                </svg>
+                            </div>
+                        </div>
+                    </div>
+            </div>
+            <div class="right-sidebar">
+                <div class="sidebar-search-wrapper">
+                    <div class="sidebar-search">
+                        <input type="text" placeholder="Search" class="sidebar-search-input">
+                    </div>
+                    <div class="search-dropdown">
+                        <div class="search-dropdown-header">
+                            <h4 class="search-dropdown-title">Recent</h4>
+                            <a href="#" class="search-clear-all">Clear all</a>
+                        </div>
+                        <div class="search-recent-item">
+                            <svg class="search-recent-icon" viewBox="0 0 24 24" width="18" height="18">
+                                <path d="M21.53 20.47l-3.66-3.66C19.195 15.24 20 13.214 20 11c0-4.97-4.03-9-9-9s-9 4.03-9 9 4.03 9 9 9c2.215 0 4.24-.804 5.808-2.13l3.66 3.66c.147.146.34.22.53.22s.385-.073.53-.22c.295-.293.295-.767.002-1.06zM3.5 11c0-4.135 3.365-7.5 7.5-7.5s7.5 3.365 7.5 7.5-3.365 7.5-7.5 7.5-7.5-3.365-7.5-7.5z" fill="currentColor"/>
+                            </svg>
+                            <span class="search-recent-text">we're behind at the break chelsea</span>
+                            <svg class="search-remove-icon" viewBox="0 0 24 24" width="18" height="18">
+                                <path d="M13.414 12l5.793-5.793a1 1 0 0 0-1.414-1.414L12 10.586 6.207 4.793a1 1 0 0 0-1.414 1.414L10.586 12l-5.793 5.793a1 1 0 1 0 1.414 1.414L12 13.414l5.793 5.793a1 1 0 0 0 1.414-1.414L13.414 12z" fill="currentColor"/>
+                            </svg>
+                        </div>
+                    </div>
+                </div>
+                <div class="sidebar-card premium-card">
+                    <h3 class="sidebar-card-title">Subscribe to Premium</h3>
+                    <p class="sidebar-card-description">Subscribe to unlock new features and if eligible, receive a share of revenue.</p>
+                    <button class="premium-button">Subscribe</button>
+                </div>
+
+                <div class="sidebar-card news-card">
+                    <div class="sidebar-card-header">
+                        <h3 class="sidebar-card-title">Today's News</h3>
+                        <svg class="close-icon" viewBox="0 0 24 24" width="18" height="18">
+                            <path d="M13.414 12l5.793-5.793a1 1 0 0 0-1.414-1.414L12 10.586 6.207 4.793a1 1 0 0 0-1.414 1.414L10.586 12l-5.793 5.793a1 1 0 1 0 1.414 1.414L12 13.414l5.793 5.793a1 1 0 0 0 1.414-1.414L13.414 12z" fill="currentColor"/>
+                        </svg>
+                    </div>
+                    <div class="news-item">
+                        <h4 class="news-headline">McDonald's South Africa 30th Anniversary R30 Big Mac Deal Causes Nationwide Rus...</h4>
+                        <div class="news-meta">
+                            <div class="news-avatars">
+                                <div class="news-avatar-small"></div>
+                                <div class="news-avatar-small"></div>
+                                <div class="news-avatar-small"></div>
+                            </div>
+                            <span class="news-time">9 hours ago</span>
+                            <span class="news-separator">·</span>
+                            <span class="news-category">News</span>
+                            <span class="news-separator">·</span>
+                            <span class="news-posts">4,272 posts</span>
+                        </div>
+                    </div>
+                    <div class="news-item">
+                        <h4 class="news-headline">South African MPs Confront NPA's Shamila Batohi on Corruption Infiltration and Case...</h4>
+                        <div class="news-meta">
+                            <div class="news-avatars">
+                                <div class="news-avatar-small"></div>
+                                <div class="news-avatar-small"></div>
+                                <div class="news-avatar-small"></div>
+                            </div>
+                            <span class="news-time">9 hours ago</span>
+                            <span class="news-separator">·</span>
+                            <span class="news-category">News</span>
+                            <span class="news-separator">·</span>
+                            <span class="news-posts">5,561 posts</span>
+                        </div>
+                    </div>
+                    <div class="news-item">
+                        <h4 class="news-headline">Lionel Messi Visits Empty Camp Nou, Yearns for Barcelona Return</h4>
+                        <div class="news-meta">
+                            <div class="news-avatars">
+                                <div class="news-avatar-small"></div>
+                                <div class="news-avatar-small"></div>
+                                <div class="news-avatar-small"></div>
+                            </div>
+                            <span class="news-time">20 hours ago</span>
+                            <span class="news-separator">·</span>
+                            <span class="news-category">Sports</span>
+                            <span class="news-separator">·</span>
+                            <span class="news-posts">57K posts</span>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="sidebar-card whats-happening-card">
+                    <h3 class="sidebar-card-title">What's happening</h3>
+                    <div class="trending-item">
+                        <div class="trending-content">
+                            <div class="trending-header">
+                                <span class="trending-posts">3,108 posts</span>
+                                <span class="trending-location">Trending in South Africa</span>
+                            </div>
+                            <h4 class="trending-topic">Zinhle</h4>
+                        </div>
+                        <svg class="trending-menu-icon" viewBox="0 0 24 24" width="18" height="18">
+                            <circle cx="5" cy="12" r="1.5" fill="currentColor"></circle>
+                            <circle cx="12" cy="12" r="1.5" fill="currentColor"></circle>
+                            <circle cx="19" cy="12" r="1.5" fill="currentColor"></circle>
+                        </svg>
+                    </div>
+                    <div class="trending-item">
+                        <div class="trending-content">
+                            <div class="trending-header">
+                                <span class="trending-posts">1,174 posts</span>
+                                <span class="trending-location">Trending in South Africa</span>
+                            </div>
+                            <h4 class="trending-topic">Thalente Mbatha</h4>
+                        </div>
+                        <svg class="trending-menu-icon" viewBox="0 0 24 24" width="18" height="18">
+                            <circle cx="5" cy="12" r="1.5" fill="currentColor"></circle>
+                            <circle cx="12" cy="12" r="1.5" fill="currentColor"></circle>
+                            <circle cx="19" cy="12" r="1.5" fill="currentColor"></circle>
+                        </svg>
+                    </div>
+                    <div class="trending-item promoted">
+                        <div class="trending-content">
+                            <div class="trending-header">
+                                <span class="promoted-badge">
+                                    <svg viewBox="0 0 24 24" width="12" height="12" style="display: inline-block; vertical-align: middle; margin-right: 4px;">
+                                        <path d="M20 2H4c-1.1 0-2 .9-2 2v18l4-4h14c1.1 0 2-.9 2-2V4c0-1.1-.9-2-2-2zm0 14H6l-2 2V4h16v12z" fill="currentColor"/>
+                                    </svg>
+                                    Promoted by Checkers Sixty60
+                                </span>
+                            </div>
+                            <h4 class="trending-topic">Singles' Day</h4>
+                            <p class="trending-description">Hurry, ends midnight!</p>
+                        </div>
+                        <svg class="trending-menu-icon" viewBox="0 0 24 24" width="18" height="18">
+                            <circle cx="5" cy="12" r="1.5" fill="currentColor"></circle>
+                            <circle cx="12" cy="12" r="1.5" fill="currentColor"></circle>
+                            <circle cx="19" cy="12" r="1.5" fill="currentColor"></circle>
+                        </svg>
+                    </div>
+                    <a href="#" class="show-more-link">Show more</a>
+                </div>
+
+                <div class="sidebar-card who-to-follow-card">
+                    <div class="sidebar-card-header">
+                        <h3 class="sidebar-card-title">Who to follow</h3>
+                        <svg class="close-icon" viewBox="0 0 24 24" width="18" height="18">
+                            <path d="M13.414 12l5.793-5.793a1 1 0 0 0-1.414-1.414L12 10.586 6.207 4.793a1 1 0 0 0-1.414 1.414L10.586 12l-5.793 5.793a1 1 0 1 0 1.414 1.414L12 13.414l5.793 5.793a1 1 0 0 0 1.414-1.414L13.414 12z" fill="currentColor"/>
+                        </svg>
+                    </div>
+                    <div class="follow-item">
+                        <div class="follow-avatar">
+                            <img src="assets/Nottingham Forest Profile.jpg" alt="Nottingham Forest">
+                        </div>
+                        <div class="follow-info">
+                            <div class="follow-name">
+                                <span>Nottingham Forest</span>
+                                <svg class="verified-badge-small" viewBox="0 0 22 22" width="16" height="16">
+                                    <g>
+                                        <linearGradient gradientUnits="userSpaceOnUse" id="nffc-a" x1="4.411" x2="18.083" y1="2.495" y2="21.508">
+                                            <stop offset="0" stop-color="#f4e72a"></stop>
+                                            <stop offset=".539" stop-color="#cd8105"></stop>
+                                            <stop offset=".68" stop-color="#cb7b00"></stop>
+                                            <stop offset="1" stop-color="#f4ec26"></stop>
+                                            <stop offset="1" stop-color="#f4e72a"></stop>
+                                        </linearGradient>
+                                        <linearGradient gradientUnits="userSpaceOnUse" id="nffc-b" x1="5.355" x2="16.361" y1="3.395" y2="19.133">
+                                            <stop offset="0" stop-color="#fff9ae"></stop>
+                                            <stop offset=".406" stop-color="#ffcd28"></stop>
+                                            <stop offset=".989" stop-color="#f4e72a"></stop>
+                                        </linearGradient>
+                                        <g clip-rule="evenodd" fill-rule="evenodd">
+                                            <path d="M13.324 3.848L11 1.6 8.676 3.848l-3.201-.453-.559 3.184L2.06 8.095 3.48 11l-1.42 2.904 2.856 1.516.559 3.184 3.201-.452L11 20.4l2.324-2.248 3.201.452.559-3.184 2.856-1.516L18.52 11l1.42-2.905-2.856-1.516-.559-3.184zm-7.09 7.575l3.428 3.428 5.683-6.206-1.347-1.247-4.4 4.795-2.072-2.072z" fill="url(#nffc-a)"></path>
+                                            <path d="M13.101 4.533L11 2.5 8.899 4.533l-2.895-.41-.505 2.88-2.583 1.37L4.2 11l-1.284 2.627 2.583 1.37.505 2.88 2.895-.41L11 19.5l2.101-2.033 2.895.41.505-2.88 2.583-1.37L17.8 11l1.284-2.627-2.583-1.37-.505-2.88zm-6.868 6.89l3.429 3.428 5.683-6.206-1.347-1.247-4.4 4.795-2.072-2.072z" fill="url(#nffc-b)"></path>
+                                            <path d="M6.233 11.423l3.429 3.428 5.65-6.17.038-.033-.005 1.398-5.683 6.206-3.429-3.429-.003-1.405.005.003z" fill="#cb7b00"></path>
+                                        </g>
+                                    </g>
+                                </svg>
+                            </div>
+                            <span class="follow-handle">@NFFC</span>
+                        </div>
+                        <button class="follow-button">Follow</button>
+                    </div>
+                    <div class="follow-item">
+                        <div class="follow-avatar">
+                            <img src="assets/Mondli Profile.jpg" alt="Mondli Gungubele">
+                        </div>
+                        <div class="follow-info">
+                            <div class="follow-name">
+                                <span>Mondli Gungubele, MP</span>
+                                <svg class="verified-badge-small" viewBox="0 0 22 22" width="16" height="16">
+                                    <g>
+                                        <linearGradient gradientUnits="userSpaceOnUse" id="mondli-a" x1="4.411" x2="18.083" y1="2.495" y2="21.508">
+                                            <stop offset="0" stop-color="#8ec5ff"></stop>
+                                            <stop offset=".539" stop-color="#1d9bf0"></stop>
+                                            <stop offset=".68" stop-color="#177ddc"></stop>
+                                            <stop offset="1" stop-color="#1d9bf0"></stop>
+                                            <stop offset="1" stop-color="#8ec5ff"></stop>
+                                        </linearGradient>
+                                        <linearGradient gradientUnits="userSpaceOnUse" id="mondli-b" x1="5.355" x2="16.361" y1="3.395" y2="19.133">
+                                            <stop offset="0" stop-color="#c0e4ff"></stop>
+                                            <stop offset=".406" stop-color="#4ab3ff"></stop>
+                                            <stop offset=".989" stop-color="#1d9bf0"></stop>
+                                        </linearGradient>
+                                        <g clip-rule="evenodd" fill-rule="evenodd">
+                                            <path d="M13.324 3.848L11 1.6 8.676 3.848l-3.201-.453-.559 3.184L2.06 8.095 3.48 11l-1.42 2.904 2.856 1.516.559 3.184 3.201-.452L11 20.4l2.324-2.248 3.201.452.559-3.184 2.856-1.516L18.52 11l1.42-2.905-2.856-1.516-.559-3.184zm-7.09 7.575l3.428 3.428 5.683-6.206-1.347-1.247-4.4 4.795-2.072-2.072z" fill="url(#mondli-a)"></path>
+                                            <path d="M13.101 4.533L11 2.5 8.899 4.533l-2.895-.41-.505 2.88-2.583 1.37L4.2 11l-1.284 2.627 2.583 1.37.505 2.88 2.895-.41L11 19.5l2.101-2.033 2.895.41.505-2.88 2.583-1.37L17.8 11l1.284-2.627-2.583-1.37-.505-2.88zm-6.868 6.89l3.429 3.428 5.683-6.206-1.347-1.247-4.4 4.795-2.072-2.072z" fill="url(#mondli-b)"></path>
+                                            <path d="M6.233 11.423l3.429 3.428 5.65-6.17.038-.033-.005 1.398-5.683 6.206-3.429-3.429-.003-1.405.005.003z" fill="#177ddc"></path>
+                                        </g>
+                                    </g>
+                                </svg>
+                            </div>
+                            <span class="follow-handle">@MondliGungubel_</span>
+                        </div>
+                        <button class="follow-button">Follow</button>
+                    </div>
+                    <div class="follow-item">
+                        <div class="follow-avatar">
+                            <img src="assets/E-Ben Profile.jpg" alt="E-ben Obum">
+                        </div>
+                        <div class="follow-info">
+                            <div class="follow-name">
+                                <span>E-ben Obum</span>
+                                <svg class="verified-badge-small" viewBox="0 0 22 22" width="16" height="16">
+                                    <g>
+                                        <linearGradient gradientUnits="userSpaceOnUse" id="eben-a" x1="4.411" x2="18.083" y1="2.495" y2="21.508">
+                                            <stop offset="0" stop-color="#8ec5ff"></stop>
+                                            <stop offset=".539" stop-color="#1d9bf0"></stop>
+                                            <stop offset=".68" stop-color="#177ddc"></stop>
+                                            <stop offset="1" stop-color="#1d9bf0"></stop>
+                                            <stop offset="1" stop-color="#8ec5ff"></stop>
+                                        </linearGradient>
+                                        <linearGradient gradientUnits="userSpaceOnUse" id="eben-b" x1="5.355" x2="16.361" y1="3.395" y2="19.133">
+                                            <stop offset="0" stop-color="#c0e4ff"></stop>
+                                            <stop offset=".406" stop-color="#4ab3ff"></stop>
+                                            <stop offset=".989" stop-color="#1d9bf0"></stop>
+                                        </linearGradient>
+                                        <g clip-rule="evenodd" fill-rule="evenodd">
+                                            <path d="M13.324 3.848L11 1.6 8.676 3.848l-3.201-.453-.559 3.184L2.06 8.095 3.48 11l-1.42 2.904 2.856 1.516.559 3.184 3.201-.452L11 20.4l2.324-2.248 3.201.452.559-3.184 2.856-1.516L18.52 11l1.42-2.905-2.856-1.516-.559-3.184zm-7.09 7.575l3.428 3.428 5.683-6.206-1.347-1.247-4.4 4.795-2.072-2.072z" fill="url(#eben-a)"></path>
+                                            <path d="M13.101 4.533L11 2.5 8.899 4.533l-2.895-.41-.505 2.88-2.583 1.37L4.2 11l-1.284 2.627 2.583 1.37.505 2.88 2.895-.41L11 19.5l2.101-2.033 2.895.41.505-2.88 2.583-1.37L17.8 11l1.284-2.627-2.583-1.37-.505-2.88zm-6.868 6.89l3.429 3.428 5.683-6.206-1.347-1.247-4.4 4.795-2.072-2.072z" fill="url(#eben-b)"></path>
+                                            <path d="M6.233 11.423l3.429 3.428 5.65-6.17.038-.033-.005 1.398-5.683 6.206-3.429-3.429-.003-1.405.005.003z" fill="#177ddc"></path>
+                                        </g>
+                                    </g>
+                                </svg>
+                            </div>
+                            <span class="follow-handle">@EbenCfc</span>
+                        </div>
+                        <button class="follow-button">Follow</button>
+                    </div>
+                    <a href="#" class="show-more-link">Show more</a>
+                </div>
+
+                <div class="sidebar-footer">
+                    <div class="footer-line">
+                        <a href="#" class="footer-link">Terms of Service</a>
+                        <span class="footer-separator">|</span>
+                        <a href="#" class="footer-link">Privacy Policy</a>
+                        <span class="footer-separator">|</span>
+                        <a href="#" class="footer-link">Cookie Policy</a>
+                        <span class="footer-separator">|</span>
+                    </div>
+                    <div class="footer-line">
+                        <a href="#" class="footer-link">Accessibility</a>
+                        <span class="footer-separator">|</span>
+                        <a href="#" class="footer-link">Ads info</a>
+                        <span class="footer-separator">|</span>
+                        <a href="#" class="footer-link">More...</a>
+                        <span class="footer-copyright">© 2025 X Corp.</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+                    
+    </div>
+    <script async src="https://platform.twitter.com/widgets.js" charset="utf-8"></script>
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            const video = document.querySelector('.tweet-video-iframe');
+            const timer = document.querySelector('.video-timer');
+            
+            if (video && timer) {
+                function updateTimer() {
+                    if (video.duration) {
+                        const remainingTime = Math.ceil(video.duration - video.currentTime);
+                        const minutes = Math.floor(remainingTime / 60);
+                        const seconds = remainingTime % 60;
+                        timer.textContent = `${minutes}:${seconds.toString().padStart(2, '0')}`;
+                    }
+                }
+                
+                video.addEventListener('timeupdate', updateTimer);
+                video.addEventListener('loadedmetadata', function() {
+                    updateTimer();
+                });
+            }
+        });
+    </script>
+    <script>
+        // Handle tweet menu dropdown clicks
+        document.addEventListener('DOMContentLoaded', function() {
+            const menuIcons = document.querySelectorAll('.tweet-menu-icon');
+            menuIcons.forEach(icon => {
+                icon.addEventListener('click', function(e) {
+                    e.stopPropagation();
+                    const dropdown = this.closest('.tweet-menu-wrapper').querySelector('.tweet-menu-dropdown');
+                    dropdown.classList.toggle('show');
+                });
+            });
+
+            // Close dropdowns when clicking outside
+            document.addEventListener('click', function(e) {
+                if (!e.target.closest('.tweet-menu-wrapper')) {
+                    document.querySelectorAll('.tweet-menu-dropdown').forEach(dropdown => {
+                        dropdown.classList.remove('show');
+                    });
+                }
+            });
+        });
+    </script>
+    <script>
+        // Tab switching functionality
+        document.addEventListener('DOMContentLoaded', function() {
+            const tabs = document.querySelectorAll('.nav-tab');
+            const tabContents = {
+                'foryou': document.getElementById('foryou-content'),
+                'following': document.getElementById('following-content')
+            };
+
+            tabs.forEach(tab => {
+                tab.addEventListener('click', function() {
+                    const tabName = this.getAttribute('data-tab');
+                    
+                    // Remove active class from all tabs
+                    tabs.forEach(t => {
+                        t.classList.remove('active');
+                    });
+                    
+                    // Add active class to clicked tab
+                    this.classList.add('active');
+                    
+                    // Hide all tab contents
+                    Object.values(tabContents).forEach(content => {
+                        if (content) {
+                            content.style.display = 'none';
+                        }
+                    });
+                    
+                    // Show selected tab content
+                    if (tabContents[tabName]) {
+                        tabContents[tabName].style.display = 'block';
+                    }
+                });
+            });
+        });
+    </script>
+</body>
+
+</html>

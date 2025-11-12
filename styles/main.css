@@ -1,0 +1,73 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-size: 16px;
+}
+
+:root {
+    --color-btn-dynamic: white;
+    --color-blue: rgba(29, 161, 242, 1);
+    --color-hover: rgba(29, 161, 242, 0.08);
+    --color-border: #38444d;
+    --color-tweet-dynamic: #80919e;
+}
+.mainContainer {
+    background: #000000;
+    height: 100vh;
+    display: flex;
+}
+
+.sidebar {
+    width: 28%;
+    height: 100%;
+    border-right: 1px solid #71767A;
+}
+.main {
+    width: 72%;
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    overflow: hidden;
+}
+
+.mainContent {
+    flex: 0 0 600px;
+    width: 600px;
+    border-right: 1px solid #71767A;
+    min-width: 600px;
+    max-width: 600px;
+    order: 1;
+    flex-shrink: 0;
+    overflow-y: auto;
+    overflow-x: hidden;
+    display: block;
+    visibility: visible;
+    opacity: 1;
+    background-color: #000000;
+}
+
+.tweet {
+    width: 100%;
+}
+
+.content {
+    display: flex;
+    flex-direction: row;
+    flex-wrap: nowrap;
+    overflow-y: auto;
+    overflow-x: hidden;
+    flex: 1;
+    align-items: flex-start;
+    min-height: 0;
+}
+
+.right-sidebar {
+    flex: 0 0 350px;
+    width: 350px;
+    min-width: 350px;
+    max-width: 350px;
+    height: auto;
+    position: relative;
+    order: 2;
+}
