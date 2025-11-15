@@ -1,133 +1,306 @@
 <!DOCTYPE html>
 <html lang="en">
 
+<!--
+==================================================
+TWITTER (X) CLONE - MAIN HTML FILE
+==================================================
+This file creates a Twitter-like social media interface.
+
+MAIN SECTIONS:
+1. HEAD - Links to CSS files and sets up the page
+2. EMERGENCY DM MODAL - Pop-up to message Elon Musk
+3. MAIN CONTAINER - The entire page layout
+   a. LEFT SIDEBAR - Navigation menu (Home, Explore, etc.)
+   b. MAIN CONTENT - Tweet feed with "For You" and "Following" tabs
+   c. RIGHT SIDEBAR - Trending topics and who to follow
+4. SCRIPTS - JavaScript for interactivity
+
+STRUCTURE:
+- Uses flexbox for layout (makes sections flexible)
+- Uses CSS checkbox hack for modals (no JavaScript needed for open/close)
+- Tweets are structured as cards with profile pic, text, images, and action buttons
+==================================================
+-->
+
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <!-- Basic page settings -->
+    <meta charset="UTF-8">  <!-- Character encoding for text -->
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">  <!-- Makes site responsive on mobile -->
+    
+    <!-- CSS stylesheets (styling for different sections) -->
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css"
         integrity="sha384-JcKb8q3iqJ61gNV9KGb8thSsNjpSL0n8PARn9HuZOnIxN0hoP+VmmDGMN5t9UJ0Z" crossorigin="anonymous">
-    <link rel="stylesheet" href="styles/main.css">
-    <link rel="stylesheet" href="styles/sidebar.css">
-    <link rel="stylesheet" href="styles/maincontent.css">
-    <link rel="stylesheet" href="styles/rightsidebar.css">
-    <link rel="icon" href="assets/favicon.png">
+    <link rel="stylesheet" href="styles/main.css">  <!-- Main layout styles -->
+    <link rel="stylesheet" href="styles/sidebar.css">  <!-- Left sidebar styles -->
+    <link rel="stylesheet" href="styles/maincontent.css">  <!-- Tweet feed styles -->
+    <link rel="stylesheet" href="styles/rightsidebar.css">  <!-- Right sidebar styles -->
+    <link rel="stylesheet" href="styles/dm-modal.css">  <!-- Emergency DM modal styles -->
+    
+    <!-- Page icon (appears in browser tab) -->
+    <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24'><path fill='%23ffffff' d='M18.244 2.25h3.308l-7.227 8.26 8.502 11.24H16.17l-5.214-6.817L4.99 21.75H1.68l7.73-8.835L1.254 2.25H8.08l4.713 6.231zm-1.161 17.52h1.833L7.084 4.126H5.117z'/></svg>">
+    
+    <!-- Page title (appears in browser tab) -->
     <title>Home / X</title>
 
 </head>
 
 <body>
+    <!-- ========================================
+         EMERGENCY DM MODAL TOGGLE
+         ========================================
+         This hidden checkbox controls the emergency DM modal
+         When checked, the modal appears (using CSS checkbox hack)
+    -->
+    <input type="checkbox" id="emergency-dm-toggle" class="emergency-dm-checkbox">
+    
+    <!-- ========================================
+         EMERGENCY DM MODAL
+         ========================================
+         Pop-up window to send a direct message to Elon Musk
+         Opens when you click the red "EMERGENCY DM ELON" button
+    -->
+    <div class="dm-modal">
+        <label for="emergency-dm-toggle" class="dm-modal-overlay"></label>
+        <div class="dm-modal-content">
+            <div class="dm-modal-header">
+                <div class="dm-header-user">
+                    <img src="assets/Elon.jpg" alt="Elon Musk" class="dm-avatar">
+                    <div class="dm-user-info">
+                        <div class="dm-user-name">Elon Musk <svg viewBox="0 0 22 22" width="18" height="18" style="margin-left: 2px; fill: #1d9bf0;"><g><path d="M20.396 11c-.018-.646-.215-1.275-.57-1.816-.354-.54-.852-.972-1.438-1.246.223-.607.27-1.264.14-1.897-.131-.634-.437-1.218-.882-1.687-.47-.445-1.053-.75-1.687-.882-.633-.13-1.29-.083-1.897.14-.273-.587-.704-1.086-1.245-1.44S11.647 1.62 11 1.604c-.646.017-1.273.213-1.813.568s-.969.854-1.24 1.44c-.608-.223-1.267-.272-1.902-.14-.635.13-1.22.436-1.69.882-.445.47-.749 1.055-.878 1.688-.13.633-.08 1.29.144 1.896-.587.274-1.087.705-1.443 1.245-.356.54-.555 1.17-.574 1.817.02.647.218 1.276.574 1.817.356.54.856.972 1.443 1.245-.224.606-.274 1.263-.144 1.896.13.634.433 1.218.877 1.688.47.443 1.054.747 1.687.878.633.132 1.29.084 1.897-.136.274.586.705 1.084 1.246 1.439.54.354 1.17.551 1.816.569.647-.016 1.276-.213 1.817-.567s.972-.854 1.245-1.44c.604.239 1.266.296 1.903.164.636-.132 1.22-.447 1.68-.907.46-.46.776-1.044.908-1.681s.075-1.299-.165-1.903c.586-.274 1.084-.705 1.439-1.246.354-.54.551-1.17.569-1.816zM9.662 14.85l-3.429-3.428 1.293-1.302 2.072 2.072 4.4-4.794 1.347 1.246z"></path></g></svg></div>
+                        <div class="dm-user-handle">@elonmusk</div>
+                    </div>
+                </div>
+                <label for="emergency-dm-toggle" class="dm-close-btn">
+                    <svg viewBox="0 0 24 24" width="20" height="20" fill="currentColor">
+                        <path d="M10.59 12L4.54 5.96l1.42-1.42L12 10.59l6.04-6.05 1.42 1.42L13.41 12l6.05 6.04-1.42 1.42L12 13.41l-6.04 6.05-1.42-1.42L10.59 12z"></path>
+                    </svg>
+                </label>
+            </div>
+            <div class="dm-conversation">
+                <div class="dm-message dm-message-elon">
+                    <img src="assets/Elon.jpg" alt="Elon Musk" class="dm-message-avatar">
+                    <div class="dm-message-bubble">
+                        Hi, this is Elon, what is your emergency?
+                    </div>
+                </div>
+            </div>
+            <div class="dm-input-container">
+                <input type="text" class="dm-input" placeholder="Start a message">
+                <label class="dm-send-btn">
+                    <svg viewBox="0 0 24 24" width="20" height="20" fill="currentColor">
+                        <path d="M2.01 21L23 12 2.01 3 2 10l15 2-15 2z"></path>
+                    </svg>
+                </label>
+            </div>
+        </div>
+    </div>
+    
+    <!-- ========================================
+         MAIN CONTAINER
+         ========================================
+         This holds the entire Twitter interface
+         Divided into 3 sections: Left sidebar, Main content, Right sidebar
+    -->
     <div class="mainContainer">
+        <!-- ========================================
+             LEFT SIDEBAR
+             ========================================
+             Navigation menu with:
+             - Twitter logo
+             - Emergency DM button (red)
+             - Navigation links (Home, Explore, etc.)
+             - Post button
+             - User profile section at bottom
+        -->
         <div class="sidebar">
             <div class="sidebar-items">
                 <div class="sidebar-links">
-                    <span class="sidebar-logo">
-                        <svg width="30" height="30" viewBox="0 0 24 24" fill="white">
-                            <path d="M18.244 2.25h3.308l-7.227 8.26 8.502 11.24H16.17l-5.214-6.817L4.99 21.75H1.68l7.73-8.835L1.254 2.25H8.08l4.713 6.231zm-1.161 17.52h1.833L7.084 4.126H5.117z"/>
-                        </svg>
-                    </span>
-                    <span class="sidebar-item">
+                    <!-- Twitter logo and Emergency button at the top -->
+                    <div class="logo-emergency-wrapper">
+                        <a href="https://x.com/" class="sidebar-logo" style="text-decoration: none;">
+                            <svg width="30" height="30" viewBox="0 0 24 24" class="logo-svg">
+                                <path d="M18.244 2.25h3.308l-7.227 8.26 8.502 11.24H16.17l-5.214-6.817L4.99 21.75H1.68l7.73-8.835L1.254 2.25H8.08l4.713 6.231zm-1.161 17.52h1.833L7.084 4.126H5.117z"/>
+                            </svg>
+                        </a>
+                        <!-- Emergency DM button (opens modal when clicked) -->
+                        <label for="emergency-dm-toggle" class="emergency-button">
+                            <span class="emergency-text">EMERGENCY</span>
+                            <span class="emergency-subtext">DM ELON</span>
+                        </label>
+                    </div>
+                    
+                    <!-- Navigation links (Home, Explore, Notifications, etc.) -->
+                    <a href="https://x.com/home" class="sidebar-item" style="text-decoration: none; position: relative;">
                         <svg class="sidebar-icon" viewBox="0 0 24 24" fill="currentColor">
                             <path d="M12 2.5L2 10v10h6v-8h8v8h6V10L12 2.5z"/>
                         </svg>
                         <span class="sidebar-title">Home</span>
-                    </span>
-                    <span class="sidebar-item">
+                        <span class="home-indicator"></span>
+                    </a>
+                    <a href="https://x.com/explore" class="sidebar-item" style="text-decoration: none;">
                         <svg class="sidebar-icon" viewBox="0 0 24 24" fill="currentColor">
                             <path d="M21.53 20.47l-3.66-3.66C19.195 15.24 20 13.214 20 11c0-4.97-4.03-9-9-9s-9 4.03-9 9 4.03 9 9 9c2.215 0 4.24-.804 5.808-2.13l3.66 3.66c.147.146.34.22.53.22s.385-.073.53-.22c.295-.293.295-.767.002-1.06zM3.5 11c0-4.135 3.365-7.5 7.5-7.5s7.5 3.365 7.5 7.5-3.365 7.5-7.5 7.5-7.5-3.365-7.5-7.5z"/>
                         </svg>
                         <span class="sidebar-title">Explore</span>
-                    </span>
-                    <span class="sidebar-item">
+                    </a>
+                    <a href="https://x.com/notifications" class="sidebar-item" style="text-decoration: none; position: relative;">
                         <svg class="sidebar-icon" viewBox="0 0 24 24" fill="currentColor">
                             <path d="M21.697 16.468c-.02-.016-2.14-1.64-2.103-6.03.02-2.532-.812-4.782-2.347-6.335C15.872 2.71 14.01 1.94 12.005 1.93h-.013c-2.004.01-3.866.78-5.242 2.174-1.534 1.553-2.368 3.802-2.346 6.334.037 4.33-2.02 5.967-2.102 6.03-.26.193-.366.53-.265.838.102.308.39.515.712.515h4.92c.102 2.31 1.997 4.16 4.33 4.16s4.226-1.85 4.327-4.16h4.922c.322 0 .61-.206.71-.514.103-.307-.003-.645-.263-.838zM12 20.478c-1.505 0-2.73-1.177-2.828-2.658h5.656c-.1 1.48-1.323 2.66-2.828 2.66zM4.38 16.32c.74-1.132 1.548-3.028 1.524-5.896-.018-2.16.644-3.982 1.913-5.267C8.91 4.05 10.397 3.437 12 3.43c1.603.008 3.087.62 4.18 1.728 1.27 1.285 1.933 3.106 1.915 5.267-.024 2.868.785 4.765 1.525 5.896H4.38z"/>
                         </svg>
                         <span class="sidebar-title">Notifications</span>
-                    </span>
-                    <span class="sidebar-item">
+                        <span class="notification-badge">7</span>
+                    </a>
+                    <a href="https://x.com/messages" class="sidebar-item" style="text-decoration: none;">
                         <svg class="sidebar-icon" viewBox="0 0 24 24" fill="currentColor">
                             <path d="M19.25 3.018H4.75C3.233 3.018 2 4.252 2 5.77v12.495c0 1.518 1.233 2.753 2.75 2.753h14.5c1.517 0 2.75-1.235 2.75-2.753V5.77c0-1.518-1.233-2.752-2.75-2.752zm-14.5 1.5h14.5c.69 0 1.25.56 1.25 1.25v.714l-8.05 5.367c-.273.18-.626.182-.9-.002L3.5 6.482v-.714c0-.69.56-1.25 1.25-1.25zm14.5 14.998H4.75c-.69 0-1.25-.56-1.25-1.25V8.24l7.24 4.83c.383.256.822.384 1.26.384.44 0 .877-.128 1.26-.383l7.24-4.83v10.022c0 .69-.56 1.25-1.25 1.25z"/>
                         </svg>
                         <span class="sidebar-title">Messages</span>
-                    </span>
-                    <span class="sidebar-item">
+                    </a>
+                    <a href="https://x.com/i/grok" class="sidebar-item" style="text-decoration: none;">
                         <svg class="sidebar-icon" viewBox="0 0 33 32" fill="currentColor">
                             <path d="M12.745 20.54l10.97-8.19c.539-.4 1.307-.244 1.564.38 1.349 3.288.746 7.241-1.938 9.955-2.683 2.714-6.417 3.31-9.83 1.954l-3.728 1.745c5.347 3.697 11.84 2.782 15.898-1.324 3.219-3.255 4.216-7.692 3.284-11.693l.008.009c-1.351-5.878.332-8.227 3.782-13.031L33 0l-4.54 4.59v-.014L12.743 20.544m-2.263 1.987c-3.837-3.707-3.175-9.446.1-12.755 2.42-2.449 6.388-3.448 9.852-1.979l3.72-1.737c-.67-.49-1.53-1.017-2.515-1.387-4.455-1.854-9.789-.931-13.41 2.728-3.483 3.523-4.579 8.94-2.697 13.561 1.405 3.454-.899 5.898-3.22 8.364C1.49 30.2.666 31.074 0 32l10.478-9.466"/>
                         </svg>
                         <span class="sidebar-title">Grok</span>
-                    </span>
-                    <span class="sidebar-item">
+                    </a>
+                    <a href="https://x.com/i/bookmarks" class="sidebar-item" style="text-decoration: none;">
                         <svg class="sidebar-icon" viewBox="0 0 24 24" fill="currentColor">
                             <path d="M19.9 23.5c-.157 0-.312-.05-.442-.144L12 17.928l-7.458 5.43c-.228.164-.53.19-.782.06-.25-.127-.41-.385-.41-.667V5.6c0-1.24 1.01-2.25 2.25-2.25h12.798c1.24 0 2.25 1.01 2.25 2.25v17.15c0 .282-.158.54-.41.668-.106.055-.223.082-.34.082zM12 16.25c.155 0 .31.048.44.144l6.71 4.883V5.6c0-.412-.337-.75-.75-.75H5.6c-.413 0-.75.338-.75.75v15.677l6.71-4.883c.13-.096.285-.144.44-.144z"/>
                         </svg>
                         <span class="sidebar-title">Bookmarks</span>
-                    </span>
-                    <span class="sidebar-item">
+                    </a>
+                    <a href="https://x.com/i/communities" class="sidebar-item" style="text-decoration: none;">
                         <svg class="sidebar-icon" viewBox="0 0 24 24" fill="currentColor">
                             <path d="M7.501 19.917L7.471 21H.472l.029-1.027c.184-6.618 3.736-8.977 7-8.977.963 0 1.95.212 2.87.672-.444.478-.851 1.03-1.212 1.656-.507-.204-1.054-.329-1.658-.329-2.767 0-4.57 2.223-4.938 6.004H7.56c-.023.302-.05.599-.059.917zm15.998.056L23.528 21H9.472l.029-1.027c.184-6.618 3.736-8.977 7-8.977s6.816 2.358 7 8.977zM21.437 19c-.367-3.781-2.17-6.004-4.938-6.004s-4.57 2.223-4.938 6.004h9.875zm-4.938-9c-.799 0-1.527-.279-2.116-.73-.836-.64-1.384-1.638-1.384-2.77 0-1.93 1.567-3.5 3.5-3.5s3.5 1.57 3.5 3.5c0 1.132-.548 2.13-1.384 2.77-.589.451-1.317.73-2.116.73zm-1.5-3.5c0 .827.673 1.5 1.5 1.5s1.5-.673 1.5-1.5-.673-1.5-1.5-1.5-1.5.673-1.5 1.5zM7.5 3C9.433 3 11 4.57 11 6.5S9.433 10 7.5 10 4 8.43 4 6.5 5.567 3 7.5 3zm0 2C6.673 5 6 5.673 6 6.5S6.673 8 7.5 8 9 7.327 9 6.5 8.327 5 7.5 5z"/>
                         </svg>
                         <span class="sidebar-title">Communities</span>
-                    </span>
-                    <span class="sidebar-item">
+                    </a>
+                    <a href="https://x.com/i/premium_sign_up" class="sidebar-item" style="text-decoration: none;">
                         <svg class="sidebar-icon" viewBox="0 0 24 24" fill="currentColor">
                             <path d="M18.244 2.25h3.308l-7.227 8.26 8.502 11.24H16.17l-5.214-6.817L4.99 21.75H1.68l7.73-8.835L1.254 2.25H8.08l4.713 6.231zm-1.161 17.52h1.833L7.084 4.126H5.117z"/>
                         </svg>
                         <span class="sidebar-title">Premium</span>
-                    </span>
-                    <span class="sidebar-item">
+                    </a>
+                    <a href="https://x.com/davegrob88" class="sidebar-item" style="text-decoration: none;">
                         <svg class="sidebar-icon" viewBox="0 0 24 24" fill="currentColor">
                             <path d="M12 11.816c1.355 0 2.872-.15 3.84-1.256.814-.93 1.078-2.368.806-4.392-.38-2.825-2.117-4.512-4.646-4.512S7.734 3.343 7.354 6.17c-.272 2.022-.008 3.46.806 4.39.968 1.107 2.485 1.256 3.84 1.256zM8.84 6.368c.162-1.2.787-3.212 3.16-3.212s2.998 2.013 3.16 3.212c.207 1.55.057 2.627-.45 3.205-.455.52-1.266.743-2.71.743s-2.255-.223-2.71-.743c-.507-.578-.657-1.656-.45-3.205zm11.44 12.868c-.877-3.526-4.282-5.99-8.28-5.99s-7.403 2.464-8.28 5.99c-.172.692-.028 1.4.395 1.94.408.52 1.04.82 1.733.82h12.304c.693 0 1.325-.3 1.733-.82.424-.54.567-1.247.394-1.94zm-1.576 1.016c-.126.16-.316.246-.552.246H5.848c-.235 0-.426-.085-.552-.246-.137-.174-.18-.412-.12-.654.71-2.855 3.517-4.85 6.824-4.85s6.114 1.994 6.824 4.85c.06.242.017.48-.12.654z"/>
                         </svg>
                         <span class="sidebar-title">Profile</span>
-                    </span>
-                    <span class="sidebar-item">
-                        <svg class="sidebar-icon" viewBox="0 0 24 24" fill="currentColor">
-                            <circle cx="17" cy="12" r="1.5"/>
-                            <circle cx="12" cy="12" r="1.5"/>
-                            <circle cx="7" cy="12" r="1.5"/>
-                        </svg>
-                        <span class="sidebar-title">More</span>
-                    </span>
+                    </a>
+                    <div class="more-menu-wrapper">
+                        <input type="checkbox" id="more-menu-toggle" class="more-menu-toggle">
+                        <label for="more-menu-toggle" class="sidebar-item" style="text-decoration: none; cursor: pointer;">
+                            <svg class="sidebar-icon" viewBox="0 0 24 24" fill="currentColor">
+                                <circle cx="17" cy="12" r="1.5"/>
+                                <circle cx="12" cy="12" r="1.5"/>
+                                <circle cx="7" cy="12" r="1.5"/>
+                            </svg>
+                            <span class="sidebar-title">More</span>
+                        </label>
+                        <div class="more-menu-popup">
+                            <a href="https://x.com/messages" class="more-menu-item">
+                                <svg class="more-menu-icon" viewBox="0 0 24 24" fill="currentColor">
+                                    <path d="M12 2C6.486 2 2 6.262 2 11.5c0 2.847 1.277 5.44 3.355 7.207l-.632 2.293 2.537-.697C8.722 21.347 10.308 22 12 22c5.514 0 10-4.262 10-9.5S17.514 2 12 2zm0 18c-1.464 0-2.85-.466-4.016-1.27l-2.185.6.51-1.85C4.7 15.72 3.5 13.7 3.5 11.5 3.5 7.09 7.313 3.5 12 3.5s8.5 3.59 8.5 8c0 4.41-3.813 8-8.5 8z"/>
+                                </svg>
+                                <span>Chat</span>
+                            </a>
+                            <a href="https://x.com/i/lists" class="more-menu-item">
+                                <svg class="more-menu-icon" viewBox="0 0 24 24" fill="currentColor">
+                                    <path d="M3 4.5C3 3.12 4.12 2 5.5 2h13C19.88 2 21 3.12 21 4.5v15c0 1.38-1.12 2.5-2.5 2.5h-13C4.12 22 3 20.88 3 19.5v-15zM5.5 4c-.28 0-.5.22-.5.5v15c0 .28.22.5.5.5h13c.28 0 .5-.22.5-.5v-15c0-.28-.22-.5-.5-.5h-13zM16 10H8V8h8v2zm0 4H8v-2h8v2z"/>
+                                </svg>
+                                <span>Lists</span>
+                            </a>
+                            <a href="https://x.com/i/monetization" class="more-menu-item">
+                                <svg class="more-menu-icon" viewBox="0 0 24 24" fill="currentColor">
+                                    <path d="M12 1.75C6.34 1.75 1.75 6.34 1.75 12S6.34 22.25 12 22.25 22.25 17.66 22.25 12 17.66 1.75 12 1.75zm-.81 14.68v1.31c0 .45-.36.81-.81.81s-.81-.36-.81-.81v-1.32c-.73-.09-1.39-.36-1.96-.82-.56-.45-.85-1.09-.84-1.78 0-.44.36-.8.81-.8.45 0 .8.36.81.8 0 .18.09.42.35.61.27.19.62.29 1.02.29h.09c.42 0 .78-.11 1.07-.33.29-.22.44-.52.44-.89 0-.35-.15-.65-.44-.87-.29-.23-.66-.35-1.1-.35h-.15c-.69 0-1.31-.26-1.79-.72-.48-.47-.74-1.1-.74-1.77 0-.69.29-1.32.84-1.78.54-.44 1.23-.71 1.99-.8V6.56c0-.45.36-.81.81-.81s.81.36.81.81v1.31c.76.09 1.45.36 1.99.8.55.46.84 1.09.84 1.78 0 .45-.36.81-.81.81s-.81-.36-.81-.81c0-.18-.09-.42-.35-.61-.27-.19-.62-.28-1.02-.28-.42 0-.78.11-1.07.33-.29.22-.44.52-.44.89 0 .35.15.65.44.87.29.23.66.35 1.1.35h.15c.69 0 1.31.26 1.79.72.48.47.74 1.1.74 1.77 0 .69-.29 1.32-.84 1.78-.54.46-1.23.73-1.99.82z"/>
+                                </svg>
+                                <span>Monetization</span>
+                            </a>
+                            <a href="https://ads.x.com" class="more-menu-item">
+                                <svg class="more-menu-icon" viewBox="0 0 24 24" fill="currentColor">
+                                    <path d="M8.75 21V3h2v18h-2zM18 21V8.5h2V21h-2zM4 21l.004-10h2L6 21H4zm9.248 0v-7h2v7h-2z"/>
+                                </svg>
+                                <span>Ads</span>
+                            </a>
+                            <a href="https://x.com/i/spaces/start" class="more-menu-item">
+                                <svg class="more-menu-icon" viewBox="0 0 24 24" fill="currentColor">
+                                    <path d="M12 22.25c-4.99 0-9.18-3.393-10.39-7.994l1.93-.512c.99 3.746 4.4 6.506 8.46 6.506s7.47-2.76 8.46-6.506l1.93.512c-1.21 4.601-5.4 7.994-10.39 7.994zM5 5.5c0-.28.22-.5.5-.5h13c.28 0 .5.22.5.5v8c0 .28-.22.5-.5.5h-13c-.28 0-.5-.22-.5-.5v-8zM3.5 4C2.67 4 2 4.67 2 5.5v8c0 .83.67 1.5 1.5 1.5h17c.83 0 1.5-.67 1.5-1.5v-8c0-.83-.67-1.5-1.5-1.5h-17z"/>
+                                    <circle cx="12" cy="9.5" r="1.5"/>
+                                </svg>
+                                <span>Create your Space</span>
+                            </a>
+                            <a href="https://x.com/settings" class="more-menu-item">
+                                <svg class="more-menu-icon" viewBox="0 0 24 24" fill="currentColor">
+                                    <path d="M10.54 1.75h2.92l1.57 2.36c.11.17.32.25.53.21l2.53-.59 2.17 2.17-.58 2.54c-.05.2.04.41.21.53l2.36 1.57v2.92l-2.36 1.57c-.17.12-.26.33-.21.53l.58 2.54-2.17 2.17-2.53-.59c-.21-.04-.42.04-.53.21l-1.57 2.36h-2.92l-1.58-2.36c-.11-.17-.32-.25-.52-.21l-2.54.59-2.17-2.17.58-2.54c.05-.2-.03-.41-.21-.53l-2.35-1.57v-2.92L4.1 8.97c.18-.12.26-.33.21-.53L3.73 5.9 5.9 3.73l2.54.59c.2.04.41-.04.52-.21l1.58-2.36zm1.07 2l-.98 1.47C10.05 6.08 9 6.5 7.99 6.27l-1.46-.34-.6.6.33 1.46c.24 1.01-.18 2.07-1.05 2.64l-1.46.98v.78l1.46.98c.87.57 1.29 1.63 1.05 2.64l-.33 1.46.6.6 1.46-.34c1.01-.23 2.06.19 2.64 1.05l.98 1.47h.78l.97-1.47c.58-.86 1.63-1.28 2.65-1.05l1.45.34.61-.6-.34-1.46c-.23-1.01.18-2.07 1.05-2.64l1.47-.98v-.78l-1.47-.98c-.87-.57-1.28-1.63-1.05-2.64l.34-1.46-.61-.6-1.45.34c-1.02.23-2.07-.19-2.65-1.05l-.97-1.47h-.78zM12 10.5c-.83 0-1.5.67-1.5 1.5s.67 1.5 1.5 1.5c.82 0 1.5-.67 1.5-1.5s-.68-1.5-1.5-1.5zM8.5 12c0-1.93 1.56-3.5 3.5-3.5 1.93 0 3.5 1.57 3.5 3.5s-1.57 3.5-3.5 3.5c-1.94 0-3.5-1.57-3.5-3.5z"/>
+                                </svg>
+                                <span>Settings and privacy</span>
+                            </a>
+                        </div>
+                    </div>
 
+                    <!-- Big blue Post button -->
                     <span class="sidebar-button">
                         Post
                     </span>
                 </div>
-                <div class="sidebar-user">
-                    <div class="sidebar-user-details">
-
-                        <img src="assets/Profile.jpg" alt="">
-                        <div class="sidebar-name">
-                            <span class="name">CFC4LIFE</span>
-                            <span class="userid">@davegrob88</span>
+                
+                <!-- User profile section at bottom of sidebar -->
+                <div class="sidebar-user-wrapper">
+                    <input type="checkbox" id="account-menu-toggle" class="account-menu-toggle">
+                    <label for="account-menu-toggle" class="sidebar-user">
+                        <div class="sidebar-user-details">
+                            <img src="assets/Profile.jpg" alt="">
+                            <div class="sidebar-name">
+                                <span class="name">CFC4LIFE</span>
+                                <span class="userid">@davegrob88</span>
+                            </div>
                         </div>
-                    </div>
-                    <div class="sidebar-user-action">
-                        <svg class="sidebar-icon" viewBox="0 0 24 24">
-                            <g>
-                                <circle cx="17" cy="12" r="1.5"/>
-                                <circle cx="12" cy="12" r="1.5"/>
-                                <circle cx="7" cy="12" r="1.5"/>
-                            </g>
-                        </svg>
+                        <div class="sidebar-user-action">
+                            <svg class="sidebar-icon" viewBox="0 0 24 24">
+                                <g>
+                                    <circle cx="17" cy="12" r="1.5"/>
+                                    <circle cx="12" cy="12" r="1.5"/>
+                                    <circle cx="7" cy="12" r="1.5"/>
+                                </g>
+                            </svg>
+                        </div>
+                    </label>
+                    <div class="account-menu-popup">
+                        <div class="account-menu-item">
+                            <span>Add an existing account</span>
+                        </div>
+                        <div class="account-menu-item">
+                            <span>Log out @davegrob88</span>
+                        </div>
                     </div>
                 </div>
             </div>
         </div>
 
-
+        <!-- ========================================
+             MAIN CONTENT AREA
+             ========================================
+             Center section containing:
+             - For You / Following tabs
+             - Tweet composition box
+             - Feed of tweets
+        -->
         <div class="main">
             <div class="content">
                 <div class="mainContent">
+                    <!-- Tab navigation (For You / Following) -->
                     <div class="feed-navigation">
                         <div class="nav-tab active" data-tab="foryou">
                             <span class="nav-tab-text">For you</span>
-                            <div class="nav-tab-indicator"></div>
+                            <div class="nav-tab-indicator"></div>  <!-- Blue underline -->
                         </div>
                         <div class="nav-tab" data-tab="following">
                             <span class="nav-tab-text">Following</span>
-                            <div class="nav-tab-indicator"></div>
+                            <div class="nav-tab-indicator"></div>  <!-- Blue underline -->
                         </div>
                     </div>
+                    
+                    <!-- Tweet composition box ("What's happening?") -->
                     <div class="post-tweet">
                         <div class="post-section">
                             <div class="tweet-profile-pic">
@@ -227,12 +400,25 @@
 
                     </div>
                     
-                    <!-- For You Tab Content -->
+                    <!-- ========================================
+                         FOR YOU TAB CONTENT
+                         ========================================
+                         This section contains all tweets shown in the "For You" feed
+                         Each tweet is a "tweet-card" with:
+                         - Profile picture
+                         - User name, handle, timestamp
+                         - Tweet text
+                         - Images/videos (optional)
+                         - Action buttons (reply, retweet, like, views)
+                    -->
                     <div class="tab-content" id="foryou-content">
+                        <!-- Button to load new tweets -->
                         <div class="show-posts-container">
                             <span class="show-posts-text">Show 104 posts</span>
                         </div>
-                        <div class="tweet-card">
+                        
+                        <!-- EXAMPLE TWEET CARD STRUCTURE -->
+                        <div class="tweet-card tweet-clickable" data-href="https://x.com/ChelseaFC/status/1986139869953794502">
                         <div class="tweet-profile-pic">
                             <img src="assets/Chelsea logo.jpg"
                                 alt="">
@@ -240,7 +426,7 @@
                         <div class="tweet">
                             <div class="tweet-row">
                                 <div class="user-details">
-                                    <span class="name">Chelsea FC</span>
+                                    <span class="name"><a href="https://x.com/ChelseaFC" style="color: white; text-decoration: none;">Chelsea FC</a></span>
                                     <svg class="verified-badge" viewBox="0 0 22 22" aria-label="Verified account" role="img" width="18.75" height="18.75">
                                         <g>
                                             <linearGradient gradientUnits="userSpaceOnUse" id="4-a" x1="4.411" x2="18.083" y1="2.495" y2="21.508">
@@ -262,7 +448,7 @@
                                             </g>
                                         </g>
                                     </svg>
-                                    <span class="id">@ChelseaFC</span>
+                                    <span class="id"><a href="https://x.com/ChelseaFC" style="color: inherit; text-decoration: none;">@ChelseaFC</a></span>
                                     <span class="separator">.</span>
                                     <span class="time">32m</span>
                                 </div>
@@ -414,15 +600,15 @@
                                 </g>
                             </svg>
                         </div>
-                    </div>
-                <div class="tweet-card">
+                        </div>
+                <div class="tweet-card tweet-clickable" data-href="https://x.com/ElonMuskNews47/status/1972279123969179727">
                     <div class="tweet-profile-pic">
                         <img src="assets/Elon.jpg" alt="Commentary Elon Musk News">
                     </div>
                     <div class="tweet">
                         <div class="tweet-row">
                             <div class="user-details">
-                                <span class="name">Commentary Elon Musk News</span>
+                                <span class="name"><a href="https://x.com/elonmusknews30" style="color: white; text-decoration: none;">Commentary Elon Musk News</a></span>
                                 <svg class="verified-badge" viewBox="0 0 22 22" aria-label="Verified account" role="img" width="18.75" height="18.75">
                                     <g>
                                         <linearGradient gradientUnits="userSpaceOnUse" id="blue-a" x1="4.411" x2="18.083" y1="2.495" y2="21.508">
@@ -444,7 +630,7 @@
                                         </g>
                                     </g>
                                 </svg>
-                                <span class="id">@elonmusknews30</span>
+                                <span class="id"><a href="https://x.com/elonmusknews30" style="color: inherit; text-decoration: none;">@elonmusknews30</a></span>
                                 <span class="separator">.</span>
                                 <span class="time">4h</span>
                             </div>
@@ -599,14 +785,14 @@
                         </svg>
                     </div>
                 </div>
-                <div class="tweet-card">
+                <div class="tweet-card tweet-clickable" data-href="https://x.com/Sixty60_Tweets/status/1988124647112798395">
                     <div class="tweet-profile-pic">
                         <img src="assets/Checkers.png" alt="Checkers Sixty60">
                     </div>
                     <div class="tweet">
                         <div class="tweet-row">
                             <div class="user-details">
-                                <span class="name">Checkers Sixty60</span>
+                                <span class="name"><a href="https://x.com/Sixty60_Tweets" style="color: white; text-decoration: none;">Checkers Sixty60</a></span>
                                 <svg class="verified-badge" viewBox="0 0 22 22" aria-label="Verified account" role="img" width="18.75" height="18.75">
                                     <g>
                                         <linearGradient gradientUnits="userSpaceOnUse" id="checkers-a" x1="4.411" x2="18.083" y1="2.495" y2="21.508">
@@ -628,7 +814,7 @@
                                         </g>
                                     </g>
                                 </svg>
-                                <span class="id">@Sixty60_Tweets</span>
+                                <span class="id"><a href="https://x.com/Sixty60_Tweets" style="color: inherit; text-decoration: none;">@Sixty60_Tweets</a></span>
                                 <span class="separator">.</span>
                                 <span class="time">12h</span>
                             </div>
@@ -706,14 +892,14 @@
                         </svg>
                     </div>
                 </div>
-                <div class="tweet-card">
+                <div class="tweet-card tweet-clickable" data-href="https://x.com/Hsports_HD/status/1987886922761400423">
                     <div class="tweet-profile-pic">
                         <img src="assets/HD Sports.jpg" alt="Hsports_HD">
                     </div>
                     <div class="tweet">
                         <div class="tweet-row">
                             <div class="user-details">
-                                <span class="name">Hsports_HD</span>
+                                <span class="name"><a href="https://x.com/Hsports_HD" style="color: white; text-decoration: none;">Hsports_HD</a></span>
                                 <svg class="verified-badge" viewBox="0 0 22 22" aria-label="Verified account" role="img" width="18.75" height="18.75">
                                     <g>
                                         <linearGradient gradientUnits="userSpaceOnUse" id="hdsports-a" x1="4.411" x2="18.083" y1="2.495" y2="21.508">
@@ -735,7 +921,7 @@
                                         </g>
                                     </g>
                                 </svg>
-                                <span class="id">@Hsports_HD</span>
+                                <span class="id"><a href="https://x.com/Hsports_HD" style="color: inherit; text-decoration: none;">@Hsports_HD</a></span>
                                 <span class="separator">.</span>
                                 <span class="time">Nov 10</span>
                             </div>
@@ -876,14 +1062,14 @@
                         <div class="show-posts-container">
                             <span class="show-posts-text">Show 4 posts</span>
                         </div>
-                        <div class="tweet-card">
+                        <div class="tweet-card tweet-clickable" data-href="https://x.com/elonmusk/status/1988693851226406988">
                             <div class="tweet-profile-pic">
                                 <img src="assets/Elon Logo.jpg" alt="Elon Musk">
                             </div>
                             <div class="tweet">
                                 <div class="tweet-row">
                                     <div class="user-details">
-                                        <span class="name">Elon Musk</span>
+                                        <span class="name"><a href="https://x.com/elonmusk" style="color: white; text-decoration: none;">Elon Musk</a></span>
                                         <svg class="verified-badge" viewBox="0 0 22 22" aria-label="Verified account" role="img" width="18.75" height="18.75">
                                             <g>
                                                 <linearGradient gradientUnits="userSpaceOnUse" id="elon-a" x1="4.411" x2="18.083" y1="2.495" y2="21.508">
@@ -905,7 +1091,7 @@
                                                 </g>
                                             </g>
                                         </svg>
-                                        <span class="id">@elonmusk</span>
+                                        <span class="id"><a href="https://x.com/elonmusk" style="color: inherit; text-decoration: none;">@elonmusk</a></span>
                                         <span class="separator">.</span>
                                         <span class="time">15m</span>
                                     </div>
@@ -981,8 +1167,60 @@
                                     </div>
                                 </div>
                                 <div class="tweet-text">
-                                    Move to Austin! It gets better very year. So many cool, world-class people are moving to Austin from SF, LA, NY, London and many other parts of the world! Austin++
+                                    Move to Austin! It gets better very year.
                                 </div>
+                                <div class="tweet-text">
+                                    So many cool, world-class people are moving to Austin from SF, LA, NY, London <span class="tweet-bold">and many other parts of the world!</span>
+                                </div>
+                                <div class="tweet-text">
+                                    Austin++
+                                </div>
+                                <a href="https://x.com/farzyness/status/1988687055912915389" class="quoted-tweet-link">
+                                <div class="quoted-tweet">
+                                    <div class="quoted-tweet-header">
+                                        <img src="assets/Farzard.jpg" alt="" class="quoted-tweet-avatar">
+                                        <div class="quoted-tweet-user">
+                                            <span class="quoted-tweet-name">Farzad</span>
+                                            <svg class="verified-badge-small" viewBox="0 0 22 22" aria-label="Verified account" role="img" width="16" height="16">
+                                                <g>
+                                                    <linearGradient gradientUnits="userSpaceOnUse" id="farzad-a" x1="4.411" x2="18.083" y1="2.495" y2="21.508">
+                                                        <stop offset="0" stop-color="#8ec5ff"></stop>
+                                                        <stop offset=".539" stop-color="#1d9bf0"></stop>
+                                                        <stop offset=".68" stop-color="#177ddc"></stop>
+                                                        <stop offset="1" stop-color="#1d9bf0"></stop>
+                                                        <stop offset="1" stop-color="#8ec5ff"></stop>
+                                                    </linearGradient>
+                                                    <linearGradient gradientUnits="userSpaceOnUse" id="farzad-b" x1="5.355" x2="16.361" y1="3.395" y2="19.133">
+                                                        <stop offset="0" stop-color="#c0e4ff"></stop>
+                                                        <stop offset=".406" stop-color="#4ab3ff"></stop>
+                                                        <stop offset=".989" stop-color="#1d9bf0"></stop>
+                                                    </linearGradient>
+                                                    <g clip-rule="evenodd" fill-rule="evenodd">
+                                                        <path d="M13.324 3.848L11 1.6 8.676 3.848l-3.201-.453-.559 3.184L2.06 8.095 3.48 11l-1.42 2.904 2.856 1.516.559 3.184 3.201-.452L11 20.4l2.324-2.248 3.201.452.559-3.184 2.856-1.516L18.52 11l1.42-2.905-2.856-1.516-.559-3.184zm-7.09 7.575l3.428 3.428 5.683-6.206-1.347-1.247-4.4 4.795-2.072-2.072z" fill="url(#farzad-a)"></path>
+                                                        <path d="M13.101 4.533L11 2.5 8.899 4.533l-2.895-.41-.505 2.88-2.583 1.37L4.2 11l-1.284 2.627 2.583 1.37.505 2.88 2.895-.41L11 19.5l2.101-2.033 2.895.41.505-2.88 2.583-1.37L17.8 11l1.284-2.627-2.583-1.37-.505-2.88zm-6.868 6.89l3.429 3.428 5.683-6.206-1.347-1.247-4.4 4.795-2.072-2.072z" fill="url(#farzad-b)"></path>
+                                                        <path d="M6.233 11.423l3.429 3.428 5.65-6.17.038-.033-.005 1.398-5.683 6.206-3.429-3.429-.003-1.405.005.003z" fill="#177ddc"></path>
+                                                    </g>
+                                                </g>
+                                            </svg>
+                                            <span class="quoted-tweet-handle">@farzyness</span>
+                                            <span class="quoted-tweet-separator">·</span>
+                                            <span class="quoted-tweet-time">Nov 12</span>
+                                        </div>
+                                    </div>
+                                    <div class="quoted-tweet-text">
+                                        After living in Austin metro for the last 5 years, I can attest that this area of the country is AWESOME.
+                                    </div>
+                                    <div class="quoted-tweet-text">
+                                        But two HUGE drawbacks:
+                                    </div>
+                                    <div class="quoted-tweet-text">
+                                        ...
+                                    </div>
+                                    <div class="quoted-tweet-show-more">
+                                        Show more
+                                    </div>
+                                </div>
+                                </a>
                                 <div class="tweet-actions">
                                     <div class="tweet-option">
                                         <svg class="tweet-option-icon" viewBox="0 0 24 24">
@@ -990,7 +1228,7 @@
                                                 <path d="M14.046 2.242l-4.148-.01h-.002c-4.374 0-7.8 3.427-7.8 7.802 0 4.098 3.186 7.206 7.465 7.37v3.828c0 .108.044.286.12.403.142.225.384.347.632.347.138 0 .277-.038.402-.118.264-.168 6.473-4.14 8.088-5.506 1.902-1.61 3.04-3.97 3.043-6.312v-.017c-.006-4.367-3.43-7.787-7.8-7.788zm3.787 12.972c-1.134.96-4.862 3.405-6.772 4.643V16.67c0-.414-.335-.75-.75-.75h-.396c-3.66 0-6.318-2.476-6.318-5.886 0-3.534 2.768-6.302 6.3-6.302l4.147.01h.002c3.532 0 6.3 2.766 6.302 6.296-.003 1.91-.942 3.844-2.514 5.176z"></path>
                                             </g>
                                         </svg>
-                                        <span class="tweet-action-count">1.1K</span>
+                                        <span class="tweet-action-count">9.4K</span>
                                     </div>
                                     <div class="tweet-option">
                                         <svg class="tweet-option-icon" viewBox="0 0 24 24">
@@ -998,7 +1236,7 @@
                                                 <path d="M23.77 15.67c-.292-.293-.767-.293-1.06 0l-2.22 2.22V7.65c0-2.068-1.683-3.75-3.75-3.75h-5.85c-.414 0-.75.336-.75.75s.336.75.75.75h5.85c1.24 0 2.25 1.01 2.25 2.25v10.24l-2.22-2.22c-.293-.293-.768-.293-1.06 0s-.294.768 0 1.06l3.5 3.5c.145.147.337.22.53.22s.383-.072.53-.22l3.5-3.5c.294-.292.294-.767 0-1.06zm-10.66 3.28H7.26c-1.24 0-2.25-1.01-2.25-2.25V6.46l2.22 2.22c.148.147.34.22.532.22s.384-.073.53-.22c.293-.293.293-.768 0-1.06l-3.5-3.5c-.293-.294-.768-.294-1.06 0l-3.5 3.5c-.294.292-.294.767 0 1.06s.767.293 1.06 0l2.22-2.22V16.7c0 2.068 1.683 3.75 3.75 3.75h5.85c.414 0 .75-.336.75-.75s-.337-.75-.75-.75z"></path>
                                             </g>
                                         </svg>
-                                        <span class="tweet-action-count">393</span>
+                                        <span class="tweet-action-count">6.9K</span>
                                     </div>
                                     <div class="tweet-option">
                                         <svg class="tweet-option-icon" viewBox="0 0 24 24">
@@ -1006,7 +1244,7 @@
                                                 <path d="M12 21.638h-.014C9.403 21.59 1.95 14.856 1.95 8.478c0-3.064 2.525-5.754 5.403-5.754 2.29 0 3.83 1.58 4.646 2.73.814-1.148 2.354-2.73 4.645-2.73 2.88 0 5.404 2.69 5.404 5.755 0 6.376-7.454 13.11-10.037 13.157H12zM7.354 4.225c-2.08 0-3.903 1.988-3.903 4.255 0 5.74 7.034 11.596 8.55 11.658 1.518-.062 8.55-5.917 8.55-11.658 0-2.267-1.823-4.255-3.903-4.255-2.528 0-3.94 2.936-3.952 2.965-.23.562-1.156.562-1.387 0-.014-.03-1.425-2.965-3.954-2.965z"></path>
                                             </g>
                                         </svg>
-                                        <span class="tweet-action-count">4K</span>
+                                        <span class="tweet-action-count">68K</span>
                                     </div>
                                     <div class="tweet-option">
                                         <svg class="tweet-option-icon" viewBox="0 0 24 24">
@@ -1014,7 +1252,7 @@
                                                 <path d="M8.75 21V3h2v18h-2zM18 21V8.5h2V21h-2zM11.25 21V3.75h2V21h-2zM15.5 21V5.5h2V21h-2zM5.5 21V10.75h2V21h-2z"></path>
                                             </g>
                                         </svg>
-                                        <span class="tweet-action-count">493K</span>
+                                        <span class="tweet-action-count">27M</span>
                                     </div>
                                 </div>
                             </div>
@@ -1034,14 +1272,14 @@
                                 </svg>
                             </div>
                         </div>
-                        <div class="tweet-card">
+                        <div class="tweet-card tweet-clickable" data-href="https://x.com/TrollFootball/status/1988693640743686445">
                             <div class="tweet-profile-pic">
                                 <img src="assets/Troll logo.jpg" alt="Troll Football">
                             </div>
                             <div class="tweet">
                                 <div class="tweet-row">
                                     <div class="user-details">
-                                        <span class="name">Troll Football</span>
+                                        <span class="name"><a href="https://x.com/TrollFootball" style="color: white; text-decoration: none;">Troll Football</a></span>
                                         <svg class="verified-badge" viewBox="0 0 22 22" aria-label="Verified account" role="img" width="18.75" height="18.75">
                                             <g>
                                                 <linearGradient gradientUnits="userSpaceOnUse" id="troll-a" x1="4.411" x2="18.083" y1="2.495" y2="21.508">
@@ -1063,7 +1301,7 @@
                                                 </g>
                                             </g>
                                         </svg>
-                                        <span class="id">@TrollFootball</span>
+                                        <span class="id"><a href="https://x.com/TrollFootball" style="color: inherit; text-decoration: none;">@TrollFootball</a></span>
                                         <span class="separator">.</span>
                                         <span class="time">18m</span>
                                     </div>
@@ -1197,7 +1435,7 @@
                                 </svg>
                             </div>
                         </div>
-                        <div class="tweet-card thread-start">
+                        <div class="tweet-card thread-start tweet-clickable" data-href="https://x.com/TheBlueDodger/status/1988688489597260278">
                             <div class="tweet-profile-pic">
                                 <img src="assets/Chelsea Dodgers Logo.jpg" alt="Chelsea Dodgers">
                             </div>
@@ -1205,7 +1443,7 @@
                             <div class="tweet">
                                 <div class="tweet-row">
                                     <div class="user-details">
-                                        <span class="name">Chelsea Dodgers</span>
+                                        <span class="name"><a href="https://x.com/TheBlueDodger" style="color: white; text-decoration: none;">Chelsea Dodgers</a></span>
                                         <svg class="verified-badge" viewBox="0 0 22 22" aria-label="Verified account" role="img" width="18.75" height="18.75">
                                             <g>
                                                 <linearGradient gradientUnits="userSpaceOnUse" id="chelsea-dodgers-a" x1="4.411" x2="18.083" y1="2.495" y2="21.508">
@@ -1227,7 +1465,7 @@
                                                 </g>
                                             </g>
                                         </svg>
-                                        <span class="id">@TheBlueDodger</span>
+                                        <span class="id"><a href="https://x.com/TheBlueDodger" style="color: inherit; text-decoration: none;">@TheBlueDodger</a></span>
                                         <span class="separator">.</span>
                                         <span class="time">48m</span>
                                     </div>
@@ -1303,7 +1541,7 @@
                                     </div>
                                 </div>
                                 <div class="tweet-text">
-                                    ⚽👕 Chelsea's 2026-2027 third kit will mark the club's return to a white base color - the first time in nearly a decade that Chelsea's third shirt will be primarily white. (@Footy_Headlines) #CFC
+                                    ⚽👕 Chelsea's 2026-2027 third kit will mark the club's return to a white base color - the first time in nearly a decade that Chelsea's third shirt will be primarily white. (<a href="https://x.com/Footy_Headlines">@Footy_Headlines</a>) #CFC
                                 </div>
                                 <div class="tweet-image-container">
                                     <div class="tweet-image-content">
@@ -1369,7 +1607,7 @@
                             <div class="tweet">
                                 <div class="tweet-row">
                                     <div class="user-details">
-                                        <span class="name">Chelsea Dodgers</span>
+                                        <span class="name"><a href="https://x.com/TheBlueDodger" style="color: white; text-decoration: none;">Chelsea Dodgers</a></span>
                                         <svg class="verified-badge" viewBox="0 0 22 22" aria-label="Verified account" role="img" width="18.75" height="18.75">
                                             <g>
                                                 <linearGradient gradientUnits="userSpaceOnUse" id="chelsea-dodgers-2-a" x1="4.411" x2="18.083" y1="2.495" y2="21.508">
@@ -1391,7 +1629,7 @@
                                                 </g>
                                             </g>
                                         </svg>
-                                        <span class="id">@TheBlueDodger</span>
+                                        <span class="id"><a href="https://x.com/TheBlueDodger" style="color: inherit; text-decoration: none;">@TheBlueDodger</a></span>
                                         <span class="separator">.</span>
                                         <span class="time">45m</span>
                                     </div>
@@ -1527,7 +1765,20 @@
                         </div>
                     </div>
             </div>
+            
+            <!-- ========================================
+                 RIGHT SIDEBAR
+                 ========================================
+                 Contains:
+                 - Search bar
+                 - Premium subscription card
+                 - Today's News
+                 - What's Happening (Trends)
+                 - Who to Follow suggestions
+                 - Footer links
+            -->
             <div class="right-sidebar">
+                <!-- Search bar -->
                 <div class="sidebar-search-wrapper">
                     <div class="sidebar-search">
                         <input type="text" placeholder="Search" class="sidebar-search-input">
@@ -1565,9 +1816,9 @@
                         <h4 class="news-headline">McDonald's South Africa 30th Anniversary R30 Big Mac Deal Causes Nationwide Rus...</h4>
                         <div class="news-meta">
                             <div class="news-avatars">
-                                <div class="news-avatar-small"></div>
-                                <div class="news-avatar-small"></div>
-                                <div class="news-avatar-small"></div>
+                                <div class="news-avatar-small"><img src="assets/Elon.jpg" alt=""></div>
+                                <div class="news-avatar-small"><img src="assets/Chelsea logo.jpg" alt=""></div>
+                                <div class="news-avatar-small"><img src="assets/Profile.jpg" alt=""></div>
                             </div>
                             <span class="news-time">9 hours ago</span>
                             <span class="news-separator">·</span>
@@ -1580,9 +1831,9 @@
                         <h4 class="news-headline">South African MPs Confront NPA's Shamila Batohi on Corruption Infiltration and Case...</h4>
                         <div class="news-meta">
                             <div class="news-avatars">
-                                <div class="news-avatar-small"></div>
-                                <div class="news-avatar-small"></div>
-                                <div class="news-avatar-small"></div>
+                                <div class="news-avatar-small"><img src="assets/Mondli Gungubele, MP Profile.jpg" alt=""></div>
+                                <div class="news-avatar-small"><img src="assets/Sophie Mokoena.jpg" alt=""></div>
+                                <div class="news-avatar-small"><img src="assets/Nottingham Forest Profile.jpg" alt=""></div>
                             </div>
                             <span class="news-time">9 hours ago</span>
                             <span class="news-separator">·</span>
@@ -1595,9 +1846,9 @@
                         <h4 class="news-headline">Lionel Messi Visits Empty Camp Nou, Yearns for Barcelona Return</h4>
                         <div class="news-meta">
                             <div class="news-avatars">
-                                <div class="news-avatar-small"></div>
-                                <div class="news-avatar-small"></div>
-                                <div class="news-avatar-small"></div>
+                                <div class="news-avatar-small"><img src="assets/HD Sports.jpg" alt=""></div>
+                                <div class="news-avatar-small"><img src="assets/Tesla.jpeg" alt=""></div>
+                                <div class="news-avatar-small"><img src="assets/E-ben Obum Profile.jpg" alt=""></div>
                             </div>
                             <span class="news-time">20 hours ago</span>
                             <span class="news-separator">·</span>
@@ -1610,56 +1861,303 @@
 
                 <div class="sidebar-card whats-happening-card">
                     <h3 class="sidebar-card-title">What's happening</h3>
+                    
                     <div class="trending-item">
                         <div class="trending-content">
-                            <div class="trending-header">
-                                <span class="trending-posts">3,108 posts</span>
-                                <span class="trending-location">Trending in South Africa</span>
-                            </div>
-                            <h4 class="trending-topic">Zinhle</h4>
+                            <span class="trending-location">Trending in South Africa</span>
+                            <h4 class="trending-topic">Ozempic</h4>
+                            <span class="trending-posts">8,558 posts</span>
                         </div>
-                        <svg class="trending-menu-icon" viewBox="0 0 24 24" width="18" height="18">
-                            <circle cx="5" cy="12" r="1.5" fill="currentColor"></circle>
-                            <circle cx="12" cy="12" r="1.5" fill="currentColor"></circle>
-                            <circle cx="19" cy="12" r="1.5" fill="currentColor"></circle>
-                        </svg>
-                    </div>
-                    <div class="trending-item">
-                        <div class="trending-content">
-                            <div class="trending-header">
-                                <span class="trending-posts">1,174 posts</span>
-                                <span class="trending-location">Trending in South Africa</span>
-                            </div>
-                            <h4 class="trending-topic">Thalente Mbatha</h4>
-                        </div>
-                        <svg class="trending-menu-icon" viewBox="0 0 24 24" width="18" height="18">
-                            <circle cx="5" cy="12" r="1.5" fill="currentColor"></circle>
-                            <circle cx="12" cy="12" r="1.5" fill="currentColor"></circle>
-                            <circle cx="19" cy="12" r="1.5" fill="currentColor"></circle>
-                        </svg>
-                    </div>
-                    <div class="trending-item promoted">
-                        <div class="trending-content">
-                            <div class="trending-header">
-                                <span class="promoted-badge">
-                                    <svg viewBox="0 0 24 24" width="12" height="12" style="display: inline-block; vertical-align: middle; margin-right: 4px;">
-                                        <path d="M20 2H4c-1.1 0-2 .9-2 2v18l4-4h14c1.1 0 2-.9 2-2V4c0-1.1-.9-2-2-2zm0 14H6l-2 2V4h16v12z" fill="currentColor"/>
+                        <div class="trending-menu-wrapper">
+                            <input type="checkbox" id="trending-menu-1" class="trending-menu-toggle">
+                            <label for="trending-menu-1" class="trending-menu-icon">
+                                <svg viewBox="0 0 24 24" width="18" height="18">
+                                    <circle cx="5" cy="12" r="2" fill="currentColor"></circle>
+                                    <circle cx="12" cy="12" r="2" fill="currentColor"></circle>
+                                    <circle cx="19" cy="12" r="2" fill="currentColor"></circle>
+                                </svg>
+                            </label>
+                            <div class="trending-menu-dropdown">
+                                <div class="trending-menu-item">
+                                    <svg class="trending-menu-item-icon" viewBox="0 0 24 24">
+                                        <path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm0 18c-4.41 0-8-3.59-8-8s3.59-8 8-8 8 3.59 8 8-3.59 8-8 8z" fill="currentColor"/>
+                                        <circle cx="8.5" cy="9.5" r="1.5" fill="currentColor"/>
+                                        <circle cx="15.5" cy="9.5" r="1.5" fill="currentColor"/>
+                                        <path d="M16 16c-1-1.5-2.5-2-4-2s-3 .5-4 2" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" fill="none"/>
                                     </svg>
-                                    Promoted by Checkers Sixty60
-                                </span>
+                                    <span>The associated content is not relevant</span>
+                                </div>
+                                <div class="trending-menu-item">
+                                    <svg class="trending-menu-item-icon" viewBox="0 0 24 24">
+                                        <path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm0 18c-4.41 0-8-3.59-8-8s3.59-8 8-8 8 3.59 8 8-3.59 8-8 8z" fill="currentColor"/>
+                                        <circle cx="8.5" cy="9.5" r="1.5" fill="currentColor"/>
+                                        <circle cx="15.5" cy="9.5" r="1.5" fill="currentColor"/>
+                                        <path d="M16 16c-1-1.5-2.5-2-4-2s-3 .5-4 2" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" fill="none"/>
+                                    </svg>
+                                    <span>This trend is spam</span>
+                                </div>
+                                <div class="trending-menu-item">
+                                    <svg class="trending-menu-item-icon" viewBox="0 0 24 24">
+                                        <path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm0 18c-4.41 0-8-3.59-8-8s3.59-8 8-8 8 3.59 8 8-3.59 8-8 8z" fill="currentColor"/>
+                                        <circle cx="8.5" cy="9.5" r="1.5" fill="currentColor"/>
+                                        <circle cx="15.5" cy="9.5" r="1.5" fill="currentColor"/>
+                                        <path d="M16 16c-1-1.5-2.5-2-4-2s-3 .5-4 2" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" fill="none"/>
+                                    </svg>
+                                    <span>This trend is abusive or harmful</span>
+                                </div>
+                                <div class="trending-menu-item">
+                                    <svg class="trending-menu-item-icon" viewBox="0 0 24 24">
+                                        <path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm0 18c-4.41 0-8-3.59-8-8s3.59-8 8-8 8 3.59 8 8-3.59 8-8 8z" fill="currentColor"/>
+                                        <circle cx="8.5" cy="9.5" r="1.5" fill="currentColor"/>
+                                        <circle cx="15.5" cy="9.5" r="1.5" fill="currentColor"/>
+                                        <path d="M16 16c-1-1.5-2.5-2-4-2s-3 .5-4 2" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" fill="none"/>
+                                    </svg>
+                                    <span>Not interested in this</span>
+                                </div>
+                                <div class="trending-menu-item">
+                                    <svg class="trending-menu-item-icon" viewBox="0 0 24 24">
+                                        <path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm0 18c-4.41 0-8-3.59-8-8s3.59-8 8-8 8 3.59 8 8-3.59 8-8 8z" fill="currentColor"/>
+                                        <circle cx="8.5" cy="9.5" r="1.5" fill="currentColor"/>
+                                        <circle cx="15.5" cy="9.5" r="1.5" fill="currentColor"/>
+                                        <path d="M16 16c-1-1.5-2.5-2-4-2s-3 .5-4 2" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" fill="none"/>
+                                    </svg>
+                                    <span>This trend is a duplicate</span>
+                                </div>
+                                <div class="trending-menu-item">
+                                    <svg class="trending-menu-item-icon" viewBox="0 0 24 24">
+                                        <path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm0 18c-4.41 0-8-3.59-8-8s3.59-8 8-8 8 3.59 8 8-3.59 8-8 8z" fill="currentColor"/>
+                                        <circle cx="8.5" cy="9.5" r="1.5" fill="currentColor"/>
+                                        <circle cx="15.5" cy="9.5" r="1.5" fill="currentColor"/>
+                                        <path d="M16 16c-1-1.5-2.5-2-4-2s-3 .5-4 2" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" fill="none"/>
+                                    </svg>
+                                    <span>This trend is harmful or spammy</span>
+                                </div>
                             </div>
-                            <h4 class="trending-topic">Singles' Day</h4>
-                            <p class="trending-description">Hurry, ends midnight!</p>
                         </div>
-                        <svg class="trending-menu-icon" viewBox="0 0 24 24" width="18" height="18">
-                            <circle cx="5" cy="12" r="1.5" fill="currentColor"></circle>
-                            <circle cx="12" cy="12" r="1.5" fill="currentColor"></circle>
-                            <circle cx="19" cy="12" r="1.5" fill="currentColor"></circle>
-                        </svg>
                     </div>
+
+                    <div class="trending-item">
+                        <div class="trending-content">
+                            <span class="trending-location">Trending in South Africa</span>
+                            <h4 class="trending-topic">Mbatha</h4>
+                        </div>
+                        <div class="trending-menu-wrapper">
+                            <input type="checkbox" id="trending-menu-2" class="trending-menu-toggle">
+                            <label for="trending-menu-2" class="trending-menu-icon">
+                                <svg viewBox="0 0 24 24" width="18" height="18">
+                                    <circle cx="5" cy="12" r="2" fill="currentColor"></circle>
+                                    <circle cx="12" cy="12" r="2" fill="currentColor"></circle>
+                                    <circle cx="19" cy="12" r="2" fill="currentColor"></circle>
+                                </svg>
+                            </label>
+                            <div class="trending-menu-dropdown">
+                                <div class="trending-menu-item">
+                                    <svg class="trending-menu-item-icon" viewBox="0 0 24 24">
+                                        <path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm0 18c-4.41 0-8-3.59-8-8s3.59-8 8-8 8 3.59 8 8-3.59 8-8 8z" fill="currentColor"/>
+                                        <circle cx="8.5" cy="9.5" r="1.5" fill="currentColor"/>
+                                        <circle cx="15.5" cy="9.5" r="1.5" fill="currentColor"/>
+                                        <path d="M16 16c-1-1.5-2.5-2-4-2s-3 .5-4 2" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" fill="none"/>
+                                    </svg>
+                                    <span>The associated content is not relevant</span>
+                                </div>
+                                <div class="trending-menu-item">
+                                    <svg class="trending-menu-item-icon" viewBox="0 0 24 24">
+                                        <path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm0 18c-4.41 0-8-3.59-8-8s3.59-8 8-8 8 3.59 8 8-3.59 8-8 8z" fill="currentColor"/>
+                                        <circle cx="8.5" cy="9.5" r="1.5" fill="currentColor"/>
+                                        <circle cx="15.5" cy="9.5" r="1.5" fill="currentColor"/>
+                                        <path d="M16 16c-1-1.5-2.5-2-4-2s-3 .5-4 2" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" fill="none"/>
+                                    </svg>
+                                    <span>This trend is spam</span>
+                                </div>
+                                <div class="trending-menu-item">
+                                    <svg class="trending-menu-item-icon" viewBox="0 0 24 24">
+                                        <path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm0 18c-4.41 0-8-3.59-8-8s3.59-8 8-8 8 3.59 8 8-3.59 8-8 8z" fill="currentColor"/>
+                                        <circle cx="8.5" cy="9.5" r="1.5" fill="currentColor"/>
+                                        <circle cx="15.5" cy="9.5" r="1.5" fill="currentColor"/>
+                                        <path d="M16 16c-1-1.5-2.5-2-4-2s-3 .5-4 2" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" fill="none"/>
+                                    </svg>
+                                    <span>This trend is abusive or harmful</span>
+                                </div>
+                                <div class="trending-menu-item">
+                                    <svg class="trending-menu-item-icon" viewBox="0 0 24 24">
+                                        <path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm0 18c-4.41 0-8-3.59-8-8s3.59-8 8-8 8 3.59 8 8-3.59 8-8 8z" fill="currentColor"/>
+                                        <circle cx="8.5" cy="9.5" r="1.5" fill="currentColor"/>
+                                        <circle cx="15.5" cy="9.5" r="1.5" fill="currentColor"/>
+                                        <path d="M16 16c-1-1.5-2.5-2-4-2s-3 .5-4 2" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" fill="none"/>
+                                    </svg>
+                                    <span>Not interested in this</span>
+                                </div>
+                                <div class="trending-menu-item">
+                                    <svg class="trending-menu-item-icon" viewBox="0 0 24 24">
+                                        <path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm0 18c-4.41 0-8-3.59-8-8s3.59-8 8-8 8 3.59 8 8-3.59 8-8 8z" fill="currentColor"/>
+                                        <circle cx="8.5" cy="9.5" r="1.5" fill="currentColor"/>
+                                        <circle cx="15.5" cy="9.5" r="1.5" fill="currentColor"/>
+                                        <path d="M16 16c-1-1.5-2.5-2-4-2s-3 .5-4 2" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" fill="none"/>
+                                    </svg>
+                                    <span>This trend is a duplicate</span>
+                                </div>
+                                <div class="trending-menu-item">
+                                    <svg class="trending-menu-item-icon" viewBox="0 0 24 24">
+                                        <path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm0 18c-4.41 0-8-3.59-8-8s3.59-8 8-8 8 3.59 8 8-3.59 8-8 8z" fill="currentColor"/>
+                                        <circle cx="8.5" cy="9.5" r="1.5" fill="currentColor"/>
+                                        <circle cx="15.5" cy="9.5" r="1.5" fill="currentColor"/>
+                                        <path d="M16 16c-1-1.5-2.5-2-4-2s-3 .5-4 2" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" fill="none"/>
+                                    </svg>
+                                    <span>This trend is harmful or spammy</span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="trending-item">
+                        <div class="trending-content">
+                            <span class="trending-location">Alex Iwobi · Trending</span>
+                            <h4 class="trending-topic">Iwobi</h4>
+                            <span class="trending-posts">1,742 posts</span>
+                        </div>
+                        <div class="trending-menu-wrapper">
+                            <input type="checkbox" id="trending-menu-3" class="trending-menu-toggle">
+                            <label for="trending-menu-3" class="trending-menu-icon">
+                                <svg viewBox="0 0 24 24" width="18" height="18">
+                                    <circle cx="5" cy="12" r="2" fill="currentColor"></circle>
+                                    <circle cx="12" cy="12" r="2" fill="currentColor"></circle>
+                                    <circle cx="19" cy="12" r="2" fill="currentColor"></circle>
+                                </svg>
+                            </label>
+                            <div class="trending-menu-dropdown">
+                                <div class="trending-menu-item">
+                                    <svg class="trending-menu-item-icon" viewBox="0 0 24 24">
+                                        <path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm0 18c-4.41 0-8-3.59-8-8s3.59-8 8-8 8 3.59 8 8-3.59 8-8 8z" fill="currentColor"/>
+                                        <circle cx="8.5" cy="9.5" r="1.5" fill="currentColor"/>
+                                        <circle cx="15.5" cy="9.5" r="1.5" fill="currentColor"/>
+                                        <path d="M16 16c-1-1.5-2.5-2-4-2s-3 .5-4 2" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" fill="none"/>
+                                    </svg>
+                                    <span>The associated content is not relevant</span>
+                                </div>
+                                <div class="trending-menu-item">
+                                    <svg class="trending-menu-item-icon" viewBox="0 0 24 24">
+                                        <path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm0 18c-4.41 0-8-3.59-8-8s3.59-8 8-8 8 3.59 8 8-3.59 8-8 8z" fill="currentColor"/>
+                                        <circle cx="8.5" cy="9.5" r="1.5" fill="currentColor"/>
+                                        <circle cx="15.5" cy="9.5" r="1.5" fill="currentColor"/>
+                                        <path d="M16 16c-1-1.5-2.5-2-4-2s-3 .5-4 2" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" fill="none"/>
+                                    </svg>
+                                    <span>This trend is spam</span>
+                                </div>
+                                <div class="trending-menu-item">
+                                    <svg class="trending-menu-item-icon" viewBox="0 0 24 24">
+                                        <path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm0 18c-4.41 0-8-3.59-8-8s3.59-8 8-8 8 3.59 8 8-3.59 8-8 8z" fill="currentColor"/>
+                                        <circle cx="8.5" cy="9.5" r="1.5" fill="currentColor"/>
+                                        <circle cx="15.5" cy="9.5" r="1.5" fill="currentColor"/>
+                                        <path d="M16 16c-1-1.5-2.5-2-4-2s-3 .5-4 2" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" fill="none"/>
+                                    </svg>
+                                    <span>This trend is abusive or harmful</span>
+                                </div>
+                                <div class="trending-menu-item">
+                                    <svg class="trending-menu-item-icon" viewBox="0 0 24 24">
+                                        <path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm0 18c-4.41 0-8-3.59-8-8s3.59-8 8-8 8 3.59 8 8-3.59 8-8 8z" fill="currentColor"/>
+                                        <circle cx="8.5" cy="9.5" r="1.5" fill="currentColor"/>
+                                        <circle cx="15.5" cy="9.5" r="1.5" fill="currentColor"/>
+                                        <path d="M16 16c-1-1.5-2.5-2-4-2s-3 .5-4 2" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" fill="none"/>
+                                    </svg>
+                                    <span>Not interested in this</span>
+                                </div>
+                                <div class="trending-menu-item">
+                                    <svg class="trending-menu-item-icon" viewBox="0 0 24 24">
+                                        <path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm0 18c-4.41 0-8-3.59-8-8s3.59-8 8-8 8 3.59 8 8-3.59 8-8 8z" fill="currentColor"/>
+                                        <circle cx="8.5" cy="9.5" r="1.5" fill="currentColor"/>
+                                        <circle cx="15.5" cy="9.5" r="1.5" fill="currentColor"/>
+                                        <path d="M16 16c-1-1.5-2.5-2-4-2s-3 .5-4 2" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" fill="none"/>
+                                    </svg>
+                                    <span>This trend is a duplicate</span>
+                                </div>
+                                <div class="trending-menu-item">
+                                    <svg class="trending-menu-item-icon" viewBox="0 0 24 24">
+                                        <path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm0 18c-4.41 0-8-3.59-8-8s3.59-8 8-8 8 3.59 8 8-3.59 8-8 8z" fill="currentColor"/>
+                                        <circle cx="8.5" cy="9.5" r="1.5" fill="currentColor"/>
+                                        <circle cx="15.5" cy="9.5" r="1.5" fill="currentColor"/>
+                                        <path d="M16 16c-1-1.5-2.5-2-4-2s-3 .5-4 2" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" fill="none"/>
+                                    </svg>
+                                    <span>This trend is harmful or spammy</span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="trending-item">
+                        <div class="trending-content">
+                            <span class="trending-location">Trending in South Africa</span>
+                            <h4 class="trending-topic">#Bokke</h4>
+                        </div>
+                        <div class="trending-menu-wrapper">
+                            <input type="checkbox" id="trending-menu-4" class="trending-menu-toggle">
+                            <label for="trending-menu-4" class="trending-menu-icon">
+                                <svg viewBox="0 0 24 24" width="18" height="18">
+                                    <circle cx="5" cy="12" r="2" fill="currentColor"></circle>
+                                    <circle cx="12" cy="12" r="2" fill="currentColor"></circle>
+                                    <circle cx="19" cy="12" r="2" fill="currentColor"></circle>
+                                </svg>
+                            </label>
+                            <div class="trending-menu-dropdown">
+                                <div class="trending-menu-item">
+                                    <svg class="trending-menu-item-icon" viewBox="0 0 24 24">
+                                        <path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm0 18c-4.41 0-8-3.59-8-8s3.59-8 8-8 8 3.59 8 8-3.59 8-8 8z" fill="currentColor"/>
+                                        <circle cx="8.5" cy="9.5" r="1.5" fill="currentColor"/>
+                                        <circle cx="15.5" cy="9.5" r="1.5" fill="currentColor"/>
+                                        <path d="M16 16c-1-1.5-2.5-2-4-2s-3 .5-4 2" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" fill="none"/>
+                                    </svg>
+                                    <span>The associated content is not relevant</span>
+                                </div>
+                                <div class="trending-menu-item">
+                                    <svg class="trending-menu-item-icon" viewBox="0 0 24 24">
+                                        <path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm0 18c-4.41 0-8-3.59-8-8s3.59-8 8-8 8 3.59 8 8-3.59 8-8 8z" fill="currentColor"/>
+                                        <circle cx="8.5" cy="9.5" r="1.5" fill="currentColor"/>
+                                        <circle cx="15.5" cy="9.5" r="1.5" fill="currentColor"/>
+                                        <path d="M16 16c-1-1.5-2.5-2-4-2s-3 .5-4 2" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" fill="none"/>
+                                    </svg>
+                                    <span>This trend is spam</span>
+                                </div>
+                                <div class="trending-menu-item">
+                                    <svg class="trending-menu-item-icon" viewBox="0 0 24 24">
+                                        <path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm0 18c-4.41 0-8-3.59-8-8s3.59-8 8-8 8 3.59 8 8-3.59 8-8 8z" fill="currentColor"/>
+                                        <circle cx="8.5" cy="9.5" r="1.5" fill="currentColor"/>
+                                        <circle cx="15.5" cy="9.5" r="1.5" fill="currentColor"/>
+                                        <path d="M16 16c-1-1.5-2.5-2-4-2s-3 .5-4 2" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" fill="none"/>
+                                    </svg>
+                                    <span>This trend is abusive or harmful</span>
+                                </div>
+                                <div class="trending-menu-item">
+                                    <svg class="trending-menu-item-icon" viewBox="0 0 24 24">
+                                        <path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm0 18c-4.41 0-8-3.59-8-8s3.59-8 8-8 8 3.59 8 8-3.59 8-8 8z" fill="currentColor"/>
+                                        <circle cx="8.5" cy="9.5" r="1.5" fill="currentColor"/>
+                                        <circle cx="15.5" cy="9.5" r="1.5" fill="currentColor"/>
+                                        <path d="M16 16c-1-1.5-2.5-2-4-2s-3 .5-4 2" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" fill="none"/>
+                                    </svg>
+                                    <span>Not interested in this</span>
+                                </div>
+                                <div class="trending-menu-item">
+                                    <svg class="trending-menu-item-icon" viewBox="0 0 24 24">
+                                        <path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm0 18c-4.41 0-8-3.59-8-8s3.59-8 8-8 8 3.59 8 8-3.59 8-8 8z" fill="currentColor"/>
+                                        <circle cx="8.5" cy="9.5" r="1.5" fill="currentColor"/>
+                                        <circle cx="15.5" cy="9.5" r="1.5" fill="currentColor"/>
+                                        <path d="M16 16c-1-1.5-2.5-2-4-2s-3 .5-4 2" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" fill="none"/>
+                                    </svg>
+                                    <span>This trend is a duplicate</span>
+                                </div>
+                                <div class="trending-menu-item">
+                                    <svg class="trending-menu-item-icon" viewBox="0 0 24 24">
+                                        <path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm0 18c-4.41 0-8-3.59-8-8s3.59-8 8-8 8 3.59 8 8-3.59 8-8 8z" fill="currentColor"/>
+                                        <circle cx="8.5" cy="9.5" r="1.5" fill="currentColor"/>
+                                        <circle cx="15.5" cy="9.5" r="1.5" fill="currentColor"/>
+                                        <path d="M16 16c-1-1.5-2.5-2-4-2s-3 .5-4 2" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" fill="none"/>
+                                    </svg>
+                                    <span>This trend is harmful or spammy</span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
                     <a href="#" class="show-more-link">Show more</a>
                 </div>
-
                 <div class="sidebar-card who-to-follow-card">
                     <div class="sidebar-card-header">
                         <h3 class="sidebar-card-title">Who to follow</h3>
@@ -1673,7 +2171,7 @@
                         </div>
                         <div class="follow-info">
                             <div class="follow-name">
-                                <span>Nottingham Forest</span>
+                                <span><a href="https://x.com/NFFC" style="color: white; text-decoration: none;">Nottingham Forest</a></span>
                                 <svg class="verified-badge-small" viewBox="0 0 22 22" width="16" height="16">
                                     <g>
                                         <linearGradient gradientUnits="userSpaceOnUse" id="nffc-a" x1="4.411" x2="18.083" y1="2.495" y2="21.508">
@@ -1696,17 +2194,17 @@
                                     </g>
                                 </svg>
                             </div>
-                            <span class="follow-handle">@NFFC</span>
+                            <span class="follow-handle"><a href="https://x.com/NFFC" style="color: inherit; text-decoration: none;">@NFFC</a></span>
                         </div>
-                        <button class="follow-button">Follow</button>
+                        <a href="https://x.com/NFFC" class="follow-button">Follow</a>
                     </div>
                     <div class="follow-item">
                         <div class="follow-avatar">
-                            <img src="assets/Mondli Profile.jpg" alt="Mondli Gungubele">
+                            <img src="assets/Mondli Gungubele, MP Profile.jpg" alt="Mondli Gungubele">
                         </div>
                         <div class="follow-info">
                             <div class="follow-name">
-                                <span>Mondli Gungubele, MP</span>
+                                <span><a href="https://x.com/MondliGungubel_" style="color: white; text-decoration: none;">Mondli Gungubele, MP</a></span>
                                 <svg class="verified-badge-small" viewBox="0 0 22 22" width="16" height="16">
                                     <g>
                                         <linearGradient gradientUnits="userSpaceOnUse" id="mondli-a" x1="4.411" x2="18.083" y1="2.495" y2="21.508">
@@ -1729,17 +2227,17 @@
                                     </g>
                                 </svg>
                             </div>
-                            <span class="follow-handle">@MondliGungubel_</span>
+                            <span class="follow-handle"><a href="https://x.com/MondliGungubel_" style="color: inherit; text-decoration: none;">@MondliGungubel_</a></span>
                         </div>
-                        <button class="follow-button">Follow</button>
+                        <a href="https://x.com/MondliGungubel_" class="follow-button">Follow</a>
                     </div>
                     <div class="follow-item">
                         <div class="follow-avatar">
-                            <img src="assets/E-Ben Profile.jpg" alt="E-ben Obum">
+                            <img src="assets/E-ben Obum Profile.jpg" alt="E-ben Obum">
                         </div>
                         <div class="follow-info">
                             <div class="follow-name">
-                                <span>E-ben Obum</span>
+                                <span><a href="https://x.com/EbenCfc/photo" style="color: white; text-decoration: none;">E-ben Obum</a></span>
                                 <svg class="verified-badge-small" viewBox="0 0 22 22" width="16" height="16">
                                     <g>
                                         <linearGradient gradientUnits="userSpaceOnUse" id="eben-a" x1="4.411" x2="18.083" y1="2.495" y2="21.508">
@@ -1762,9 +2260,9 @@
                                     </g>
                                 </svg>
                             </div>
-                            <span class="follow-handle">@EbenCfc</span>
+                            <span class="follow-handle"><a href="https://x.com/EbenCfc/photo" style="color: inherit; text-decoration: none;">@EbenCfc</a></span>
                         </div>
-                        <button class="follow-button">Follow</button>
+                        <a href="https://x.com/EbenCfc/photo" class="follow-button">Follow</a>
                     </div>
                     <a href="#" class="show-more-link">Show more</a>
                 </div>
@@ -1783,7 +2281,15 @@
                         <span class="footer-separator">|</span>
                         <a href="#" class="footer-link">Ads info</a>
                         <span class="footer-separator">|</span>
-                        <a href="#" class="footer-link">More...</a>
+                        <div class="more-link-container">
+                            <a href="#" class="footer-link more-link">More...</a>
+                            <div class="more-popup">
+                                <a href="#" class="popup-item">About</a>
+                                <a href="#" class="popup-item">Download the X app</a>
+                                <a href="#" class="popup-item">X for Business</a>
+                                <a href="#" class="popup-item">Developers</a>
+                            </div>
+                        </div>
                         <span class="footer-copyright">© 2025 X Corp.</span>
                     </div>
                 </div>
@@ -1791,7 +2297,23 @@
         </div>
                     
     </div>
+    
+    <!-- ========================================
+         JAVASCRIPT SCRIPTS
+         ========================================
+         These scripts add interactivity to the page:
+         1. Twitter widgets (official Twitter script for embedded tweets)
+         2. Video timer (shows remaining time on videos)
+         3. Tweet menu dropdowns (three dots menu)
+         4. Tab switching (For You / Following tabs)
+         5. Clickable tweet cards (makes entire tweet clickable)
+    -->
+    
+    <!-- Official Twitter widget script (for embedded tweets/timelines) -->
     <script async src="https://platform.twitter.com/widgets.js" charset="utf-8"></script>
+    
+    <!-- VIDEO TIMER SCRIPT -->
+    <!-- Updates the timer display on videos as they play -->
     <script>
         document.addEventListener('DOMContentLoaded', function() {
             const video = document.querySelector('.tweet-video-iframe');
@@ -1814,6 +2336,9 @@
             }
         });
     </script>
+    
+    <!-- TWEET MENU DROPDOWN SCRIPT -->
+    <!-- Handles opening/closing the three dots menu on tweets -->
     <script>
         // Handle tweet menu dropdown clicks
         document.addEventListener('DOMContentLoaded', function() {
@@ -1836,6 +2361,9 @@
             });
         });
     </script>
+    
+    <!-- TAB SWITCHING SCRIPT -->
+    <!-- Switches between "For You" and "Following" tabs -->
     <script>
         // Tab switching functionality
         document.addEventListener('DOMContentLoaded', function() {
@@ -1872,6 +2400,10 @@
             });
         });
     </script>
+
+    <!-- TWEET CLICKABLE LINKS SCRIPT -->
+    <!-- Makes entire tweet cards clickable (separate external file) -->
+    <script src="scripts/tweet-links.js"></script>
 </body>
 
 </html>

@@ -1,73 +1,116 @@
+/* ====================================
+   GLOBAL STYLES & RESET
+   ==================================== */
+
+/* Reset all elements to have no margin, padding, and use border-box sizing */
 * {
-    margin: 0;
-    padding: 0;
-    box-sizing: border-box;
-    font-size: 16px;
+    margin: 0;  /* Removes default margin */
+    padding: 0;  /* Removes default padding */
+    box-sizing: border-box;  /* Makes padding and border included in width/height */
+    font-size: 16px;  /* Sets base font size */
 }
 
+/* ====================================
+   CSS VARIABLES (COLOR THEME)
+   ==================================== */
+
+/* Variables that store colors used throughout the site */
 :root {
-    --color-btn-dynamic: white;
-    --color-blue: rgba(29, 161, 242, 1);
-    --color-hover: rgba(29, 161, 242, 0.08);
-    --color-border: #38444d;
-    --color-tweet-dynamic: #80919e;
+    --bg-primary: #000000;  /* Main background (pure black) */
+    --bg-secondary: #16181c;  /* Secondary background (dark gray) */
+    --bg-blur: rgba(0, 0, 0, 0.65);  /* Semi-transparent background for blur effect */
+    --text-primary: #e7e9ea;  /* Main text color (light gray) */
+    --text-secondary: #71767a;  /* Secondary text color (darker gray) */
+    --border-color: #2f3336;  /* Color for borders */
+    --color-blue: rgba(29, 161, 242, 1);  /* Twitter blue */
+    --color-hover: rgba(29, 161, 242, 0.08);  /* Light blue for hover effects */
+    --color-btn-dynamic: white;  /* Button text color */
+    --color-border: #38444d;  /* Alternative border color */
+    --color-tweet-dynamic: #80919e;  /* Color for tweet icons */
 }
+
+/* ====================================
+   MAIN LAYOUT CONTAINER
+   ==================================== */
+
+/* The outermost container that holds everything */
 .mainContainer {
-    background: #000000;
-    height: 100vh;
-    display: flex;
+    background: var(--bg-primary);  /* Black background */
+    height: 100vh;  /* Full viewport height */
+    display: flex;  /* Makes children flexible */
 }
 
+/* ====================================
+   LAYOUT SECTIONS
+   ==================================== */
+
+/* Left sidebar (navigation) */
 .sidebar {
-    width: 28%;
-    height: 100%;
-    border-right: 1px solid #71767A;
+    width: 28%;  /* Takes 28% of the width */
+    height: 100%;  /* Full height */
+    border-right: 1px solid var(--border-color);  /* Right border */
 }
+
+/* Main section (contains feed and right sidebar) */
 .main {
-    width: 72%;
-    height: 100%;
-    display: flex;
-    flex-direction: column;
-    overflow: hidden;
+    width: 72%;  /* Takes remaining 72% of width */
+    height: 100%;  /* Full height */
+    display: flex;  /* Makes children flexible */
+    flex-direction: column;  /* Stacks children vertically */
+    overflow: hidden;  /* Hides overflow */
 }
 
+/* ====================================
+   MAIN CONTENT (TWEET FEED)
+   ==================================== */
+
+/* The center column where tweets appear */
 .mainContent {
-    flex: 0 0 600px;
-    width: 600px;
-    border-right: 1px solid #71767A;
-    min-width: 600px;
-    max-width: 600px;
-    order: 1;
-    flex-shrink: 0;
-    overflow-y: auto;
-    overflow-x: hidden;
-    display: block;
-    visibility: visible;
-    opacity: 1;
-    background-color: #000000;
+    flex: 0 0 600px;  /* Fixed at 600px, won't grow or shrink */
+    width: 600px;  /* Fixed width */
+    border-right: 1px solid var(--border-color);  /* Right border */
+    min-width: 600px;  /* Minimum width */
+    max-width: 600px;  /* Maximum width */
+    order: 1;  /* Appears first in flex order */
+    flex-shrink: 0;  /* Won't shrink */
+    display: block;  /* Displays as block */
+    visibility: visible;  /* Visible */
+    opacity: 1;  /* Fully opaque */
+    background-color: var(--bg-primary);  /* Black background */
 }
 
+/* Individual tweet container */
 .tweet {
-    width: 100%;
+    width: 100%;  /* Full width */
 }
 
+/* ====================================
+   CONTENT WRAPPER
+   ==================================== */
+
+/* Container that holds the feed and right sidebar */
 .content {
-    display: flex;
-    flex-direction: row;
-    flex-wrap: nowrap;
-    overflow-y: auto;
-    overflow-x: hidden;
-    flex: 1;
-    align-items: flex-start;
-    min-height: 0;
+    display: flex;  /* Makes children flexible */
+    flex-direction: row;  /* Arranges children horizontally */
+    flex-wrap: nowrap;  /* Prevents wrapping */
+    overflow-y: auto;  /* Allows vertical scrolling */
+    overflow-x: hidden;  /* Hides horizontal scrolling */
+    flex: 1;  /* Takes up remaining space */
+    align-items: flex-start;  /* Aligns items to top */
+    min-height: 0;  /* Allows flexbox scrolling to work */
 }
 
+/* ====================================
+   RIGHT SIDEBAR
+   ==================================== */
+
+/* Right sidebar (trends, who to follow) */
 .right-sidebar {
-    flex: 0 0 350px;
-    width: 350px;
-    min-width: 350px;
-    max-width: 350px;
-    height: auto;
-    position: relative;
-    order: 2;
+    flex: 0 0 350px;  /* Fixed at 350px */
+    width: 350px;  /* Fixed width */
+    min-width: 350px;  /* Minimum width */
+    max-width: 350px;  /* Maximum width */
+    height: auto;  /* Auto height */
+    position: relative;  /* Allows positioning of children */
+    order: 2;  /* Appears second in flex order */
 }

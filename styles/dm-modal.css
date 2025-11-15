@@ -1,0 +1,302 @@
+/* ====================================
+   EMERGENCY DM MODAL - CSS ONLY IMPLEMENTATION
+   ==================================== */
+
+/* Hidden checkbox that controls the modal (checkbox hack) */
+.emergency-dm-checkbox {
+    display: none;  /* Hides the actual checkbox */
+}
+
+/* The modal container that overlays everything */
+.dm-modal {
+    display: none;  /* Hidden by default */
+    position: fixed;  /* Stays in place when scrolling */
+    top: 0;  /* Starts at the top */
+    left: 0;  /* Starts at the left */
+    width: 100%;  /* Takes full width of screen */
+    height: 100%;  /* Takes full height of screen */
+    z-index: 10000;  /* Places it above everything else */
+    pointer-events: none;  /* Allows clicks to pass through when hidden */
+    opacity: 0;  /* Completely transparent by default */
+    transition: opacity 0.2s ease;  /* Smooth fade in/out */
+}
+
+/* Show the modal when the checkbox is checked */
+#emergency-dm-toggle:checked ~ .dm-modal {
+    display: block;  /* Makes it visible */
+    pointer-events: all;  /* Allows clicks on the modal */
+    opacity: 1;  /* Fully visible */
+}
+
+/* Animate the modal content when it appears */
+#emergency-dm-toggle:checked ~ .dm-modal .dm-modal-content {
+    animation: slideUp 0.3s ease;  /* Slides up from below */
+}
+
+/* ====================================
+   MODAL OVERLAY (DARK BACKGROUND)
+   ==================================== */
+
+/* The dark background behind the modal */
+.dm-modal-overlay {
+    position: absolute;  /* Positioned relative to modal */
+    top: 0;  /* Starts at top */
+    left: 0;  /* Starts at left */
+    width: 100%;  /* Full width */
+    height: 100%;  /* Full height */
+    background: rgba(0, 0, 0, 0.7);  /* Semi-transparent black */
+    backdrop-filter: blur(4px);  /* Blurs the background */
+}
+
+/* ====================================
+   MODAL CONTENT BOX
+   ==================================== */
+
+/* The main white box that contains the DM conversation */
+.dm-modal-content {
+    position: absolute;  /* Takes it out of normal flow */
+    top: 50%;  /* Moves to vertical center */
+    left: 50%;  /* Moves to horizontal center */
+    transform: translate(-50%, -50%);  /* Centers it perfectly */
+    width: 600px;  /* Fixed width */
+    max-width: 90%;  /* Won't exceed 90% of screen on small devices */
+    height: 650px;  /* Fixed height */
+    max-height: 90vh;  /* Won't exceed 90% of viewport height */
+    background: #000000;  /* Black background */
+    border: 1px solid #2f3336;  /* Gray border */
+    border-radius: 16px;  /* Rounded corners */
+    display: flex;  /* Makes children flexible */
+    flex-direction: column;  /* Stacks children vertically */
+    animation: slideUp 0.3s ease;  /* Slides up when appearing */
+}
+
+/* ====================================
+   ANIMATIONS
+   ==================================== */
+
+/* Fade in animation */
+@keyframes fadeIn {
+    from {
+        opacity: 0;  /* Starts invisible */
+    }
+    to {
+        opacity: 1;  /* Ends fully visible */
+    }
+}
+
+/* Slide up animation */
+@keyframes slideUp {
+    from {
+        transform: translate(-50%, -40%);  /* Starts slightly below center */
+        opacity: 0;  /* Starts invisible */
+    }
+    to {
+        transform: translate(-50%, -50%);  /* Ends at center */
+        opacity: 1;  /* Ends fully visible */
+    }
+}
+
+/* ====================================
+   MODAL HEADER
+   ==================================== */
+
+/* Header section at the top of the modal */
+.dm-modal-header {
+    display: flex;  /* Makes children flexible */
+    justify-content: space-between;  /* Spaces items apart */
+    align-items: center;  /* Centers items vertically */
+    padding: 16px 20px;  /* Space inside header */
+    border-bottom: 1px solid #2f3336;  /* Bottom border */
+}
+
+/* Container for user avatar and info */
+.dm-header-user {
+    display: flex;  /* Makes children flexible */
+    align-items: center;  /* Centers items vertically */
+    gap: 12px;  /* Space between items */
+}
+
+/* User's profile picture in the header */
+.dm-avatar {
+    width: 48px;  /* Width of avatar */
+    height: 48px;  /* Height of avatar */
+    border-radius: 50%;  /* Makes it circular */
+    object-fit: cover;  /* Ensures image fills circle properly */
+}
+
+/* Container for user name and handle */
+.dm-user-info {
+    display: flex;  /* Makes children flexible */
+    flex-direction: column;  /* Stacks name and handle vertically */
+    gap: 2px;  /* Small space between name and handle */
+}
+
+/* User's display name */
+.dm-user-name {
+    font-size: 16px;  /* Text size */
+    font-weight: 700;  /* Bold */
+    color: #e7e9ea;  /* Light gray text */
+    display: flex;  /* Makes badge flexible */
+    align-items: center;  /* Centers badge with name */
+}
+
+/* User's @username */
+.dm-user-handle {
+    font-size: 14px;  /* Smaller text */
+    color: #71767a;  /* Darker gray */
+}
+
+/* Close button (X) in the header */
+.dm-close-btn {
+    background: transparent;  /* No background */
+    border: none;  /* No border */
+    cursor: pointer;  /* Shows it's clickable */
+    padding: 8px;  /* Space around icon */
+    border-radius: 50%;  /* Makes it circular */
+    display: flex;  /* Makes icon flexible */
+    align-items: center;  /* Centers icon */
+    justify-content: center;  /* Centers icon */
+    transition: background 0.2s;  /* Smooth background change */
+    color: #e7e9ea;  /* Light gray */
+    user-select: none;  /* Prevents text selection */
+}
+
+/* What happens when you hover over the close button */
+.dm-close-btn:hover {
+    background: rgba(239, 243, 244, 0.1);  /* Light background */
+}
+
+/* Make the overlay clickable to close */
+.dm-modal-overlay {
+    cursor: pointer;  /* Shows it's clickable */
+}
+
+/* ====================================
+   CONVERSATION AREA
+   ==================================== */
+
+/* The scrollable area where messages appear */
+.dm-conversation {
+    flex: 1;  /* Takes up remaining space */
+    overflow-y: auto;  /* Allows vertical scrolling */
+    padding: 20px;  /* Space inside */
+    display: flex;  /* Makes messages flexible */
+    flex-direction: column;  /* Stacks messages vertically */
+    gap: 16px;  /* Space between messages */
+}
+
+/* Individual message container */
+.dm-message {
+    display: flex;  /* Makes avatar and bubble flexible */
+    align-items: flex-start;  /* Aligns items to top */
+    gap: 12px;  /* Space between avatar and bubble */
+}
+
+/* Small avatar next to each message */
+.dm-message-avatar {
+    width: 32px;  /* Width of avatar */
+    height: 32px;  /* Height of avatar */
+    border-radius: 50%;  /* Makes it circular */
+    object-fit: cover;  /* Ensures image fills circle */
+    flex-shrink: 0;  /* Prevents avatar from shrinking */
+}
+
+/* The message bubble containing text */
+.dm-message-bubble {
+    background: #1d9bf0;  /* Twitter blue */
+    color: white;  /* White text */
+    padding: 12px 16px;  /* Space inside bubble */
+    border-radius: 20px;  /* Rounded corners */
+    max-width: 70%;  /* Won't exceed 70% of container */
+    font-size: 15px;  /* Text size */
+    line-height: 20px;  /* Space between lines */
+    word-wrap: break-word;  /* Breaks long words */
+}
+
+/* ====================================
+   INPUT AREA
+   ==================================== */
+
+/* Container for the message input at the bottom */
+.dm-input-container {
+    padding: 16px 20px;  /* Space inside */
+    border-top: 1px solid #2f3336;  /* Top border */
+    display: flex;  /* Makes input and button flexible */
+    align-items: flex-end;  /* Aligns items to bottom */
+    gap: 12px;  /* Space between input and button */
+}
+
+/* The text input field */
+.dm-input {
+    flex: 1;  /* Takes up remaining space */
+    background: transparent;  /* No background */
+    border: 1px solid #2f3336;  /* Gray border */
+    border-radius: 20px;  /* Rounded corners */
+    padding: 12px 16px;  /* Space inside */
+    color: #e7e9ea;  /* Light gray text */
+    font-size: 15px;  /* Text size */
+    font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;  /* System font */
+}
+
+/* What happens when you click in the input field */
+.dm-input:focus {
+    outline: none;  /* Removes default outline */
+    border-color: #1d9bf0;  /* Changes border to blue */
+}
+
+/* Placeholder text in the input */
+.dm-input::placeholder {
+    color: #71767a;  /* Dark gray */
+}
+
+/* Send button next to the input */
+.dm-send-btn {
+    background: #1d9bf0;  /* Twitter blue */
+    border: none;  /* No border */
+    width: 36px;  /* Width of button */
+    height: 36px;  /* Height of button */
+    border-radius: 50%;  /* Makes it circular */
+    display: flex;  /* Makes icon flexible */
+    align-items: center;  /* Centers icon */
+    justify-content: center;  /* Centers icon */
+    cursor: pointer;  /* Shows it's clickable */
+    transition: background 0.2s;  /* Smooth color change */
+    flex-shrink: 0;  /* Prevents button from shrinking */
+    user-select: none;  /* Prevents text selection */
+}
+
+/* What happens when you hover over the send button */
+.dm-send-btn:hover {
+    background: #1a8cd8;  /* Darker blue */
+}
+
+/* Icon inside the send button */
+.dm-send-btn svg {
+    fill: white;  /* White color */
+    pointer-events: none;  /* Prevents icon from blocking clicks */
+}
+
+/* ====================================
+   SCROLLBAR STYLING
+   ==================================== */
+
+/* Width of the scrollbar */
+.dm-conversation::-webkit-scrollbar {
+    width: 6px;  /* Thin scrollbar */
+}
+
+/* Track (background) of the scrollbar */
+.dm-conversation::-webkit-scrollbar-track {
+    background: transparent;  /* Invisible background */
+}
+
+/* Handle (draggable part) of the scrollbar */
+.dm-conversation::-webkit-scrollbar-thumb {
+    background: #2f3336;  /* Gray color */
+    border-radius: 3px;  /* Slightly rounded */
+}
+
+/* What happens when you hover over the scrollbar handle */
+.dm-conversation::-webkit-scrollbar-thumb:hover {
+    background: #3f4346;  /* Lighter gray */
+}

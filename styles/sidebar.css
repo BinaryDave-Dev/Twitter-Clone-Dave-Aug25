@@ -1,138 +1,461 @@
+/* ====================================
+   MAIN SIDEBAR CONTAINER
+   ==================================== */
+
+/* This is the main container for all sidebar items */
 .sidebar-items {
-    display: flex;
-    flex-direction: column;
-    justify-content: space-between;
-    width: 275px;
-    margin-left: auto;
-    padding: 15px;
-    height: 100%;
+    display: flex;  /* Makes items flexible */
+    flex-direction: column;  /* Stacks items vertically */
+    width: 275px;  /* Fixed width for the sidebar */
+    margin-left: auto;  /* Pushes sidebar to the right */
+    padding: 15px;  /* Space inside the sidebar */
+    height: 100%;  /* Takes up full height */
 }
 
+/* ====================================
+   TWITTER LOGO SECTION
+   ==================================== */
+
+/* The Twitter logo at the top */
 .sidebar-logo {
-    padding: 10px;
-    border-radius: 50%;
-    display: inline-flex;
-    align-items: center;
-    justify-content: center;
+    padding: 8px;  /* Space around the logo */
+    border-radius: 50%;  /* Makes it circular */
+    display: inline-flex;  /* Keeps it inline but flexible */
+    align-items: center;  /* Centers content vertically */
+    justify-content: center;  /* Centers content horizontally */
+    margin-bottom: 4px;  /* Small space below logo */
 }
+
+/* Controls the size of the logo image or SVG */
 .sidebar-logo img,
 .sidebar-logo svg {
-    height: 1.75rem;
-    width: 1.75rem;
+    height: 1.75rem;  /* Logo height */
+    width: 1.75rem;  /* Logo width */
 }
+
+/* Color of the SVG logo (fills it with the primary text color) */
+.logo-svg {
+    fill: var(--text-primary);
+}
+
+/* What happens when you hover over the logo */
 .sidebar-logo:hover {
-    background: rgba(231, 233, 234, 0.1);
-    cursor: pointer;
-    border-radius: 50%;
+    background: rgba(231, 233, 234, 0.1);  /* Slight gray background */
+    cursor: pointer;  /* Changes cursor to a hand pointer */
+    border-radius: 50%;  /* Keeps it circular */
 }
 
+/* ====================================
+   EMERGENCY BUTTON SECTION
+   ==================================== */
+
+/* Container that holds the logo and emergency button together */
+.logo-emergency-wrapper {
+    display: flex;  /* Makes items flexible */
+    align-items: center;  /* Centers items vertically */
+    justify-content: flex-start;  /* Aligns items to the left */
+    width: 100%;  /* Takes full width */
+    position: relative;  /* Allows positioning children absolutely */
+}
+
+/* Remove right margin from logo when it's in the emergency wrapper */
+.logo-emergency-wrapper .sidebar-logo {
+    margin-right: 0;
+}
+
+/* Position the emergency button next to the logo */
+.logo-emergency-wrapper .emergency-button {
+    position: absolute;  /* Takes it out of normal flow */
+    left: calc(50% + 20px);  /* Places it to the right of center */
+}
+
+/* The main emergency button styling */
+.emergency-button {
+    background: linear-gradient(135deg, #ff0000 0%, #cc0000 100%);  /* Red gradient background */
+    border: 2px solid #ff3333;  /* Bright red border */
+    border-radius: 8px;  /* Rounded corners */
+    padding: 8px 12px;  /* Space inside the button */
+    display: flex;  /* Makes content flexible */
+    flex-direction: column;  /* Stacks text vertically */
+    align-items: center;  /* Centers text horizontally */
+    justify-content: center;  /* Centers text vertically */
+    cursor: pointer;  /* Shows it's clickable */
+    transition: all 0.3s ease;  /* Smooth transition for changes */
+    position: relative;  /* Allows for positioning */
+    box-shadow: 0 0 20px rgba(255, 0, 0, 0.4);  /* Red glowing effect */
+    outline: none;  /* Removes default outline */
+    user-select: none;  /* Prevents text selection */
+}
+
+/* What happens when you hover over the emergency button */
+.emergency-button:hover {
+    background: linear-gradient(135deg, #ff3333 0%, #ff0000 100%);  /* Lighter red gradient */
+    box-shadow: 0 0 30px rgba(255, 0, 0, 0.6);  /* Stronger glow effect */
+}
+
+/* What happens when you click the emergency button */
+.emergency-button:active {
+    opacity: 0.8;  /* Makes it slightly transparent */
+}
+
+/* The main text on the emergency button */
+.emergency-text {
+    font-size: 11px;  /* Small text size */
+    font-weight: 900;  /* Very bold */
+    color: white;  /* White text color */
+    letter-spacing: 1px;  /* Space between letters */
+    line-height: 1;  /* Tight line height */
+}
+
+/* The smaller text below the main text */
+.emergency-subtext {
+    font-size: 9px;  /* Even smaller text */
+    font-weight: 700;  /* Bold but not as much */
+    color: #ffcccc;  /* Light pink color */
+    letter-spacing: 0.5px;  /* Slight space between letters */
+    margin-top: 2px;  /* Small space above */
+}
+
+/* Animation that makes the emergency button pulse like a heartbeat */
+@keyframes heartbeat {
+    0% {
+        transform: scale(1);  /* Normal size */
+        box-shadow: 0 0 20px rgba(255, 0, 0, 0.4);  /* Normal glow */
+    }
+    10% {
+        transform: scale(1.1);  /* Slightly bigger */
+        box-shadow: 0 0 35px rgba(255, 0, 0, 0.7);  /* Stronger glow */
+    }
+    20% {
+        transform: scale(1);  /* Back to normal */
+        box-shadow: 0 0 20px rgba(255, 0, 0, 0.4);  /* Normal glow */
+    }
+    30% {
+        transform: scale(1.1);  /* Bigger again */
+        box-shadow: 0 0 35px rgba(255, 0, 0, 0.7);  /* Stronger glow */
+    }
+    40%, 100% {
+        transform: scale(1);  /* Stay normal until end */
+        box-shadow: 0 0 20px rgba(255, 0, 0, 0.4);  /* Normal glow */
+    }
+}
+
+/* Apply the heartbeat animation to the emergency button */
+.emergency-button {
+    animation: heartbeat 1.5s infinite;  /* Repeats every 1.5 seconds forever */
+}
+
+/* ====================================
+   SIDEBAR NAVIGATION LINKS
+   ==================================== */
+
+/* Container for all the sidebar navigation links */
 .sidebar-links {
-    display: flex;
-    flex-direction: column;
-    align-items: flex-start;
+    display: flex;  /* Makes items flexible */
+    flex-direction: column;  /* Stacks links vertically */
+    align-items: flex-start;  /* Aligns links to the left */
 }
 
+/* Individual sidebar navigation item (Home, Explore, etc.) */
 .sidebar-item {
-    display: flex;
-    color: white;
-    border-bottom-left-radius: 99999px;
-    border-top-left-radius: 99999px;
-    border-bottom-right-radius: 99999px;
-    border-top-right-radius: 99999px;
-    padding: 10px;
-
-    transition-property: background;
-    transition-duration: 0.3s;
-
-    margin-bottom: 8px;
-}
-
-.sidebar-item:hover {
-    background: rgba(231, 233, 234, 0.1);
-    cursor: pointer;
-}
-
-.sidebar-icon {
-    height: 1.75rem;
-    width: 1.75rem;
-    fill: currentColor;
-}
-.sidebar-title {
-    font-size: 1.1875rem;
-    font-weight: 400;
-    margin-left: 10px;
-}
-
-.sidebar-button {
-    background: white;
-    color: black;
-    font-size: 1rem;
-    font-weight: 700;
-    padding: 10px 30px;
-    height: 49px;
-    min-width: 79px;
-    width: 230px;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    border-bottom-left-radius: 99999px;
-    border-top-left-radius: 99999px;
-    border-bottom-right-radius: 99999px;
-    border-top-right-radius: 99999px;
-
-    transition-property: background;
-    transition-duration: 0.3s;
-}
-.sidebar-button:hover {
-    cursor: pointer;
-    background: #E6E6E6;
-}
-
-.sidebar-user {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    padding: 10px;
-    border-bottom-left-radius: 99999px;
-    border-top-left-radius: 99999px;
-    border-bottom-right-radius: 99999px;
-    border-top-right-radius: 99999px;
-}
-.sidebar-user:hover {
-    background: rgba(231, 233, 234, 0.1);
-    cursor: pointer;
-}
-.sidebar-user-details {
-    display: flex;
-}
-.sidebar-user-details img {
-    border-radius: 50%;
-    width: 40px;
-    height: 40px;
-    object-fit: cover;
-}
-.sidebar-name {
-    display: flex;
-    flex-direction: column;
-    margin-left: 10px;
-}
-.sidebar-dropdown {
-    height: 0.8rem;
+    display: flex;  /* Makes icon and text flexible */
+    color: var(--text-primary);  /* Uses primary text color */
+    border-bottom-left-radius: 99999px;  /* Fully rounded corners */
+    border-top-left-radius: 99999px;  /* Fully rounded corners */
+    border-bottom-right-radius: 99999px;  /* Fully rounded corners */
+    border-top-right-radius: 99999px;  /* Fully rounded corners */
+    padding: 10px;  /* Space inside each item */
     
+    transition-property: background;  /* Smooth background color change */
+    transition-duration: 0.3s;  /* Takes 0.3 seconds */
+    
+    margin-bottom: 4px;  /* Space between items */
 }
+
+/* What happens when you hover over a sidebar item */
+.sidebar-item:hover {
+    background: rgba(231, 233, 234, 0.1);  /* Light gray background */
+    cursor: pointer;  /* Shows it's clickable */
+}
+
+/* The icon in each sidebar item */
+.sidebar-icon {
+    height: 1.75rem;  /* Icon height */
+    width: 1.75rem;  /* Icon width */
+    fill: currentColor;  /* Uses the current text color */
+}
+
+/* The text label next to the icon */
+.sidebar-title {
+    font-size: 1.1875rem;  /* Text size */
+    font-weight: 400;  /* Normal weight */
+    margin-left: 10px;  /* Space between icon and text */
+}
+
+/* ====================================
+   POST BUTTON
+   ==================================== */
+
+/* The big "Post" button in the sidebar */
+.sidebar-button {
+    background: white;  /* White background */
+    color: black;  /* Black text */
+    font-size: 1rem;  /* Text size */
+    font-weight: 700;  /* Bold text */
+    padding: 10px 30px;  /* Space inside button */
+    height: 49px;  /* Fixed height */
+    min-width: 79px;  /* Minimum width */
+    width: 230px;  /* Fixed width */
+    display: flex;  /* Makes text flexible */
+    justify-content: center;  /* Centers text horizontally */
+    align-items: center;  /* Centers text vertically */
+    border-bottom-left-radius: 99999px;  /* Fully rounded corners */
+    border-top-left-radius: 99999px;  /* Fully rounded corners */
+    border-bottom-right-radius: 99999px;  /* Fully rounded corners */
+    border-top-right-radius: 99999px;  /* Fully rounded corners */
+    margin-top: 12px;  /* Space above button */
+    transition: all 0.3s ease;  /* Smooth transition for all properties */
+    position: relative;  /* Allows for positioning */
+}
+
+/* What happens when you hover over the Post button */
+.sidebar-button:hover {
+    cursor: pointer;  /* Shows it's clickable */
+    background: #E6E6E6;  /* Slightly darker white */
+    transform: translateY(-2px);  /* Moves button up slightly */
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);  /* Adds shadow underneath */
+}
+
+/* What happens when you click the Post button */
+.sidebar-button:active {
+    transform: translateY(0);  /* Moves back to original position */
+    box-shadow: 0 2px 6px rgba(0, 0, 0, 0.1);  /* Smaller shadow */
+}
+
+/* Animation that makes the Post button pulse subtly */
+@keyframes pulse {
+    0%, 100% {
+        box-shadow: 0 0 0 0 rgba(255, 255, 255, 0.4);  /* No pulse */
+    }
+    50% {
+        box-shadow: 0 0 0 8px rgba(255, 255, 255, 0);  /* Pulse expands and fades */
+    }
+}
+
+/* Apply pulse animation only when NOT hovering */
+.sidebar-button:not(:hover) {
+    animation: pulse 3s infinite;  /* Repeats every 3 seconds forever */
+}
+
+/* ====================================
+   USER PROFILE SECTION
+   ==================================== */
+
+/* The user profile section at the bottom of sidebar */
+.sidebar-user {
+    display: flex;  /* Makes profile info flexible */
+    justify-content: space-between;  /* Spaces items apart */
+    align-items: center;  /* Centers items vertically */
+    padding: 10px;  /* Space inside */
+    border-bottom-left-radius: 99999px;  /* Fully rounded corners */
+    border-top-left-radius: 99999px;  /* Fully rounded corners */
+    border-bottom-right-radius: 99999px;  /* Fully rounded corners */
+    border-top-right-radius: 99999px;  /* Fully rounded corners */
+}
+
+/* What happens when you hover over the user profile section */
+.sidebar-user:hover {
+    background: rgba(231, 233, 234, 0.1);  /* Light gray background */
+    cursor: pointer;  /* Shows it's clickable */
+}
+
+/* Container for user avatar and name */
+.sidebar-user-details {
+    display: flex;  /* Makes avatar and name flexible */
+}
+
+/* The user's profile picture */
+.sidebar-user-details img {
+    border-radius: 50%;  /* Makes it circular */
+    width: 40px;  /* Width of avatar */
+    height: 40px;  /* Height of avatar */
+    object-fit: cover;  /* Ensures image fills circle properly */
+}
+
+/* Container for user's name and username */
+.sidebar-name {
+    display: flex;  /* Makes name info flexible */
+    flex-direction: column;  /* Stacks name and username */
+    margin-left: 10px;  /* Space between avatar and name */
+}
+
+/* The dropdown arrow icon */
+.sidebar-dropdown {
+    height: 0.8rem;  /* Height of the icon */
+}
+
+/* The user's display name */
 .sidebar-name .name {
-    color: white;
-    font-weight: 700;
-    font-size: 0.9375rem;
+    color: var(--text-primary);  /* Primary text color */
+    font-weight: 700;  /* Bold */
+    font-size: 0.9375rem;  /* Text size */
 }
+
+/* The user's @username */
 .sidebar-name .userid {
-    color: rgb(136, 153, 166);
-    font-size: 0.9375rem;
+    color: var(--text-secondary);  /* Secondary (gray) text color */
+    font-size: 0.9375rem;  /* Text size */
 }
 
+/* The icon on the right side of user profile */
 .sidebar-user-action {
-    color: white;
+    color: var(--text-primary);  /* Primary text color */
 }
 
+/* ====================================
+   ACCOUNT MENU POPUP
+   ==================================== */
 
+/* Wrapper for the user profile section */
+.sidebar-user-wrapper {
+    position: relative;  /* Allows popup to be positioned absolutely */
+    margin-top: auto;  /* Pushes it to the bottom */
+}
 
+/* Hidden checkbox that controls the menu (checkbox hack) */
+.account-menu-toggle {
+    display: none;  /* Hides the actual checkbox */
+}
+
+/* The popup menu that appears when you click the user profile */
+.account-menu-popup {
+    display: none;  /* Hidden by default */
+    position: absolute;  /* Takes it out of normal flow */
+    bottom: 100%;  /* Places it above the user profile */
+    left: 0;  /* Aligns to the left */
+    margin-bottom: 8px;  /* Space between popup and profile */
+    background-color: var(--bg-primary);  /* Primary background color */
+    border: 1px solid var(--border-color);  /* Border around popup */
+    border-radius: 16px;  /* Rounded corners */
+    box-shadow: 0 4px 16px rgba(255, 255, 255, 0.2);  /* Shadow for depth */
+    min-width: 300px;  /* Minimum width */
+    overflow: hidden;  /* Hides overflow */
+    z-index: 1000;  /* Places it above other elements */
+}
+
+/* Show the popup when checkbox is checked */
+.account-menu-toggle:checked ~ .account-menu-popup {
+    display: block;  /* Makes it visible */
+}
+
+/* Individual item in the account menu */
+.account-menu-item {
+    padding: 16px;  /* Space inside each item */
+    cursor: pointer;  /* Shows it's clickable */
+    transition: background-color 0.2s;  /* Smooth color change */
+    color: var(--text-primary);  /* Primary text color */
+    font-size: 15px;  /* Text size */
+    font-weight: 700;  /* Bold */
+}
+
+/* What happens when you hover over a menu item */
+.account-menu-item:hover {
+    background-color: rgba(231, 233, 234, 0.1);  /* Light gray background */
+}
+
+/* Text inside menu items */
+.account-menu-item span {
+    display: block;  /* Makes each span take full width */
+}
+
+/* ====================================
+   INDICATORS & BADGES
+   ==================================== */
+
+/* Small blue dot indicator (for Home page) */
+.home-indicator {
+    position: absolute;  /* Takes it out of normal flow */
+    width: 6px;  /* Width of the dot */
+    height: 6px;  /* Height of the dot */
+    background-color: var(--color-blue);  /* Blue color */
+    border-radius: 50%;  /* Makes it circular */
+    top: 8px;  /* Distance from top */
+    left: 36px;  /* Distance from left */
+}
+
+/* Notification badge (shows number of notifications) */
+.notification-badge {
+    position: absolute;  /* Takes it out of normal flow */
+    top: 8px;  /* Distance from top */
+    left: 24px;  /* Distance from left */
+    background-color: var(--color-blue);  /* Blue background */
+    color: var(--text-primary);  /* Primary text color */
+    font-size: 11px;  /* Small text */
+    font-weight: 700;  /* Bold */
+    padding: 2px 6px;  /* Space inside badge */
+    border-radius: 10px;  /* Rounded corners */
+    min-width: 18px;  /* Minimum width */
+    text-align: center;  /* Centers the number */
+}
+
+/* ====================================
+   MORE MENU POPUP
+   ==================================== */
+
+/* Wrapper for the More menu */
+.more-menu-wrapper {
+    position: relative;  /* Allows popup to be positioned absolutely */
+}
+
+/* Hidden checkbox that controls the More menu (checkbox hack) */
+.more-menu-toggle {
+    display: none;  /* Hides the actual checkbox */
+}
+
+/* The popup menu that appears when you click More */
+.more-menu-popup {
+    display: none;  /* Hidden by default */
+    position: absolute;  /* Takes it out of normal flow */
+    bottom: 100%;  /* Places it above the More button */
+    left: 0;  /* Aligns to the left */
+    margin-bottom: 8px;  /* Space between popup and button */
+    background-color: var(--bg-primary);  /* Primary background color */
+    border: 1px solid var(--border-color);  /* Border around popup */
+    border-radius: 16px;  /* Rounded corners */
+    box-shadow: 0 8px 24px rgba(255, 255, 255, 0.2);  /* Shadow for depth */
+    min-width: 300px;  /* Minimum width */
+    overflow: hidden;  /* Hides overflow */
+    z-index: 1000;  /* Places it above other elements */
+}
+
+/* Show the More menu when checkbox is checked */
+.more-menu-toggle:checked ~ .more-menu-popup {
+    display: block;  /* Makes it visible */
+}
+
+/* Individual item in the More menu */
+.more-menu-item {
+    display: flex;  /* Makes icon and text flexible */
+    align-items: center;  /* Centers items vertically */
+    padding: 16px;  /* Space inside each item */
+    cursor: pointer;  /* Shows it's clickable */
+    transition: background-color 0.2s;  /* Smooth color change */
+    color: var(--text-primary);  /* Primary text color */
+    font-size: 15px;  /* Text size */
+    font-weight: 700;  /* Bold */
+    text-decoration: none;  /* Removes underline from links */
+    gap: 12px;  /* Space between icon and text */
+}
+
+/* What happens when you hover over a More menu item */
+.more-menu-item:hover {
+    background-color: rgba(231, 233, 234, 0.1);  /* Light gray background */
+}
+
+/* Icon in the More menu items */
+.more-menu-icon {
+    width: 20px;  /* Icon width */
+    height: 20px;  /* Icon height */
+    fill: currentColor;  /* Uses the current text color */
+    flex-shrink: 0;  /* Prevents icon from shrinking */
+}

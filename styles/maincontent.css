@@ -1,801 +1,1177 @@
+/* ====================================
+   HEADER SECTION
+   ==================================== */
+
+/* Main header at the top of the feed */
 .header {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    color: white;
-    width: 600px;
-    border-bottom: 1px solid #71767A;
-    border-right: 1px solid #71767A;
-    padding: 7px;   
+    display: flex;  /* Makes children flexible */
+    justify-content: space-between;  /* Spaces items apart */
+    align-items: center;  /* Centers items vertically */
+    color: var(--text-primary);  /* Light gray text */
+    width: 600px;  /* Fixed width */
+    border-bottom: 1px solid var(--border-color);  /* Bottom border */
+    border-right: 1px solid var(--border-color);  /* Right border */
+    padding: 7px;  /* Space inside header */
 }
 
+/* ====================================
+   FEED NAVIGATION (FOR YOU / FOLLOWING TABS)
+   ==================================== */
+
+/* Container for the navigation tabs */
 .feed-navigation {
-    display: flex;
-    width: 600px;
-    border-bottom: 1px solid #71767A;
-    border-right: 1px solid #71767A;
+    display: flex;  /* Makes tabs flexible */
+    width: 600px;  /* Fixed width */
+    border-bottom: 1px solid var(--border-color);  /* Bottom border */
+    border-right: 1px solid var(--border-color);  /* Right border */
+    position: sticky;  /* Sticks to top when scrolling */
+    top: 0;  /* Sticks at the top */
+    background-color: var(--bg-blur);  /* Semi-transparent background */
+    backdrop-filter: blur(12px);  /* Blurs content behind it */
+    -webkit-backdrop-filter: blur(12px);  /* Safari version of blur */
+    z-index: 100;  /* Places above other content */
 }
 
+/* Individual tab (For You / Following) */
 .nav-tab {
-    flex: 1;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    position: relative;
-    padding: 16px 0;
-    cursor: pointer;
-    transition: background-color 0.2s;
+    flex: 1;  /* Each tab takes equal space */
+    display: flex;  /* Makes content flexible */
+    justify-content: center;  /* Centers content horizontally */
+    align-items: center;  /* Centers content vertically */
+    position: relative;  /* Allows positioning of indicator */
+    padding: 16px 0;  /* Space inside tab */
+    cursor: pointer;  /* Shows it's clickable */
+    transition: background-color 0.2s;  /* Smooth color change */
 }
 
+/* What happens when you hover over a tab */
 .nav-tab:hover {
-    background-color: rgba(231, 233, 234, 0.1);
+    background-color: rgba(231, 233, 234, 0.1);  /* Light gray background */
 }
 
+/* Text inside the tab */
 .nav-tab-text {
-    font-size: 0.9375rem;
-    font-weight: 700;
-    color: rgb(136, 153, 166);
+    font-size: 0.9375rem;  /* Text size */
+    font-weight: 700;  /* Bold */
+    color: var(--text-secondary);  /* Dark gray by default */
 }
 
+/* Text color when tab is active */
 .nav-tab.active .nav-tab-text {
-    color: white;
+    color: var(--text-primary);  /* Light gray when active */
 }
 
+/* Blue indicator line at bottom of active tab */
 .nav-tab-indicator {
-    position: absolute;
-    bottom: 0;
-    left: 50%;
-    transform: translateX(-50%);
-    width: 60px;
-    height: 4px;
-    background-color: var(--color-blue);
-    border-radius: 9999px 9999px 0 0;
-    display: none;
+    position: absolute;  /* Takes it out of normal flow */
+    bottom: 0;  /* Sticks to bottom */
+    left: 50%;  /* Centers horizontally */
+    transform: translateX(-50%);  /* Perfectly centers it */
+    width: 60px;  /* Width of indicator */
+    height: 4px;  /* Height of indicator */
+    background-color: var(--color-blue);  /* Twitter blue */
+    border-radius: 9999px 9999px 0 0;  /* Rounded top corners only */
+    opacity: 0;  /* Hidden by default */
+    transition: opacity 0.2s ease-in-out;  /* Smooth fade in/out */
 }
 
+/* Show indicator when tab is active */
+.nav-tab.active .nav-tab-indicator {
+    opacity: 1;  /* Visible */
+}
+
+/* Show indicator when "For You" checkbox is checked */
 #tab-foryou:checked ~ label[for="tab-foryou"] .nav-tab-indicator,
 #tab-following:checked ~ label[for="tab-following"] .nav-tab-indicator {
-    display: block;
+    display: block;  /* Shows the indicator */
 }
 
+/* Change text color when checkbox is checked */
 #tab-foryou:checked ~ label[for="tab-foryou"] .nav-tab-text,
 #tab-following:checked ~ label[for="tab-following"] .nav-tab-text {
-    color: white;
+    color: var(--text-primary);  /* Light gray */
 }
 
+/* Hide the radio button inputs (checkbox hack for tab switching) */
 input[type="radio"][name="tab"] {
-    display: none;
+    display: none;  /* Hides the inputs */
 }
 
+/* Show "For You" content by default */
 #foryou-content {
-    display: block;
+    display: block;  /* Visible */
 }
 
+/* Hide "Following" content by default */
 #following-content {
-    display: none;
+    display: none;  /* Hidden */
 }
 
-/* CSS-only tab switching */
+/* ====================================
+   TAB SWITCHING LOGIC (CSS-ONLY)
+   ==================================== */
+
+/* Hide "For You" when "Following" is checked */
 .mainContent #tab-following:checked ~ #foryou-content {
-    display: none;
+    display: none;  /* Hidden */
 }
 
+/* Show "Following" when "Following" is checked */
 .mainContent #tab-following:checked ~ #following-content {
-    display: block;
+    display: block;  /* Visible */
 }
 
+/* Show "For You" when "For You" is checked */
 .mainContent #tab-foryou:checked ~ #foryou-content {
-    display: block;
+    display: block;  /* Visible */
 }
 
+/* Hide "Following" when "For You" is checked */
 .mainContent #tab-foryou:checked ~ #following-content {
-    display: none;
+    display: none;  /* Hidden */
 }
 
+/* ====================================
+   NAVBAR & HEADER ELEMENTS
+   ==================================== */
+
+/* Navigation bar container */
 .navbar {
-    padding: 0;
-    display:flex;
+    padding: 0;  /* No padding */
+    display: flex;  /* Makes children flexible */
 }
+
+/* Main heading (e.g., "For you") */
 .header h1 {
-    font-size: 1.1875rem;
-    font-weight: 700;
-    cursor: pointer;
-    padding-left: 10px;
+    font-size: 1.1875rem;  /* Text size */
+    font-weight: 700;  /* Bold */
+    cursor: pointer;  /* Shows it's clickable */
+    padding-left: 10px;  /* Space on the left */
 }
+
+/* Insights icon */
 .insights-icon {
-    fill: var(--color-blue);
-    height: 1.5rem;
+    fill: var(--color-blue);  /* Twitter blue color */
+    height: 1.5rem;  /* Icon height */
 }
 
+/* Container for insights icon */
 .insights {
-    padding: 5px;
-    cursor: pointer;
+    padding: 5px;  /* Space around icon */
+    cursor: pointer;  /* Shows it's clickable */
 }
+
+/* What happens when you hover over insights icon */
 .insights:hover {
-    background: var(--color-hover);
-    border-radius: 50%;
+    background: var(--color-hover);  /* Light blue background */
+    border-radius: 50%;  /* Makes it circular */
 }
 
+/* ====================================
+   SEARCH BAR
+   ==================================== */
+
+/* Search bar container */
 .searchBar {
-    width: calc(100% - 600px);
+    width: calc(100% - 600px);  /* Takes remaining width */
 }
 
+/* Search input container */
 .search {
-    width: 350px;
-    display:flex;
-    align-items: center;
-    background: rgb(37, 51, 65);
-    border-bottom-left-radius: 99999px;
-    border-top-left-radius: 99999px;
-    border-bottom-right-radius: 99999px;
-    border-top-right-radius: 99999px;
-    padding: 7px;
-    margin-left: 30px;
+    width: 350px;  /* Fixed width */
+    display: flex;  /* Makes children flexible */
+    align-items: center;  /* Centers items vertically */
+    background: rgb(37, 51, 65);  /* Dark blue-gray background */
+    border-bottom-left-radius: 99999px;  /* Fully rounded corners */
+    border-top-left-radius: 99999px;  /* Fully rounded corners */
+    border-bottom-right-radius: 99999px;  /* Fully rounded corners */
+    border-top-right-radius: 99999px;  /* Fully rounded corners */
+    padding: 7px;  /* Space inside */
+    margin-left: 30px;  /* Space on the left */
 }
 
+/* Search input field */
 .search input {
-    margin-left: 3px;
-    border: none;
-    background: transparent;
-    outline: none;
+    margin-left: 3px;  /* Space on the left */
+    border: none;  /* No border */
+    background: transparent;  /* No background */
+    outline: none;  /* Removes default outline */
 }
 
+/* Placeholder text in search input */
 .search input::placeholder {
-    font-size: 0.9375rem;
-    color: #9097a3;
+    font-size: 0.9375rem;  /* Text size */
+    color: #9097a3;  /* Gray color */
 }
+
+/* Search icon */
 .search-icon {
-    fill:rgb(136, 153, 166);
-    height:1rem;
-    padding: 0 10px;
+    fill: rgb(136, 153, 166);  /* Gray color */
+    height: 1rem;  /* Icon height */
+    padding: 0 10px;  /* Space on sides */
 }
 
+/* ====================================
+   TWEET CARD BASIC STYLING
+   ==================================== */
+
+/* Makes entire tweet clickable */
+.tweet-clickable {
+    cursor: pointer;  /* Shows it's clickable */
+}
+
+/* What happens when you hover over a clickable tweet */
+.tweet-clickable:hover {
+    background-color: rgba(231, 233, 234, 0.03);  /* Very subtle gray background */
+}
+
+/* Main tweet card container */
 .tweet-card {
-    display: flex;
-    padding: 10px 15px;
-    width :100%;
-    border-bottom: 1px solid #71767A;
-    border-right: 1px solid #71767A;
-    position: relative;
+    display: flex;  /* Makes children flexible */
+    padding: 10px 15px;  /* Space inside */
+    width: 100%;  /* Full width */
+    border-bottom: 1px solid var(--border-color);  /* Bottom border */
+    border-right: 1px solid var(--border-color);  /* Right border */
+    position: relative;  /* Allows positioning of children */
 }
 
+/* ====================================
+   TWEET THREAD STYLING
+   ==================================== */
+
+/* First tweet in a thread */
 .tweet-card.thread-start {
-    position: relative;
-    border-bottom: none;
+    position: relative;  /* Allows positioning */
+    border-bottom: none;  /* No bottom border (connects to next) */
 }
 
+/* Subsequent tweets in a thread */
 .tweet-card.thread-continue {
-    position: relative;
-    border-top: none;
+    position: relative;  /* Allows positioning */
+    border-top: none;  /* No top border (connects to previous) */
 }
 
+/* The vertical line connecting thread tweets */
 .tweet-thread-line {
-    position: absolute;
-    left: 30px;
-    width: 2px;
-    background-color: #2f3336;
-    z-index: 0;
+    position: absolute;  /* Takes it out of normal flow */
+    left: 30px;  /* Position from left */
+    width: 2px;  /* Line width */
+    background-color: #2f3336;  /* Gray color */
+    z-index: 0;  /* Behind other elements */
 }
 
+/* Thread line for the first tweet (extends down) */
 .tweet-card.thread-start .tweet-thread-line {
-    top: 50px;
-    bottom: 0;
+    top: 50px;  /* Starts below avatar */
+    bottom: 0;  /* Extends to bottom */
 }
 
+/* Thread line for continuing tweets (extends up) */
 .tweet-card.thread-continue .tweet-thread-line {
-    top: 0;
-    height: 50px;
+    top: 0;  /* Starts at top */
+    height: 50px;  /* Extends to avatar */
 }
 
+/* Keep avatar above the thread line */
 .tweet-card.thread-start .tweet-profile-pic,
 .tweet-card.thread-continue .tweet-profile-pic {
-    position: relative;
-    z-index: 1;
+    position: relative;  /* Allows z-index to work */
+    z-index: 1;  /* Above thread line */
 }
 
+/* ====================================
+   USER DETAILS IN TWEETS
+   ==================================== */
+
+/* Container for user name, handle, and timestamp */
 .user-details {
-    padding-left: 10px;
-    color: #80919e;
-    display: flex;
-    align-items: center;
-    gap: 4px;
+    padding-left: 10px;  /* Space on the left */
+    color: #80919e;  /* Gray text */
+    display: flex;  /* Makes children flexible */
+    align-items: center;  /* Centers items vertically */
+    gap: 4px;  /* Space between items */
 }
 
+/* User's display name */
 .user-details .name {
-    font-size: 0.9375rem;
-    font-weight: 700;
-    color:white;
+    font-size: 0.9375rem;  /* Text size */
+    font-weight: 700;  /* Bold */
+    color: var(--text-primary);  /* Light gray */
 }
 
+/* Separator dot between elements */
 .user-details .separator {
-    position: relative;
-    bottom: 0.3rem;
+    position: relative;  /* Allows positioning */
+    bottom: 0.3rem;  /* Moves dot up slightly */
 }
+
+/* What happens when you hover over a user's name */
 .user-details .name:hover {
-    text-decoration: underline;
-    cursor: pointer;
+    text-decoration: underline;  /* Underlines the name */
+    cursor: pointer;  /* Shows it's clickable */
 }
 
+/* ====================================
+   PROFILE PICTURE
+   ==================================== */
+
+/* Profile picture in tweets */
 .tweet-profile-pic img {
-    border-radius: 50%;
+    border-radius: 50%;  /* Makes it circular */
 }
 
+/* ====================================
+   TWEET ROW & ICONS
+   ==================================== */
+
+/* Row containing tweet content */
 .tweet-row {
-    display: flex;
-    width: 100%;
-    justify-content: space-between;
+    display: flex;  /* Makes children flexible */
+    width: 100%;  /* Full width */
+    justify-content: space-between;  /* Spaces items apart */
 }
 
+/* Generic tweet icon */
 .tweet-icon {
-    height: 1.2rem;
-    fill: #80919e;
+    height: 1.2rem;  /* Icon height */
+    fill: #80919e;  /* Gray color */
 }
 
+/* Container for tweet arrow and Grok icon */
 .tweet-arrow {
-    display: flex;
-    align-items: center;
-    gap: 8px;
-    position: relative;
+    display: flex;  /* Makes children flexible */
+    align-items: center;  /* Centers items vertically */
+    gap: 8px;  /* Space between items */
+    position: relative;  /* Allows positioning */
 }
 
+/* ====================================
+   GROK AI ICON & TOOLTIP
+   ==================================== */
+
+/* Grok AI icon */
 .tweet-grok-icon {
-    height: 1.2rem;
-    width: 1.2rem;
-    fill: #80919e;
-    cursor: pointer;
-    position: relative;
-    transition: fill 0.2s;
+    height: 1.2rem;  /* Icon height */
+    width: 1.2rem;  /* Icon width */
+    fill: #80919e;  /* Gray color */
+    cursor: pointer;  /* Shows it's clickable */
+    position: relative;  /* Allows tooltip positioning */
+    transition: fill 0.2s;  /* Smooth color change */
 }
 
+/* What happens when you hover over Grok icon */
 .tweet-grok-icon:hover {
-    fill: var(--color-blue);
+    fill: var(--color-blue);  /* Changes to blue */
 }
 
+/* Tooltip that appears when hovering over Grok icon */
 .tweet-grok-icon:hover::after {
-    content: "explaining this post";
-    position: absolute;
-    bottom: 100%;
-    left: 50%;
-    transform: translateX(-50%);
-    background: rgba(0, 0, 0, 0.9);
-    color: white;
-    padding: 6px 10px;
-    border-radius: 4px;
-    font-size: 0.75rem;
-    white-space: nowrap;
-    margin-bottom: 5px;
-    pointer-events: none;
-    z-index: 1000;
+    content: "explaining this post";  /* Tooltip text */
+    position: absolute;  /* Takes it out of normal flow */
+    bottom: 100%;  /* Places above icon */
+    left: 50%;  /* Centers horizontally */
+    transform: translateX(-50%);  /* Perfectly centers it */
+    background: rgba(0, 0, 0, 0.9);  /* Almost black background */
+    color: var(--text-primary);  /* Light gray text */
+    padding: 6px 10px;  /* Space inside tooltip */
+    border-radius: 4px;  /* Rounded corners */
+    font-size: 0.75rem;  /* Small text */
+    white-space: nowrap;  /* Prevents text wrapping */
+    margin-bottom: 5px;  /* Space between icon and tooltip */
+    pointer-events: none;  /* Tooltip won't block clicks */
+    z-index: 1000;  /* Above other elements */
 }
 
+/* ====================================
+   TWEET MENU (THREE DOTS)
+   ==================================== */
+
+/* Three dots menu icon */
 .tweet-menu-icon {
-    height: 1.5rem;
-    width: 1.5rem;
-    fill: #80919e;
-    cursor: pointer;
-    padding: 4px;
-    margin: -4px;
-    border-radius: 50%;
-    transition: fill 0.2s, background-color 0.2s;
+    height: 1.5rem;  /* Icon height */
+    width: 1.5rem;  /* Icon width */
+    fill: #80919e;  /* Gray color */
+    cursor: pointer;  /* Shows it's clickable */
+    padding: 4px;  /* Space around icon */
+    margin: -4px;  /* Negative margin to maintain size */
+    border-radius: 50%;  /* Makes it circular */
+    transition: fill 0.2s, background-color 0.2s;  /* Smooth transitions */
 }
 
+/* What happens when you hover over menu icon */
 .tweet-menu-icon:hover {
-    fill: var(--color-blue);
-    background: var(--color-hover);
+    fill: var(--color-blue);  /* Changes to blue */
+    background: var(--color-hover);  /* Light blue background */
 }
 
+/* Container for the menu */
 .tweet-menu-wrapper {
-    position: relative;
+    position: relative;  /* Allows dropdown positioning */
 }
 
+/* Dropdown menu that appears when clicking three dots */
 .tweet-menu-dropdown {
-    display: none;
-    position: absolute;
-    top: 100%;
-    right: 0;
-    margin-top: 8px;
-    background: #000000;
-    border: 1px solid #2f3336;
-    border-radius: 12px;
-    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.5);
-    min-width: 280px;
-    z-index: 1000;
-    overflow: hidden;
+    display: none;  /* Hidden by default */
+    position: absolute;  /* Takes it out of normal flow */
+    top: 100%;  /* Places below icon */
+    right: 0;  /* Aligns to right */
+    margin-top: 8px;  /* Space above menu */
+    background: var(--bg-primary);  /* Black background */
+    border: 1px solid var(--border-color);  /* Gray border */
+    border-radius: 12px;  /* Rounded corners */
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.5);  /* Shadow for depth */
+    min-width: 280px;  /* Minimum width */
+    z-index: 1000;  /* Above other elements */
+    overflow: hidden;  /* Hides overflow */
 }
 
+/* Show dropdown when it has the "show" class */
 .tweet-menu-dropdown.show {
-    display: block;
+    display: block;  /* Visible */
 }
 
+/* Individual item in the dropdown menu */
 .tweet-menu-item {
-    display: flex;
-    align-items: center;
-    gap: 12px;
-    padding: 8px 16px;
-    color: white;
-    font-size: 0.9375rem;
-    cursor: pointer;
-    transition: background-color 0.2s;
-    white-space: nowrap;
+    display: flex;  /* Makes children flexible */
+    align-items: center;  /* Centers items vertically */
+    gap: 12px;  /* Space between icon and text */
+    padding: 8px 16px;  /* Space inside */
+    color: var(--text-primary);  /* Light gray text */
+    font-size: 0.9375rem;  /* Text size */
+    cursor: pointer;  /* Shows it's clickable */
+    transition: background-color 0.2s;  /* Smooth color change */
+    white-space: nowrap;  /* Prevents text wrapping */
 }
 
+/* What happens when you hover over a menu item */
 .tweet-menu-item:hover {
-    background-color: rgba(231, 233, 234, 0.1);
+    background-color: rgba(231, 233, 234, 0.1);  /* Light gray background */
 }
 
+/* Icon in menu items */
 .tweet-menu-item-icon {
-    width: 18px;
-    height: 18px;
-    fill: white;
-    flex-shrink: 0;
+    width: 18px;  /* Icon width */
+    height: 18px;  /* Icon height */
+    fill: var(--text-primary);  /* Light gray color */
+    flex-shrink: 0;  /* Prevents icon from shrinking */
 }
 
-.tweet-text  {
-    color: white;
-    padding-left: 10px;
-    word-wrap: break-word;
-    overflow-wrap: break-word;
-    max-width: 100%;
+/* ====================================
+   TWEET TEXT CONTENT
+   ==================================== */
+
+/* The main text content of the tweet */
+.tweet-text {
+    color: var(--text-primary);  /* Light gray text */
+    padding-left: 10px;  /* Space on the left */
+    word-wrap: break-word;  /* Breaks long words */
+    overflow-wrap: break-word;  /* Alternative word breaking */
+    max-width: 100%;  /* Maximum width */
 }
 
+/* ====================================
+   TWEET ACTIONS (LIKE, RETWEET, ETC.)
+   ==================================== */
+
+/* Container for action buttons at bottom of tweet */
 .tweet-actions {
-    max-width: 425px;
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
+    max-width: 425px;  /* Maximum width */
+    display: flex;  /* Makes buttons flexible */
+    justify-content: space-between;  /* Spaces buttons apart */
+    align-items: center;  /* Centers buttons vertically */
 }
 
+/* ====================================
+   VERIFIED BADGE
+   ==================================== */
 
+/* Verified checkmark badge next to username */
 .verified-badge {
-    margin-left: 2px;
-    vertical-align: middle;
+    margin-left: 2px;  /* Small space on left */
+    vertical-align: middle;  /* Aligns with text */
 }
 
+/* ====================================
+   HASHTAGS
+   ==================================== */
+
+/* Container for hashtags */
 .tweet-hashtags {
-    padding-left: 10px;
-    margin-top: 8px;
-    color: var(--color-blue);
-    font-size: 0.9375rem;
+    padding-left: 10px;  /* Space on the left */
+    margin-top: 8px;  /* Space above */
+    color: var(--color-blue);  /* Twitter blue */
+    font-size: 0.9375rem;  /* Text size */
 }
 
+/* Individual hashtag */
 .hashtag {
-    color: var(--color-blue);
-    cursor: pointer;
+    color: var(--color-blue);  /* Twitter blue */
+    cursor: pointer;  /* Shows it's clickable */
 }
 
+/* What happens when you hover over a hashtag */
 .hashtag:hover {
-    text-decoration: underline;
+    text-decoration: underline;  /* Underlines the hashtag */
 }
 
+/* Space between hashtags */
 .hashtag-separator {
-    margin: 0 4px;
-    color: #80919e;
+    margin: 0 4px;  /* Space on both sides */
+    color: #80919e;  /* Gray color */
 }
 
+/* ====================================
+   TWEET IMAGES
+   ==================================== */
+
+/* Placeholder for images (if no image loaded) */
 .tweet-image-placeholder {
-    margin-top: 12px;
-    margin-left: 10px;
-    width: 100%;
-    max-width: 500px;
-    height: 300px;
-    background: transparent;
-    border-radius: 16px;
-    overflow: hidden;
+    margin-top: 12px;  /* Space above */
+    margin-left: 10px;  /* Space on left */
+    width: 100%;  /* Full width */
+    max-width: 500px;  /* Maximum width */
+    height: 300px;  /* Fixed height */
+    background: transparent;  /* No background */
+    border-radius: 16px;  /* Rounded corners */
+    overflow: hidden;  /* Hides overflow */
 }
 
+/* Container for tweet images */
 .tweet-image-container {
-    margin-top: 12px;
-    margin-left: 10px;
-    margin-right: 10px;
-    width: calc(100% - 20px);
-    max-width: 506px;
-    border-radius: 16px;
-    overflow: hidden;
+    margin-top: 12px;  /* Space above */
+    margin-left: 10px;  /* Space on left */
+    margin-right: 10px;  /* Space on right */
+    width: calc(100% - 20px);  /* Full width minus margins */
+    max-width: 506px;  /* Maximum width */
+    border-radius: 16px;  /* Rounded corners */
+    overflow: hidden;  /* Hides overflow */
 }
 
+/* Image content wrapper */
 .tweet-image-content {
-    width: 100%;
-    display: block;
+    width: 100%;  /* Full width */
+    display: block;  /* Displays as block */
 }
 
+/* Images inside tweets */
 .tweet-image-content img {
-    width: 100%;
-    height: auto;
-    display: block;
-    border-radius: 16px;
+    width: 100%;  /* Full width */
+    height: auto;  /* Auto height (maintains aspect ratio) */
+    display: block;  /* Displays as block */
+    border-radius: 16px;  /* Rounded corners */
 }
 
+/* ====================================
+   QUOTED TWEETS
+   ==================================== */
+
+/* Link wrapper for quoted tweets */
+.quoted-tweet-link {
+    display: block;  /* Displays as block */
+    text-decoration: none;  /* No underline */
+    color: inherit;  /* Inherits color */
+}
+
+/* Remove underline on hover */
+.quoted-tweet-link:hover {
+    text-decoration: none;  /* No underline */
+}
+
+/* Remove underline from all children */
+.quoted-tweet-link:hover * {
+    text-decoration: none;  /* No underline */
+}
+
+/* Quoted tweet container */
+.quoted-tweet {
+    margin-top: 12px;  /* Space above */
+    border: 1px solid var(--border-color);  /* Gray border */
+    border-radius: 16px;  /* Rounded corners */
+    padding: 12px;  /* Space inside */
+    cursor: pointer;  /* Shows it's clickable */
+    transition: background-color 0.2s;  /* Smooth color change */
+}
+
+/* What happens when you hover over quoted tweet */
+.quoted-tweet-link:hover .quoted-tweet {
+    background-color: rgba(231, 233, 234, 0.03);  /* Very subtle gray background */
+}
+
+/* Header of quoted tweet (user info) */
+.quoted-tweet-header {
+    display: flex;  /* Makes children flexible */
+    align-items: center;  /* Centers items vertically */
+    margin-bottom: 8px;  /* Space below */
+}
+
+/* Avatar in quoted tweet */
+.quoted-tweet-avatar {
+    width: 20px;  /* Width */
+    height: 20px;  /* Height */
+    border-radius: 50%;  /* Makes it circular */
+    margin-right: 8px;  /* Space on right */
+}
+
+/* User info in quoted tweet */
+.quoted-tweet-user {
+    display: flex;  /* Makes children flexible */
+    align-items: center;  /* Centers items vertically */
+    gap: 4px;  /* Space between items */
+    font-size: 15px;  /* Text size */
+}
+
+/* Name in quoted tweet */
+.quoted-tweet-name {
+    color: var(--text-primary);  /* Light gray */
+    font-weight: 700;  /* Bold */
+}
+
+/* Small verified badge in quoted tweet */
+.verified-badge-small {
+    flex-shrink: 0;  /* Prevents badge from shrinking */
+}
+
+/* Handle in quoted tweet */
+.quoted-tweet-handle {
+    color: var(--text-secondary);  /* Dark gray */
+}
+
+/* Separator in quoted tweet */
+.quoted-tweet-separator {
+    color: var(--text-secondary);  /* Dark gray */
+}
+
+/* Timestamp in quoted tweet */
+.quoted-tweet-time {
+    color: var(--text-secondary);  /* Dark gray */
+}
+
+/* Text content in quoted tweet */
+.quoted-tweet-text {
+    color: var(--text-primary);  /* Light gray */
+    font-size: 15px;  /* Text size */
+    line-height: 20px;  /* Line height */
+    margin-bottom: 4px;  /* Space below */
+}
+
+/* "Show more" link in quoted tweet */
+.quoted-tweet-show-more {
+    color: #1d9bf0;  /* Twitter blue */
+    font-size: 15px;  /* Text size */
+    margin-top: 4px;  /* Space above */
+    cursor: pointer;  /* Shows it's clickable */
+}
+
+/* What happens when you hover over "Show more" */
+.quoted-tweet-show-more:hover {
+    text-decoration: underline;  /* Underlines the text */
+}
+
+/* Bold text in tweets */
+.tweet-bold {
+    font-weight: 700;  /* Bold */
+}
+
+/* ====================================
+   MULTIPLE IMAGES IN TWEETS
+   ==================================== */
+
+/* Container for multiple images */
 .tweet-image-content.multiple-images {
-    display: flex;
-    flex-direction: column;
-    gap: 2px;
-    border-radius: 16px;
-    overflow: hidden;
+    display: flex;  /* Makes children flexible */
+    flex-direction: column;  /* Stacks images vertically */
+    gap: 2px;  /* Small space between images */
+    border-radius: 16px;  /* Rounded corners */
+    overflow: hidden;  /* Hides overflow */
 }
 
+/* Images in multiple image container */
 .tweet-image-content.multiple-images img {
-    width: 100%;
-    height: auto;
-    display: block;
-    border-radius: 0;
+    width: 100%;  /* Full width */
+    height: auto;  /* Auto height */
+    display: block;  /* Displays as block */
+    border-radius: 0;  /* No individual rounding */
 }
 
+/* Round corners on first image */
 .tweet-image-content.multiple-images img:first-child {
-    border-top-left-radius: 16px;
-    border-top-right-radius: 16px;
+    border-top-left-radius: 16px;  /* Round top left */
+    border-top-right-radius: 16px;  /* Round top right */
 }
 
+/* Round corners on last image */
 .tweet-image-content.multiple-images img:last-child {
-    border-bottom-left-radius: 16px;
-    border-bottom-right-radius: 16px;
+    border-bottom-left-radius: 16px;  /* Round bottom left */
+    border-bottom-right-radius: 16px;  /* Round bottom right */
 }
 
+/* ====================================
+   VIDEO IN TWEETS
+   ==================================== */
+
+/* Container for video */
 .tweet-video-container {
-    margin-top: 12px;
-    margin-left: 10px;
-    margin-right: 10px;
-    width: calc(100% - 20px);
-    max-width: 506px;
-    border-radius: 16px;
-    overflow: hidden;
-    position: relative;
-    cursor: pointer;
+    margin-top: 12px;  /* Space above */
+    margin-left: 10px;  /* Space on left */
+    margin-right: 10px;  /* Space on right */
+    width: calc(100% - 20px);  /* Full width minus margins */
+    max-width: 506px;  /* Maximum width */
+    border-radius: 16px;  /* Rounded corners */
+    overflow: hidden;  /* Hides overflow */
+    position: relative;  /* Allows positioning of children */
+    cursor: pointer;  /* Shows it's clickable */
 }
 
+/* Video content wrapper */
 .tweet-video-content {
-    width: 100%;
-    display: block;
-    position: relative;
+    width: 100%;  /* Full width */
+    display: block;  /* Displays as block */
+    position: relative;  /* Allows positioning of children */
 }
 
+/* Timer that shows video duration */
 .video-timer {
-    position: absolute;
-    bottom: 10px;
-    left: 10px;
-    background: rgba(0, 0, 0, 0.7);
-    color: white;
-    padding: 4px 8px;
-    border-radius: 4px;
-    font-size: 0.75rem;
-    font-weight: 600;
-    z-index: 10;
-    pointer-events: none;
+    position: absolute;  /* Takes it out of normal flow */
+    bottom: 10px;  /* Distance from bottom */
+    left: 10px;  /* Distance from left */
+    background: rgba(0, 0, 0, 0.7);  /* Semi-transparent black */
+    color: var(--text-primary);  /* Light gray text */
+    padding: 4px 8px;  /* Space inside */
+    border-radius: 4px;  /* Rounded corners */
+    font-size: 0.75rem;  /* Small text */
+    font-weight: 600;  /* Semi-bold */
+    z-index: 10;  /* Above video */
+    pointer-events: none;  /* Won't block clicks */
 }
 
+/* Video and iframe elements */
 .tweet-video-content video,
 .tweet-video-content iframe {
-    width: 100%;
-    height: auto;
-    display: block;
-    border-radius: 16px;
-    min-height: 400px;
+    width: 100%;  /* Full width */
+    height: auto;  /* Auto height */
+    display: block;  /* Displays as block */
+    border-radius: 16px;  /* Rounded corners */
+    min-height: 400px;  /* Minimum height */
 }
 
+/* Iframe for embedded videos */
 .tweet-video-iframe {
-    border-radius: 16px;
-    min-height: 400px;
-    width: 100%;
-    height: auto;
-    display: block;
+    border-radius: 16px;  /* Rounded corners */
+    min-height: 400px;  /* Minimum height */
+    width: 100%;  /* Full width */
+    height: auto;  /* Auto height */
+    display: block;  /* Displays as block */
 }
 
+/* Thumbnail for videos (before playing) */
 .tweet-video-thumbnail {
-    width: 100%;
-    height: 400px;
-    background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
-    border-radius: 16px;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    position: relative;
-    cursor: pointer;
-    overflow: hidden;
+    width: 100%;  /* Full width */
+    height: 400px;  /* Fixed height */
+    background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);  /* Purple gradient */
+    border-radius: 16px;  /* Rounded corners */
+    display: flex;  /* Makes children flexible */
+    align-items: center;  /* Centers play button */
+    justify-content: center;  /* Centers play button */
+    position: relative;  /* Allows positioning of children */
+    cursor: pointer;  /* Shows it's clickable */
+    overflow: hidden;  /* Hides overflow */
 }
 
+/* What happens when you hover over video thumbnail */
 .tweet-video-thumbnail:hover {
-    opacity: 0.9;
+    opacity: 0.9;  /* Slightly transparent */
 }
 
+/* Play button on video thumbnail */
 .tweet-video-play-button {
-    width: 80px;
-    height: 80px;
-    background: rgba(255, 255, 255, 0.9);
-    border-radius: 50%;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    position: relative;
-    z-index: 1;
+    width: 80px;  /* Width */
+    height: 80px;  /* Height */
+    background: rgba(255, 255, 255, 0.9);  /* Almost white */
+    border-radius: 50%;  /* Makes it circular */
+    display: flex;  /* Makes icon flexible */
+    align-items: center;  /* Centers icon */
+    justify-content: center;  /* Centers icon */
+    position: relative;  /* Allows positioning */
+    z-index: 1;  /* Above thumbnail */
 }
 
+/* Play icon inside button */
 .tweet-video-play-button svg {
-    width: 40px;
-    height: 40px;
-    fill: #1d9bf0;
-    margin-left: 4px;
+    width: 40px;  /* Icon width */
+    height: 40px;  /* Icon height */
+    fill: #1d9bf0;  /* Twitter blue */
+    margin-left: 4px;  /* Slight offset for visual balance */
 }
 
+/* Link wrapper for videos */
 .tweet-video-link {
-    display: block;
-    width: 100%;
-    height: 100%;
-    text-decoration: none;
+    display: block;  /* Displays as block */
+    width: 100%;  /* Full width */
+    height: 100%;  /* Full height */
+    text-decoration: none;  /* No underline */
 }
 
+/* ====================================
+   TWEET METADATA
+   ==================================== */
+
+/* "Ad" indicator for promoted tweets */
 .ad-indicator {
-    color: #536471;
-    font-size: 0.8125rem;
-    margin-left: auto;
+    color: var(--text-secondary);  /* Dark gray */
+    font-size: 0.8125rem;  /* Small text */
+    margin-left: auto;  /* Pushes to the right */
 }
 
+/* Timestamp and view count */
 .tweet-timestamp {
-    padding-left: 10px;
-    margin-top: 4px;
-    color: #536471;
-    font-size: 0.8125rem;
+    padding-left: 10px;  /* Space on left */
+    margin-top: 4px;  /* Space above */
+    color: var(--text-secondary);  /* Dark gray */
+    font-size: 0.8125rem;  /* Small text */
 }
 
+/* View count in timestamp */
 .tweet-timestamp .views-count {
-    font-weight: 700;
-    color: white;
-    margin-left: 4px;
+    font-weight: 700;  /* Bold */
+    color: var(--text-primary);  /* Light gray */
+    margin-left: 4px;  /* Space on left */
 }
 
+/* ====================================
+   TWEET ACTION BUTTONS
+   ==================================== */
+
+/* Icons for tweet actions (like, retweet, etc.) */
 .tweet-option-icon {
-    fill: var(--color-tweet-dynamic);
-    height: 1.3rem;
+    fill: var(--color-tweet-dynamic);  /* Gray color (can change) */
+    height: 1.3rem;  /* Icon height */
 }
 
+/* Individual action button container */
 .tweet-option {
-    display: flex;
-    align-items: center;
-    gap: 4px;
-    padding: 5px;
-    cursor: pointer;
-    margin-right: 12px;
+    display: flex;  /* Makes children flexible */
+    align-items: center;  /* Centers items vertically */
+    gap: 4px;  /* Space between icon and count */
+    padding: 5px;  /* Space around content */
+    cursor: pointer;  /* Shows it's clickable */
+    margin-right: 12px;  /* Space on right */
 }
+
+/* What happens when you hover over an action button */
 .tweet-option:hover {
-    --color-tweet-dynamic: var(--color-blue);
-    background: var(--color-hover);
-    border-radius: 50%;
+    --color-tweet-dynamic: var(--color-blue);  /* Changes icon to blue */
+    background: var(--color-hover);  /* Light blue background */
+    border-radius: 50%;  /* Makes it circular */
 }
 
+/* ====================================
+   TWEET CONTEXT (WHO RETWEETED, ETC.)
+   ==================================== */
+
+/* Context info at top of tweet (e.g., "John retweeted") */
 .tweet-context {
-    display: flex;
-    align-items: center;
-    gap: 6px;
-    margin: 4px 0 8px;
-    color: #536471;
-    font-size: 0.875rem;
-    padding-left: 10px;
+    display: flex;  /* Makes children flexible */
+    align-items: center;  /* Centers items vertically */
+    gap: 6px;  /* Space between items */
+    margin: 4px 0 8px;  /* Space above and below */
+    color: var(--text-secondary);  /* Dark gray */
+    font-size: 0.875rem;  /* Small text */
+    padding-left: 10px;  /* Space on left */
 }
 
+/* Icon in tweet context */
 .tweet-context-icon {
-    font-size: 1rem;
+    font-size: 1rem;  /* Icon size */
 }
 
+/* Count next to action icons (like, retweet counts) */
 .tweet-action-count {
-    color: #80919e;
-    font-size: 0.8125rem;
+    color: #80919e;  /* Gray color */
+    font-size: 0.8125rem;  /* Small text */
 }
 
+/* ====================================
+   BOOKMARK & SHARE BUTTONS
+   ==================================== */
+
+/* Bookmark and share icons */
 .tweet-bookmark-icon,
 .tweet-share-icon {
-    position: absolute;
-    bottom: 16px;
-    cursor: pointer;
+    position: absolute;  /* Takes them out of normal flow */
+    bottom: 16px;  /* Distance from bottom */
+    cursor: pointer;  /* Shows they're clickable */
 }
 
+/* Position bookmark icon */
 .tweet-bookmark-icon {
-    right: 37px;
+    right: 37px;  /* Distance from right */
 }
 
+/* Position share icon */
 .tweet-share-icon {
-    right: 7px;
+    right: 7px;  /* Distance from right */
 }
 
+/* What happens when you hover over bookmark or share */
 .tweet-bookmark-icon:hover,
 .tweet-share-icon:hover {
-    --color-tweet-dynamic: var(--color-blue);
-    background: var(--color-hover);
-    border-radius: 50%;
+    --color-tweet-dynamic: var(--color-blue);  /* Changes to blue */
+    background: var(--color-hover);  /* Light blue background */
+    border-radius: 50%;  /* Makes it circular */
 }
+
+/* Disabled location button */
 .location-disabled {
-    cursor: default;
-    opacity: 0.5;
+    cursor: default;  /* Normal cursor (not clickable) */
+    opacity: 0.5;  /* Semi-transparent */
 }
+
+/* Don't change color when hovering over disabled location */
 .location-disabled:hover {
-    --color-tweet-dynamic: var(--color-tweet-dynamic);
-    background: transparent;
+    --color-tweet-dynamic: var(--color-tweet-dynamic);  /* Keeps same color */
+    background: transparent;  /* No background */
 }
 
+/* ====================================
+   POST TWEET SECTION
+   ==================================== */
+
+/* Container for composing a new tweet */
 .post-tweet {
-    display: flex;
-    border-bottom: 1px solid #71767A;
-    padding: 10px 15px;
+    display: flex;  /* Makes children flexible */
+    border-bottom: 1px solid var(--border-color);  /* Bottom border */
+    padding: 10px 15px;  /* Space inside */
 }
 
+/* ====================================
+   SHOW NEW POSTS BUTTON
+   ==================================== */
+
+/* Container for "Show new posts" button */
 .show-posts-container {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    padding: 20px 15px;
-    border-bottom: 1px solid #71767A;
-    border-right: 1px solid #71767A;
-    width: 600px;
+    display: flex;  /* Makes content flexible */
+    justify-content: center;  /* Centers content horizontally */
+    align-items: center;  /* Centers content vertically */
+    padding: 20px 15px;  /* Space inside */
+    border-bottom: 1px solid var(--border-color);  /* Bottom border */
+    border-right: 1px solid var(--border-color);  /* Right border */
+    width: 600px;  /* Fixed width */
 }
 
+/* "Show new posts" text */
 .show-posts-text {
-    color: var(--color-blue);
-    font-size: 0.9375rem;
-    cursor: pointer;
-    font-weight: 400;
+    color: var(--color-blue);  /* Twitter blue */
+    font-size: 0.9375rem;  /* Text size */
+    cursor: pointer;  /* Shows it's clickable */
+    font-weight: 400;  /* Normal weight */
 }
 
+/* What happens when you hover over "Show new posts" */
 .show-posts-text:hover {
-    text-decoration: underline;
+    text-decoration: underline;  /* Underlines the text */
 }
 
+/* ====================================
+   POST COMPOSITION AREA
+   ==================================== */
+
+/* Container for entire post section */
 .post-section {
-    display: flex;
-    width: 100%;
+    display: flex;  /* Makes children flexible */
+    width: 100%;  /* Full width */
 }
 
+/* Wrapper for post content (input and icons) */
 .post-content-wrapper {
-    display: flex;
-    flex-direction: column;
-    width: 100%;
-    margin-left: 8px;
+    display: flex;  /* Makes children flexible */
+    flex-direction: column;  /* Stacks children vertically */
+    width: 100%;  /* Full width */
+    margin-left: 8px;  /* Space on left */
 }
 
+/* Profile picture in post section */
 .tweet-profile-pic {
-    margin-right: 0;
+    margin-right: 0;  /* No right margin */
 }
 
+/* Profile picture image */
 .tweet-profile-pic img {
-    width: 40px;
-    height: 40px;
-    border-radius: 50%;
-    object-fit: cover;
+    width: 40px;  /* Width */
+    height: 40px;  /* Height */
+    border-radius: 50%;  /* Makes it circular */
+    object-fit: cover;  /* Ensures image fills circle */
 }
 
-.post-icons{
-    width: 100%;
-    display: flex;
-    margin-top: 20px;
-    margin-left: 0;
+/* Icons below post input (media, emoji, etc.) */
+.post-icons {
+    width: 100%;  /* Full width */
+    display: flex;  /* Makes icons flexible */
+    margin-top: 20px;  /* Space above */
+    margin-left: 0;  /* No left margin */
 }
 
+/* Individual icon in post section */
 .post-icons .tweet-option {
-    margin-right: 8px;
+    margin-right: 8px;  /* Space on right */
 }
 
+/* Insights icon in post section */
 .post-icons .tweet-option .insights-icon {
-    height: 1.2rem;
+    height: 1.2rem;  /* Icon height */
 }
 
+/* Input field for composing tweet */
 .post-input input {
-    margin-top: 10px;
-    border: none;
-    background: transparent;
-    outline: none;
-    margin-left: 0;
-    color: white;
-    font-size: 1.2rem;
-    width: 100%;
+    margin-top: 10px;  /* Space above */
+    border: none;  /* No border */
+    background: transparent;  /* No background */
+    outline: none;  /* Removes default outline */
+    margin-left: 0;  /* No left margin */
+    color: var(--text-primary);  /* Light gray text */
+    font-size: 1.2rem;  /* Larger text */
+    width: 100%;  /* Full width */
 }
 
+/* Placeholder text in post input */
 .post-input input::placeholder {
-    font-size: 1.2rem;
-    color: #9097a3;
+    font-size: 1.2rem;  /* Larger text */
+    color: #9097a3;  /* Gray color */
 }
 
+/* ====================================
+   POST BUTTON
+   ==================================== */
+
+/* Button to submit the tweet */
 .post-button {
-    cursor: pointer;
-    background: #71767A;
-    color: black;
-    font-size: 1rem;
-    font-weight: 700;
-    padding: 0px 5px;
-    height: 40px;
-    min-width: 79px;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    border-bottom-left-radius: 99999px;
-    border-top-left-radius: 99999px;
-    border-bottom-right-radius: 99999px;
-    border-top-right-radius: 99999px;
-
-    transition-property: background;
-    transition-duration: 0.2s;
+    cursor: pointer;  /* Shows it's clickable */
+    background: #71767A;  /* Gray background (disabled state) */
+    color: black;  /* Black text */
+    font-size: 1rem;  /* Text size */
+    font-weight: 700;  /* Bold */
+    padding: 0px 5px;  /* Space inside */
+    height: 40px;  /* Fixed height */
+    min-width: 79px;  /* Minimum width */
+    display: flex;  /* Makes text flexible */
+    justify-content: center;  /* Centers text horizontally */
+    align-items: center;  /* Centers text vertically */
+    border-bottom-left-radius: 99999px;  /* Fully rounded corners */
+    border-top-left-radius: 99999px;  /* Fully rounded corners */
+    border-bottom-right-radius: 99999px;  /* Fully rounded corners */
+    border-top-right-radius: 99999px;  /* Fully rounded corners */
+    
+    transition-property: background;  /* Smooth background change */
+    transition-duration: 0.2s;  /* Takes 0.2 seconds */
 }
+
+/* What happens when you hover over post button */
 .post-button:hover {
-    background: #5A5F63;
+    background: #5A5F63;  /* Darker gray */
 }
 
+/* Container for post actions (icons and button) */
 .post-actions {
-    display: flex;
-    justify-content: space-between;
-    align-items: flex-end;
+    display: flex;  /* Makes children flexible */
+    justify-content: space-between;  /* Spaces items apart */
+    align-items: flex-end;  /* Aligns items to bottom */
 }
 
-.trends-card{
-    width: 350px;
-    background: var(--color-hover);
-    border-bottom-left-radius: 13px;
-    border-top-left-radius: 13px;
-    border-bottom-right-radius: 13px;
-    border-top-right-radius: 13px;
-    margin-left: 30px;
-    margin-top: 10px;
+/* ====================================
+   TRENDS CARD (NOT IN MAIN FEED)
+   ==================================== */
+
+/* Card showing trending topics */
+.trends-card {
+    width: 350px;  /* Fixed width */
+    background: var(--color-hover);  /* Light blue background */
+    border-bottom-left-radius: 13px;  /* Rounded corners */
+    border-top-left-radius: 13px;  /* Rounded corners */
+    border-bottom-right-radius: 13px;  /* Rounded corners */
+    border-top-right-radius: 13px;  /* Rounded corners */
+    margin-left: 30px;  /* Space on left */
+    margin-top: 10px;  /* Space above */
 }
 
+/* Header of trends card */
 .trends-header {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    padding: 10px 10px 5px;
-    border-bottom: 1px solid #71767A;
+    display: flex;  /* Makes children flexible */
+    justify-content: space-between;  /* Spaces items apart */
+    align-items: center;  /* Centers items vertically */
+    padding: 10px 10px 5px;  /* Space inside */
+    border-bottom: 1px solid var(--border-color);  /* Bottom border */
 }
+
+/* Title in trends header */
 .trends-header h1 {
-    font-size: 1.1975rem;
-    color: white;
-    font-weight: 700;
+    font-size: 1.1975rem;  /* Text size */
+    color: var(--text-primary);  /* Light gray */
+    font-weight: 700;  /* Bold */
 }
 
+/* Individual trending item */
 .trend-item {
-    cursor: pointer;
-    padding:10px 15px;
-    display: flex;
-    width: 100%;
-    flex-direction: column;
-    color: rgb(136, 153, 166);
-    border-bottom: 1px solid #71767A;
+    cursor: pointer;  /* Shows it's clickable */
+    padding: 10px 15px;  /* Space inside */
+    display: flex;  /* Makes children flexible */
+    width: 100%;  /* Full width */
+    flex-direction: column;  /* Stacks children vertically */
+    color: var(--text-secondary);  /* Dark gray */
+    border-bottom: 1px solid var(--border-color);  /* Bottom border */
 }
+
+/* Title of trending topic */
 .trend-item .title {
-    color: white;
-    font-weight: 700;
-    font-size: 0.9375rem;
+    color: var(--text-primary);  /* Light gray */
+    font-weight: 700;  /* Bold */
+    font-size: 0.9375rem;  /* Text size */
 }
+
+/* "Trending" label */
 .trend-item .trending {
-    font-size: 0.8rem;
+    font-size: 0.8rem;  /* Small text */
 }
+
+/* Tweet count for trending topic */
 .trend-item .tweets {
-    font-size: 0.8rem;
-    margin-top: 4px;
+    font-size: 0.8rem;  /* Small text */
+    margin-top: 4px;  /* Space above */
 }
 
+/* Row in trending item */
 .trend-row {
-    width: 100%;
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
+    width: 100%;  /* Full width */
+    display: flex;  /* Makes children flexible */
+    align-items: center;  /* Centers items vertically */
+    justify-content: space-between;  /* Spaces items apart */
 }
 
+/* Footer of trends card */
 .trends-footer {
-    cursor: pointer;
-    padding: 15px 15px;
-    color: var(--color-blue);
+    cursor: pointer;  /* Shows it's clickable */
+    padding: 15px 15px;  /* Space inside */
+    color: var(--color-blue);  /* Twitter blue */
 }
 
+/* Duplicate image container (appears later in file) */
 .tweet-image-container {
-    margin-top: 12px;
-    margin-left: 10px;
-    margin-right: 10px;
-    max-width: 300px;
-    border-radius: 16px;
-    overflow: hidden;
+    margin-top: 12px;  /* Space above */
+    margin-left: 10px;  /* Space on left */
+    margin-right: 10px;  /* Space on right */
+    max-width: 300px;  /* Maximum width */
+    border-radius: 16px;  /* Rounded corners */
+    overflow: hidden;  /* Hides overflow */
 }
 
+/* Duplicate image content (appears later in file) */
 .tweet-image-content {
-    width: 100%;
-    display: block;
+    width: 100%;  /* Full width */
+    display: block;  /* Displays as block */
 }
 
+/* Duplicate image styling (appears later in file) */
 .tweet-image-content img {
-    width: 100%;
-    height: auto;
-    display: block;
-    border-radius: 16px;
+    width: 100%;  /* Full width */
+    height: auto;  /* Auto height */
+    display: block;  /* Displays as block */
+    border-radius: 16px;  /* Rounded corners */
 }

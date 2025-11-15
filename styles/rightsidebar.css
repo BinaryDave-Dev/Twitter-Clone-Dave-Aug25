@@ -1,475 +1,771 @@
+/* ====================================
+   RIGHT SIDEBAR CONTAINER
+   ==================================== */
+
+/* Main container for the right sidebar */
 .right-sidebar {
-    padding: 0 16px;
-    height: fit-content;
-    position: sticky;
-    top: 0;
-    align-self: flex-start;
-    overflow-y: visible;
+    padding: 0 16px;  /* Space on sides */
+    height: fit-content;  /* Height adjusts to content */
+    align-self: flex-start;  /* Aligns to top of container */
+    overflow-y: visible;  /* Shows overflow content */
 }
 
+/* ====================================
+   SIDEBAR CARDS
+   ==================================== */
+
+/* Generic card container (used for Premium, Trends, etc.) */
 .sidebar-card {
-    background: #16181c;
-    border-radius: 16px;
-    padding: 16px;
-    margin-bottom: 16px;
+    background: var(--bg-primary);  /* Black background */
+    border: 1px solid var(--border-color);  /* Gray border */
+    border-radius: 16px;  /* Rounded corners */
+    padding: 16px;  /* Space inside */
+    margin-bottom: 16px;  /* Space below each card */
 }
 
+/* Card title (e.g., "Subscribe to Premium") */
 .sidebar-card-title {
-    font-size: 1.25rem;
-    font-weight: 700;
-    color: white;
-    margin: 0 0 12px 0;
+    font-size: 1.25rem;  /* Text size */
+    font-weight: 700;  /* Bold */
+    color: var(--text-primary);  /* Light gray */
+    margin: 0 0 12px 0;  /* Space below title */
 }
 
+/* Description text in cards */
 .sidebar-card-description {
-    font-size: 0.9375rem;
-    color: white;
-    margin: 0 0 16px 0;
-    line-height: 1.4;
+    font-size: 0.9375rem;  /* Text size */
+    color: var(--text-primary);  /* Light gray */
+    margin: 0 0 16px 0;  /* Space below description */
+    line-height: 1.4;  /* Space between lines */
 }
 
+/* ====================================
+   PREMIUM BUTTON
+   ==================================== */
+
+/* Button to subscribe to Premium */
 .premium-button {
-    width: 100%;
-    background: var(--color-blue);
-    color: white;
-    border: none;
-    border-radius: 9999px;
-    padding: 12px 24px;
-    font-size: 0.9375rem;
-    font-weight: 700;
-    cursor: pointer;
-    transition: background-color 0.2s;
+    width: auto;  /* Width adjusts to content */
+    background: var(--color-blue);  /* Twitter blue */
+    color: var(--text-primary);  /* Light gray text */
+    border: none;  /* No border */
+    border-radius: 9999px;  /* Fully rounded */
+    padding: 8px 16px;  /* Space inside */
+    font-size: 0.9375rem;  /* Text size */
+    font-weight: 700;  /* Bold */
+    cursor: pointer;  /* Shows it's clickable */
+    transition: background-color 0.2s;  /* Smooth color change */
 }
 
+/* What happens when you hover over Premium button */
 .premium-button:hover {
-    background: rgba(29, 161, 242, 0.9);
+    background: rgba(29, 161, 242, 0.9);  /* Slightly darker blue */
 }
 
+/* ====================================
+   CARD HEADER WITH CLOSE BUTTON
+   ==================================== */
+
+/* Header section of cards (title + close button) */
 .sidebar-card-header {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    margin-bottom: 12px;
+    display: flex;  /* Makes children flexible */
+    justify-content: space-between;  /* Spaces items apart */
+    align-items: flex-start;  /* Aligns items to top */
+    margin-bottom: 12px;  /* Space below header */
 }
 
+/* Close icon (X) in card headers */
 .close-icon {
-    fill: #71767a;
-    cursor: pointer;
-    transition: fill 0.2s;
+    color: #a8b3bc;  /* Light gray */
+    cursor: pointer;  /* Shows it's clickable */
+    transition: all 0.2s;  /* Smooth transitions */
+    padding: 6px;  /* Space around icon */
+    border-radius: 50%;  /* Makes it circular */
+    width: 34px;  /* Width */
+    height: 34px;  /* Height */
+    margin-top: -2px;  /* Slight upward adjustment */
 }
 
+/* What happens when you hover over close icon */
 .close-icon:hover {
-    fill: white;
+    color: var(--color-blue);  /* Changes to blue */
+    background-color: rgba(29, 155, 240, 0.1);  /* Light blue background */
 }
 
+/* ====================================
+   NEWS ITEMS
+   ==================================== */
+
+/* Individual news article item */
 .news-item {
-    padding: 12px 0;
-    border-bottom: 1px solid #2f3336;
+    padding: 12px 0;  /* Space above and below */
+    border-bottom: 1px solid var(--border-color);  /* Bottom border */
 }
 
+/* Remove border from last news item */
 .news-item:last-child {
-    border-bottom: none;
+    border-bottom: none;  /* No border */
 }
 
+/* News headline text */
 .news-headline {
-    font-size: 0.9375rem;
-    font-weight: 400;
-    color: white;
-    margin: 0 0 8px 0;
-    line-height: 1.4;
+    font-size: 0.9375rem;  /* Text size */
+    font-weight: 400;  /* Normal weight */
+    color: var(--text-primary);  /* Light gray */
+    margin: 0 0 8px 0;  /* Space below headline */
+    line-height: 1.4;  /* Space between lines */
 }
 
+/* Metadata (source, time) for news items */
 .news-meta {
-    display: flex;
-    align-items: center;
-    gap: 4px;
-    font-size: 0.8125rem;
-    color: #71767a;
+    display: flex;  /* Makes children flexible */
+    align-items: center;  /* Centers items vertically */
+    gap: 4px;  /* Space between items */
+    font-size: 0.8125rem;  /* Small text */
+    color: var(--text-secondary);  /* Dark gray */
 }
 
+/* ====================================
+   NEWS AVATARS
+   ==================================== */
+
+/* Container for multiple small avatars */
 .news-avatars {
-    display: flex;
-    margin-right: 8px;
+    display: flex;  /* Makes avatars flexible */
+    margin-right: 8px;  /* Space on right */
 }
 
+/* Small circular avatar images */
 .news-avatar-small {
-    width: 16px;
-    height: 16px;
-    border-radius: 50%;
-    background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
-    border: 1px solid #000;
-    margin-left: -4px;
+    width: 16px;  /* Width */
+    height: 16px;  /* Height */
+    border-radius: 50%;  /* Makes it circular */
+    background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);  /* Purple gradient */
+    border: 1px solid #000;  /* Black border */
+    margin-left: -4px;  /* Overlaps with previous avatar */
+    overflow: hidden;  /* Hides overflow */
+    display: flex;  /* Makes content flexible */
+    align-items: center;  /* Centers content */
+    justify-content: center;  /* Centers content */
 }
 
+/* Image inside avatar */
+.news-avatar-small img {
+    width: 100%;  /* Full width */
+    height: 100%;  /* Full height */
+    object-fit: cover;  /* Ensures image fills circle */
+    border-radius: 50%;  /* Makes it circular */
+}
+
+/* First avatar doesn't overlap */
 .news-avatar-small:first-child {
-    margin-left: 0;
+    margin-left: 0;  /* No left margin */
 }
 
+/* Different gradient for second avatar */
 .news-avatar-small:nth-child(2) {
-    background: linear-gradient(135deg, #f093fb 0%, #f5576c 100%);
+    background: linear-gradient(135deg, #f093fb 0%, #f5576c 100%);  /* Pink gradient */
 }
 
+/* Different gradient for third avatar */
 .news-avatar-small:nth-child(3) {
-    background: linear-gradient(135deg, #4facfe 0%, #00f2fe 100%);
+    background: linear-gradient(135deg, #4facfe 0%, #00f2fe 100%);  /* Blue gradient */
 }
 
+/* Separator dot in news metadata */
 .news-separator {
-    color: #71767a;
+    color: var(--text-secondary);  /* Dark gray */
 }
 
+/* ====================================
+   SEARCH BAR IN SIDEBAR
+   ==================================== */
+
+/* Wrapper for the search bar */
 .sidebar-search-wrapper {
-    position: relative;
-    margin-bottom: 16px;
-    position: sticky;
-    top: 0;
-    z-index: 10;
+    position: relative;  /* Allows dropdown positioning */
+    margin-bottom: 16px;  /* Space below */
+    position: sticky;  /* Sticks to top when scrolling */
+    top: 0;  /* Sticks at the top */
+    z-index: 10;  /* Above other content */
 }
 
+/* Search input container */
 .sidebar-search {
-    display: flex;
-    align-items: center;
-    background: #000000;
-    border: 1px solid #71767a;
-    border-radius: 9999px;
-    padding: 12px 16px;
-    gap: 12px;
-    transition: border-color 0.2s;
-    position: relative;
+    display: flex;  /* Makes children flexible */
+    align-items: center;  /* Centers items vertically */
+    background: var(--bg-primary);  /* Black background */
+    border: 1px solid var(--border-color);  /* Gray border */
+    border-radius: 9999px;  /* Fully rounded */
+    padding: 12px 16px;  /* Space inside */
+    gap: 12px;  /* Space between items */
+    transition: border-color 0.2s;  /* Smooth border color change */
+    position: relative;  /* Allows positioning of children */
 }
 
+/* Change border when input is focused */
 .sidebar-search:focus-within {
-    border-color: var(--color-blue);
+    border-color: var(--color-blue);  /* Twitter blue border */
 }
 
+/* Search input field */
 .sidebar-search-input {
-    background: transparent;
-    border: none;
-    outline: none;
-    color: white;
-    font-size: 0.9375rem;
-    width: 100%;
-    padding-left: 0;
-    background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 24 24' fill='%2371767a' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath d='M21.53 20.47l-3.66-3.66C19.195 15.24 20 13.214 20 11c0-4.97-4.03-9-9-9s-9 4.03-9 9 4.03 9 9 9c2.215 0 4.24-.804 5.808-2.13l3.66 3.66c.147.146.34.22.53.22s.385-.073.53-.22c.295-.293.295-.767.002-1.06zM3.5 11c0-4.135 3.365-7.5 7.5-7.5s7.5 3.365 7.5 7.5-3.365 7.5-7.5 7.5-7.5-3.365-7.5-7.5z'/%3E%3C/svg%3E");
-    background-size: 18px 18px;
-    background-repeat: no-repeat;
-    background-position: left center;
-    padding-left: 28px;
+    background: transparent;  /* No background */
+    border: none;  /* No border */
+    outline: none;  /* Removes default outline */
+    color: var(--text-primary);  /* Light gray text */
+    font-size: 0.9375rem;  /* Text size */
+    width: 100%;  /* Full width */
+    padding-left: 0;  /* No left padding */
+    background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 24 24' fill='%2371767a' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath d='M21.53 20.47l-3.66-3.66C19.195 15.24 20 13.214 20 11c0-4.97-4.03-9-9-9s-9 4.03-9 9 4.03 9 9 9c2.215 0 4.24-.804 5.808-2.13l3.66 3.66c.147.146.34.22.53.22s.385-.073.53-.22c.295-.293.295-.767.002-1.06zM3.5 11c0-4.135 3.365-7.5 7.5-7.5s7.5 3.365 7.5 7.5-3.365 7.5-7.5 7.5-7.5-3.365-7.5-7.5z'/%3E%3C/svg%3E");  /* Search icon as background */
+    background-size: 18px 18px;  /* Icon size */
+    background-repeat: no-repeat;  /* Don't repeat icon */
+    background-position: left center;  /* Position on left */
+    padding-left: 28px;  /* Space for icon */
 }
 
+/* Change icon color when input is focused */
 .sidebar-search:focus-within .sidebar-search-input {
-    background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 24 24' fill='%231d9bf0' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath d='M21.53 20.47l-3.66-3.66C19.195 15.24 20 13.214 20 11c0-4.97-4.03-9-9-9s-9 4.03-9 9 4.03 9 9 9c2.215 0 4.24-.804 5.808-2.13l3.66 3.66c.147.146.34.22.53.22s.385-.073.53-.22c.295-.293.295-.767.002-1.06zM3.5 11c0-4.135 3.365-7.5 7.5-7.5s7.5 3.365 7.5 7.5-3.365 7.5-7.5 7.5-7.5-3.365-7.5-7.5z'/%3E%3C/svg%3E");
+    background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 24 24' fill='%231d9bf0' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath d='M21.53 20.47l-3.66-3.66C19.195 15.24 20 13.214 20 11c0-4.97-4.03-9-9-9s-9 4.03-9 9 4.03 9 9 9c2.215 0 4.24-.804 5.808-2.13l3.66 3.66c.147.146.34.22.53.22s.385-.073.53-.22c.295-.293.295-.767.002-1.06zM3.5 11c0-4.135 3.365-7.5 7.5-7.5s7.5 3.365 7.5 7.5-3.365 7.5-7.5 7.5-7.5-3.365-7.5-7.5z'/%3E%3C/svg%3E");  /* Blue search icon */
 }
 
+/* Placeholder text in search input */
 .sidebar-search-input::placeholder {
-    color: #71767a;
+    color: var(--text-secondary);  /* Dark gray */
 }
 
+/* ====================================
+   SEARCH DROPDOWN
+   ==================================== */
+
+/* Dropdown that appears when searching */
 .search-dropdown {
-    display: none;
-    position: absolute;
-    top: 100%;
-    left: 0;
-    right: 0;
-    margin-top: 8px;
-    background: #000000;
-    border: 1px solid #71767a;
-    border-radius: 16px;
-    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.5);
-    overflow: hidden;
-    z-index: 1000;
+    display: none;  /* Hidden by default */
+    position: absolute;  /* Takes it out of normal flow */
+    top: 100%;  /* Places below search bar */
+    left: 0;  /* Aligns to left */
+    right: 0;  /* Aligns to right */
+    margin-top: 8px;  /* Space above dropdown */
+    background: var(--bg-primary);  /* Black background */
+    border: 1px solid var(--border-color);  /* Gray border */
+    border-radius: 16px;  /* Rounded corners */
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.5);  /* Shadow for depth */
+    overflow: hidden;  /* Hides overflow */
+    z-index: 1000;  /* Above other elements */
 }
 
+/* Show dropdown when search is focused */
 .sidebar-search:focus-within .search-dropdown {
-    display: block;
+    display: block;  /* Visible */
 }
 
+/* Header of search dropdown */
 .search-dropdown-header {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    padding: 12px 16px;
-    border-bottom: 1px solid #2f3336;
+    display: flex;  /* Makes children flexible */
+    justify-content: space-between;  /* Spaces items apart */
+    align-items: center;  /* Centers items vertically */
+    padding: 12px 16px;  /* Space inside */
+    border-bottom: 1px solid var(--border-color);  /* Bottom border */
 }
 
+/* Title in dropdown header */
 .search-dropdown-title {
-    font-size: 0.9375rem;
-    font-weight: 700;
-    color: white;
-    margin: 0;
+    font-size: 0.9375rem;  /* Text size */
+    font-weight: 700;  /* Bold */
+    color: var(--text-primary);  /* Light gray */
+    margin: 0;  /* No margin */
 }
 
+/* "Clear all" link */
 .search-clear-all {
-    font-size: 0.9375rem;
-    color: var(--color-blue);
-    text-decoration: none;
-    transition: text-decoration 0.2s;
+    font-size: 0.9375rem;  /* Text size */
+    color: var(--color-blue);  /* Twitter blue */
+    text-decoration: none;  /* No underline */
+    transition: text-decoration 0.2s;  /* Smooth transition */
 }
 
+/* What happens when you hover over "Clear all" */
 .search-clear-all:hover {
-    text-decoration: underline;
+    text-decoration: underline;  /* Underlines the text */
 }
 
+/* Recent search item */
 .search-recent-item {
-    display: flex;
-    align-items: center;
-    gap: 12px;
-    padding: 12px 16px;
-    cursor: pointer;
-    transition: background-color 0.2s;
+    display: flex;  /* Makes children flexible */
+    align-items: center;  /* Centers items vertically */
+    gap: 12px;  /* Space between items */
+    padding: 12px 16px;  /* Space inside */
+    cursor: pointer;  /* Shows it's clickable */
+    transition: background-color 0.2s;  /* Smooth color change */
 }
 
+/* What happens when you hover over recent search item */
 .search-recent-item:hover {
-    background-color: rgba(231, 233, 234, 0.1);
+    background-color: rgba(231, 233, 234, 0.1);  /* Light gray background */
 }
 
+/* Icon in recent search items */
 .search-recent-icon {
-    fill: #71767a;
-    flex-shrink: 0;
+    fill: #71767a;  /* Gray color */
+    flex-shrink: 0;  /* Prevents icon from shrinking */
 }
 
+/* Text in recent search items */
 .search-recent-text {
-    flex: 1;
-    font-size: 0.9375rem;
-    color: white;
+    flex: 1;  /* Takes remaining space */
+    font-size: 0.9375rem;  /* Text size */
+    color: var(--text-primary);  /* Light gray */
 }
 
+/* Remove icon (X) for recent searches */
 .search-remove-icon {
-    fill: var(--color-blue);
-    flex-shrink: 0;
-    cursor: pointer;
-    padding: 4px;
-    border-radius: 50%;
-    transition: background-color 0.2s;
+    fill: var(--color-blue);  /* Twitter blue */
+    flex-shrink: 0;  /* Prevents icon from shrinking */
+    cursor: pointer;  /* Shows it's clickable */
+    padding: 4px;  /* Space around icon */
+    border-radius: 50%;  /* Makes it circular */
+    transition: background-color 0.2s;  /* Smooth color change */
 }
 
+/* What happens when you hover over remove icon */
 .search-remove-icon:hover {
-    background-color: rgba(29, 161, 242, 0.1);
+    background-color: rgba(29, 161, 242, 0.1);  /* Light blue background */
 }
 
+/* ====================================
+   TRENDING TOPICS
+   ==================================== */
+
+/* Individual trending topic item */
 .trending-item {
-    display: flex;
-    justify-content: space-between;
-    align-items: flex-start;
-    padding: 12px 0;
-    cursor: pointer;
-    transition: background-color 0.2s;
-    border-radius: 4px;
-    margin: 0 -8px;
-    padding: 12px 8px;
+    display: flex;  /* Makes children flexible */
+    justify-content: space-between;  /* Spaces items apart */
+    align-items: flex-start;  /* Aligns items to top */
+    padding: 12px 0;  /* Space above and below */
+    cursor: pointer;  /* Shows it's clickable */
+    transition: background-color 0.2s;  /* Smooth color change */
+    border-radius: 4px;  /* Slightly rounded corners */
+    margin: 0 -8px;  /* Negative margin extends clickable area */
+    padding: 12px 8px;  /* Space inside */
 }
 
-.trending-item:hover {
-    background-color: rgba(231, 233, 234, 0.1);
-}
-
+/* Main content of trending item */
 .trending-content {
-    flex: 1;
+    flex: 1;  /* Takes remaining space */
 }
 
+/* Header of trending item (category and location) */
 .trending-header {
-    display: flex;
-    align-items: center;
-    gap: 4px;
-    margin-bottom: 4px;
-    font-size: 0.8125rem;
-    color: #71767a;
+    display: flex;  /* Makes children flexible */
+    align-items: center;  /* Centers items vertically */
+    gap: 4px;  /* Space between items */
+    margin-bottom: 4px;  /* Space below */
+    font-size: 0.8125rem;  /* Small text */
+    color: var(--text-secondary);  /* Dark gray */
 }
 
+/* Number of posts about trending topic */
 .trending-posts {
-    color: #71767a;
+    color: var(--text-secondary);  /* Dark gray */
+    font-size: 0.8125rem;  /* Small text */
+    display: block;  /* Displays as block */
+    margin-top: 2px;  /* Space above */
 }
 
+/* Location of trending topic */
 .trending-location {
-    color: #71767a;
+    color: var(--text-secondary);  /* Dark gray */
+    font-size: 0.8125rem;  /* Small text */
+    display: block;  /* Displays as block */
+    margin-bottom: 2px;  /* Space below */
 }
 
+/* The trending topic name/hashtag */
 .trending-topic {
-    font-size: 0.9375rem;
-    font-weight: 700;
-    color: white;
-    margin: 0;
+    font-size: 0.9375rem;  /* Text size */
+    font-weight: 700;  /* Bold */
+    color: var(--text-primary);  /* Light gray */
+    margin: 0;  /* No margin */
 }
 
+/* Description of trending topic */
 .trending-description {
-    font-size: 0.8125rem;
-    color: #71767a;
-    margin: 4px 0 0 0;
+    font-size: 0.8125rem;  /* Small text */
+    color: var(--text-secondary);  /* Dark gray */
+    margin: 4px 0 0 0;  /* Space above */
 }
 
+/* ====================================
+   TRENDING MENU (THREE DOTS)
+   ==================================== */
+
+/* Wrapper for trending menu */
+.trending-menu-wrapper {
+    position: relative;  /* Allows dropdown positioning */
+    flex-shrink: 0;  /* Prevents wrapper from shrinking */
+    margin-left: 8px;  /* Space on left */
+}
+
+/* Three dots menu icon */
 .trending-menu-icon {
-    fill: #71767a;
-    cursor: pointer;
-    flex-shrink: 0;
-    margin-left: 8px;
+    color: #a8b3bc;  /* Light gray */
+    cursor: pointer;  /* Shows it's clickable */
+    flex-shrink: 0;  /* Prevents icon from shrinking */
+    border-radius: 50%;  /* Makes it circular */
+    padding: 6px;  /* Space around icon */
+    transition: all 0.2s;  /* Smooth transitions */
+    display: flex;  /* Makes icon flexible */
+    align-items: center;  /* Centers icon */
+    justify-content: center;  /* Centers icon */
+    width: 34px;  /* Width */
+    height: 34px;  /* Height */
 }
 
+/* What happens when you hover over menu icon */
 .trending-menu-icon:hover {
-    fill: var(--color-blue);
+    color: var(--color-blue);  /* Changes to blue */
+    background-color: rgba(29, 155, 240, 0.1);  /* Light blue background */
 }
 
+/* SVG inside menu icon */
+.trending-menu-icon svg {
+    color: inherit;  /* Inherits color */
+    fill: currentColor;  /* Uses current color */
+}
+
+/* Circles in SVG icon */
+.trending-menu-icon svg circle {
+    fill: currentColor;  /* Uses current color */
+}
+
+/* Hidden checkbox for menu toggle (checkbox hack) */
+.trending-menu-toggle {
+    display: none;  /* Hides the checkbox */
+}
+
+/* Dropdown menu for trending items */
+.trending-menu-dropdown {
+    display: none;  /* Hidden by default */
+    position: absolute;  /* Takes it out of normal flow */
+    right: 0;  /* Aligns to right */
+    top: 100%;  /* Places below icon */
+    margin-top: 4px;  /* Space above menu */
+    background-color: var(--bg-primary);  /* Black background */
+    border-radius: 12px;  /* Rounded corners */
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.5);  /* Shadow for depth */
+    min-width: 300px;  /* Minimum width */
+    z-index: 1000;  /* Above other elements */
+    border: 1px solid var(--border-color);  /* Gray border */
+    overflow: hidden;  /* Hides overflow */
+}
+
+/* Show dropdown when checkbox is checked */
+.trending-menu-toggle:checked ~ .trending-menu-dropdown {
+    display: block;  /* Visible */
+}
+
+/* Individual item in trending menu */
+.trending-menu-item {
+    display: flex;  /* Makes children flexible */
+    align-items: center;  /* Centers items vertically */
+    padding: 12px 16px;  /* Space inside */
+    cursor: pointer;  /* Shows it's clickable */
+    transition: background-color 0.2s;  /* Smooth color change */
+}
+
+/* What happens when you hover over menu item */
+.trending-menu-item:hover {
+    background-color: rgba(231, 233, 234, 0.1);  /* Light gray background */
+}
+
+/* Icon in menu items */
+.trending-menu-item-icon {
+    width: 18px;  /* Icon width */
+    height: 18px;  /* Icon height */
+    margin-right: 12px;  /* Space on right */
+    fill: #e7e9ea;  /* Light gray */
+    flex-shrink: 0;  /* Prevents icon from shrinking */
+}
+
+/* Text in menu items */
+.trending-menu-item span {
+    color: var(--text-primary);  /* Light gray */
+    font-size: 15px;  /* Text size */
+    font-weight: 700;  /* Bold */
+}
+
+/* ====================================
+   PROMOTED BADGE
+   ==================================== */
+
+/* Badge indicating promoted/sponsored content */
 .promoted-badge {
-    display: flex;
-    align-items: center;
-    font-size: 0.75rem;
-    color: #71767a;
+    display: flex;  /* Makes children flexible */
+    align-items: center;  /* Centers items vertically */
+    font-size: 0.75rem;  /* Small text */
+    color: var(--text-secondary);  /* Dark gray */
 }
 
+/* Icon in promoted badge */
 .promoted-badge svg {
-    fill: #71767a;
+    fill: #71767a;  /* Gray color */
 }
 
+/* ====================================
+   SHOW MORE LINK
+   ==================================== */
+
+/* "Show more" link at bottom of cards */
 .show-more-link {
-    display: block;
-    color: var(--color-blue);
-    text-decoration: none;
-    font-size: 0.9375rem;
-    padding: 12px 0 0 0;
-    margin-top: 4px;
-    transition: color 0.2s;
+    display: block;  /* Displays as block */
+    color: var(--color-blue);  /* Twitter blue */
+    text-decoration: none;  /* No underline */
+    font-size: 0.9375rem;  /* Text size */
+    padding: 12px 0 0 0;  /* Space above */
+    margin-top: 4px;  /* Space above */
+    transition: color 0.2s;  /* Smooth color change */
 }
 
+/* What happens when you hover over "Show more" */
 .show-more-link:hover {
-    text-decoration: underline;
+    text-decoration: underline;  /* Underlines the text */
 }
 
+/* ====================================
+   WHO TO FOLLOW SECTION
+   ==================================== */
+
+/* Individual follow suggestion item */
 .follow-item {
-    display: flex;
-    align-items: center;
-    padding: 12px 0;
-    gap: 12px;
+    display: flex;  /* Makes children flexible */
+    align-items: center;  /* Centers items vertically */
+    padding: 12px 0;  /* Space above and below */
+    gap: 12px;  /* Space between items */
 }
 
-.follow-item:not(:last-child) {
-    border-bottom: 1px solid #2f3336;
-}
-
+/* Avatar in follow suggestions */
 .follow-avatar {
-    flex-shrink: 0;
-    width: 40px;
-    height: 40px;
-    border-radius: 50%;
-    overflow: hidden;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    background: #202327;
+    flex-shrink: 0;  /* Prevents avatar from shrinking */
+    width: 40px;  /* Width */
+    height: 40px;  /* Height */
+    border-radius: 50%;  /* Makes it circular */
+    overflow: hidden;  /* Hides overflow */
+    display: flex;  /* Makes content flexible */
+    align-items: center;  /* Centers content */
+    justify-content: center;  /* Centers content */
+    background: #202327;  /* Dark gray background */
 }
 
+/* Image inside avatar */
 .follow-avatar img {
-    width: 100%;
-    height: 100%;
-    object-fit: cover;
+    width: 100%;  /* Full width */
+    height: 100%;  /* Full height */
+    object-fit: cover;  /* Ensures image fills circle */
 }
 
+/* Icon inside avatar (if no image) */
 .follow-avatar svg {
-    fill: #71767a;
+    fill: #71767a;  /* Gray color */
 }
 
+/* Gradient background for first avatar */
 .follow-avatar-gradient-1 {
-    background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+    background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);  /* Purple gradient */
 }
 
+/* Text inside gradient avatar */
 .follow-avatar-gradient-1 span {
-    color: white;
-    font-weight: 700;
-    font-size: 14px;
+    color: var(--text-primary);  /* Light gray */
+    font-weight: 700;  /* Bold */
+    font-size: 14px;  /* Text size */
 }
 
+/* Gradient background for second avatar */
 .follow-avatar-gradient-2 {
-    background: linear-gradient(135deg, #f093fb 0%, #f5576c 100%);
+    background: linear-gradient(135deg, #f093fb 0%, #f5576c 100%);  /* Pink gradient */
 }
 
+/* Text inside second gradient avatar */
 .follow-avatar-gradient-2 span {
-    color: white;
-    font-weight: 700;
-    font-size: 12px;
+    color: var(--text-primary);  /* Light gray */
+    font-weight: 700;  /* Bold */
+    font-size: 12px;  /* Slightly smaller text */
 }
 
+/* User info in follow suggestions */
 .follow-info {
-    flex: 1;
-    min-width: 0;
+    flex: 1;  /* Takes remaining space */
+    min-width: 0;  /* Allows text truncation */
 }
 
+/* Name and badge container */
 .follow-name {
-    display: flex;
-    align-items: center;
-    gap: 4px;
-    margin-bottom: 2px;
+    display: flex;  /* Makes children flexible */
+    align-items: center;  /* Centers items vertically */
+    gap: 4px;  /* Space between name and badge */
+    margin-bottom: 2px;  /* Space below */
 }
 
+/* Display name */
 .follow-name span {
-    font-size: 0.9375rem;
-    font-weight: 700;
-    color: white;
+    font-size: 0.9375rem;  /* Text size */
+    font-weight: 700;  /* Bold */
+    color: var(--text-primary);  /* Light gray */
 }
 
+/* Small verified badge */
 .verified-badge-small {
-    flex-shrink: 0;
+    flex-shrink: 0;  /* Prevents badge from shrinking */
 }
 
+/* @username handle */
 .follow-handle {
-    font-size: 0.8125rem;
-    color: #71767a;
+    font-size: 0.8125rem;  /* Small text */
+    color: var(--text-secondary);  /* Dark gray */
 }
 
+/* ====================================
+   FOLLOW BUTTON
+   ==================================== */
+
+/* Button to follow suggested accounts */
 .follow-button {
-    background: white;
-    color: #000;
-    border: none;
-    border-radius: 9999px;
-    padding: 8px 16px;
-    font-size: 0.875rem;
-    font-weight: 700;
-    cursor: pointer;
-    transition: background-color 0.2s;
-    flex-shrink: 0;
+    background: white;  /* White background */
+    color: #000;  /* Black text */
+    border: none;  /* No border */
+    border-radius: 9999px;  /* Fully rounded */
+    padding: 8px 16px;  /* Space inside */
+    font-size: 0.875rem;  /* Text size */
+    font-weight: 700;  /* Bold */
+    cursor: pointer;  /* Shows it's clickable */
+    transition: background-color 0.2s;  /* Smooth color change */
+    flex-shrink: 0;  /* Prevents button from shrinking */
+    display: inline-block;  /* Displays inline */
+    text-decoration: none;  /* No underline */
 }
 
+/* What happens when you hover over follow button */
 .follow-button:hover {
-    background: #e6e6e6;
+    background: #e6e6e6;  /* Light gray */
+    color: #000;  /* Black text */
+    text-decoration: none;  /* No underline */
 }
 
+/* Visited state (keeps styling consistent) */
+.follow-button:visited {
+    color: #000;  /* Black text */
+    text-decoration: none;  /* No underline */
+}
+
+/* Active/clicked state */
+.follow-button:active {
+    color: #000;  /* Black text */
+    text-decoration: none;  /* No underline */
+}
+
+/* ====================================
+   SIDEBAR FOOTER
+   ==================================== */
+
+/* Footer with links at bottom of sidebar */
 .sidebar-footer {
-    padding: 4px 0;
-    display: flex;
-    flex-direction: column;
-    gap: 1px;
-    font-size: 10px;
-    color: #71767a;
-    line-height: 1.2;
+    padding: 4px 0;  /* Space above and below */
+    display: flex;  /* Makes children flexible */
+    flex-direction: column;  /* Stacks children vertically */
+    gap: 1px;  /* Small space between lines */
+    font-size: 10px;  /* Very small text */
+    color: var(--text-secondary);  /* Dark gray */
+    line-height: 1.2;  /* Tight line height */
+    position: relative;  /* Allows positioning */
 }
 
+/* Line of footer links */
 .footer-line {
-    display: flex;
-    align-items: center;
-    gap: 8px;
-    white-space: nowrap;
-    font-size: 16px;
+    display: flex;  /* Makes links flexible */
+    align-items: center;  /* Centers links vertically */
+    gap: 8px;  /* Space between links */
+    white-space: nowrap;  /* Prevents text wrapping */
+    font-size: 16px;  /* Override parent font size */
 }
 
+/* Individual footer link */
 .footer-link {
-    color: #71767a;
-    text-decoration: none;
-    transition: color 0.2s;
-    white-space: nowrap;
-    font-size: 12px;
+    color: var(--text-secondary);  /* Dark gray */
+    text-decoration: none;  /* No underline */
+    transition: color 0.2s;  /* Smooth color change */
+    white-space: nowrap;  /* Prevents text wrapping */
+    font-size: 12px;  /* Text size */
 }
 
+/* What happens when you hover over footer link */
 .footer-link:hover {
-    text-decoration: underline;
-    color: #71767a;
+    text-decoration: underline;  /* Underlines the text */
+    color: var(--text-secondary);  /* Keeps same color */
 }
 
+/* Dot separator between footer links */
 .footer-separator {
-    color: #71767a;
-    white-space: nowrap;
-    font-size: 12px;
+    color: var(--text-secondary);  /* Dark gray */
+    white-space: nowrap;  /* Prevents wrapping */
+    font-size: 12px;  /* Text size */
 }
 
+/* Copyright text */
 .footer-copyright {
-    color: #71767a;
-    margin-left: 3px;
-    white-space: nowrap;
-    font-size: 14px;
+    color: var(--text-secondary);  /* Dark gray */
+    margin-left: 3px;  /* Small space on left */
+    white-space: nowrap;  /* Prevents wrapping */
+    font-size: 14px;  /* Text size */
 }
 
+/* ====================================
+   MORE LINKS POPUP
+   ==================================== */
+
+/* Container for "More" link with popup */
+.more-link-container {
+    position: relative;  /* Allows popup positioning */
+    display: inline-block;  /* Displays inline */
+}
+
+/* "More" link that triggers popup */
+.more-link {
+    cursor: pointer;  /* Shows it's clickable */
+}
+
+/* Popup menu that appears on hover */
+.more-popup {
+    position: absolute;  /* Takes it out of normal flow */
+    bottom: 100%;  /* Places above link */
+    right: 0;  /* Aligns to right */
+    margin-bottom: 8px;  /* Space below popup */
+    background-color: #16181c;  /* Dark gray background */
+    border-radius: 12px;  /* Rounded corners */
+    padding: 8px 0;  /* Space above and below items */
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.5);  /* Shadow for depth */
+    z-index: 1000;  /* Above other elements */
+    min-width: 200px;  /* Minimum width */
+    border: 1px solid var(--border-color);  /* Gray border */
+    display: none;  /* Hidden by default */
+}
+
+/* Show popup when hovering over container */
+.more-link-container:hover .more-popup {
+    display: block;  /* Visible */
+}
+
+/* Individual item in popup */
+.popup-item {
+    display: block;  /* Displays as block */
+    padding: 12px 16px;  /* Space inside */
+    color: var(--text-primary);  /* Light gray */
+    text-decoration: none;  /* No underline */
+    font-size: 15px;  /* Text size */
+    transition: background-color 0.2s;  /* Smooth color change */
+}
+
+/* What happens when you hover over popup item */
+.popup-item:hover {
+    background-color: #1d1f23;  /* Slightly lighter background */
+    color: var(--text-primary);  /* Light gray */
+}
