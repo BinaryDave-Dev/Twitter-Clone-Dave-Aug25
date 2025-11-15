@@ -1,0 +1,464 @@
+/* ====================================
+   RESPONSIVE CSS FOR TWITTER CLONE
+   ====================================
+   Makes the Twitter clone work on tablets and phones
+   
+   BREAKPOINTS:
+   - Large tablets: 1200px and below
+   - Tablets: 992px and below
+   - Large phones (landscape): 768px and below
+   - Phones (portrait): 576px and below
+   ==================================== */
+
+/* ====================================
+   LARGE TABLETS (1200px and below)
+   ==================================== */
+@media (max-width: 1200px) {
+    /* Hide right sidebar on smaller screens */
+    .right-sidebar {
+        display: none;
+    }
+    
+    /* Main content takes full width */
+    .mainContent {
+        flex: 1;
+        max-width: 100%;
+        min-width: 100%;
+    }
+    
+    /* Adjust sidebar width */
+    .sidebar {
+        width: 25%;
+    }
+    
+    .main {
+        width: 75%;
+    }
+}
+
+/* ====================================
+   TABLETS (992px and below)
+   ==================================== */
+@media (max-width: 992px) and (min-width: 769px) {
+    /* Make sidebar narrower - show icons only */
+    .sidebar {
+        width: 88px;
+        min-width: 88px;
+    }
+    
+    .sidebar-items {
+        width: 88px;
+        padding: 0;
+        align-items: center;
+    }
+    
+    /* Hide text labels in sidebar, show icons only */
+    .sidebar-title {
+        display: none;
+    }
+    
+    /* Center the icons */
+    .sidebar-item {
+        justify-content: center;
+        padding: 10px;
+        width: 50px;
+    }
+    
+    .sidebar-logo {
+        margin-left: auto;
+        margin-right: auto;
+    }
+    
+    /* Hide emergency button text */
+    .logo-emergency-wrapper {
+        flex-direction: column;
+        align-items: center;
+    }
+    
+    .emergency-button {
+        padding: 8px;
+        margin-top: 8px;
+    }
+    
+    .emergency-text,
+    .emergency-subtext {
+        font-size: 8px;
+    }
+    
+    /* Make Post button smaller/icon only */
+    .sidebar-button {
+        width: 50px;
+        height: 50px;
+        min-width: 50px;
+        padding: 0;
+        border-radius: 50%;
+        font-size: 0;
+    }
+    
+    .sidebar-button::before {
+        content: "+";
+        font-size: 24px;
+        font-weight: 700;
+    }
+    
+    /* Hide user info text */
+    .sidebar-name {
+        display: none;
+    }
+    
+    .sidebar-user {
+        justify-content: center;
+        padding: 10px;
+    }
+    
+    /* Adjust main content */
+    .main {
+        width: calc(100% - 88px);
+    }
+    
+    /* Make header smaller */
+    .header h1 {
+        font-size: 1rem;
+    }
+    
+    /* Smaller tweet cards */
+    .tweet-card {
+        padding: 8px 10px;
+    }
+    
+    .tweet-profile-pic img {
+        width: 32px;
+        height: 32px;
+    }
+    
+    .tweet-text {
+        font-size: 0.9rem;
+    }
+}
+
+/* ====================================
+   LARGE PHONES / SMALL TABLETS (768px and below)
+   ==================================== */
+@media (max-width: 768px) {
+    /* Stack layout vertically */
+    .mainContainer {
+        flex-direction: column;
+        height: 100vh;
+        overflow: hidden;
+    }
+    
+    /* Make sidebar horizontal at bottom */
+    .sidebar {
+        width: 100%;
+        height: 60px;
+        min-height: 60px;
+        border-right: none;
+        border-top: 1px solid var(--border-color);
+        order: 2;
+        position: fixed;
+        bottom: 0;
+        left: 0;
+        background: var(--bg-primary);
+        z-index: 1000;
+    }
+    
+    .sidebar-items {
+        width: 100%;
+        height: 100%;
+        flex-direction: row;
+        justify-content: space-around;
+        padding: 0;
+        margin: 0;
+    }
+    
+    .sidebar-links {
+        flex-direction: row;
+        width: 100%;
+        height: 100%;
+        justify-content: space-around;
+        align-items: center;
+        margin: 0;
+    }
+    
+    /* Hide some sidebar items on mobile */
+    .logo-emergency-wrapper,
+    .sidebar-button,
+    .sidebar-user-wrapper,
+    .more-menu-wrapper {
+        display: none !important;
+    }
+    
+    /* Show only main navigation items */
+    .sidebar-item {
+        padding: 8px;
+        margin: 0;
+        flex: 1;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+    }
+    
+    /* Hide extra navigation items - show only first 5 */
+    .sidebar-links > a:nth-child(n+7) {
+        display: none !important;
+    }
+    
+    /* Main content takes full width and proper height */
+    .main {
+        width: 100% !important;
+        height: calc(100vh - 60px);
+        order: 1;
+        overflow-y: auto;
+        padding-bottom: 0;
+    }
+    
+    .content {
+        height: 100%;
+        overflow-y: auto;
+    }
+    
+    .mainContent {
+        width: 100% !important;
+        max-width: 100% !important;
+        min-width: 100% !important;
+        flex: none !important;
+        border-right: none;
+        height: 100%;
+    }
+    
+    /* Smaller feed navigation */
+    .feed-navigation {
+        width: 100%;
+        position: sticky;
+        top: 0;
+        z-index: 100;
+    }
+    
+    /* Hide post composition box on mobile */
+    .post-tweet {
+        display: none;
+    }
+    
+    /* Adjust header */
+    .header {
+        width: 100% !important;
+        border-right: none;
+        padding: 12px;
+    }
+    
+    /* Ensure right sidebar is hidden */
+    .right-sidebar {
+        display: none !important;
+    }
+    
+    /* Fix show posts container */
+    .show-posts-container {
+        width: 100% !important;
+        border-right: none;
+    }
+    
+    /* Smaller tweet images */
+    .tweet-image-container {
+        max-width: 100%;
+        width: 100%;
+    }
+    
+    /* Fix tweet cards */
+    .tweet-card {
+        width: 100% !important;
+        border-right: none !important;
+    }
+    
+    .tweet {
+        width: 100%;
+    }
+    
+    /* Adjust tweet actions */
+    .tweet-actions {
+        max-width: 100%;
+        width: 100%;
+        justify-content: space-between;
+    }
+    
+    .tweet-option {
+        margin-right: 0;
+        flex: 1;
+        justify-content: center;
+    }
+    
+    /* Make DM modal fullscreen on mobile */
+    .dm-modal-content {
+        width: 100%;
+        height: 100%;
+        max-width: 100%;
+        max-height: 100%;
+        border-radius: 0;
+    }
+}
+
+/* ====================================
+   PHONES (576px and below)
+   ==================================== */
+@media (max-width: 576px) {
+    /* Even smaller text and spacing */
+    .user-details .name {
+        font-size: 0.875rem;
+    }
+    
+    .user-details .id,
+    .user-details .time {
+        font-size: 0.8125rem;
+    }
+    
+    .tweet-text {
+        font-size: 0.875rem;
+        padding-left: 8px;
+    }
+    
+    /* Smaller profile pics */
+    .tweet-profile-pic img {
+        width: 28px;
+        height: 28px;
+    }
+    
+    /* Adjust tweet card padding */
+    .tweet-card {
+        padding: 8px;
+    }
+    
+    /* Smaller action icons */
+    .tweet-option-icon {
+        height: 1.1rem;
+    }
+    
+    .tweet-action-count {
+        font-size: 0.75rem;
+    }
+    
+    /* Hide some tweet actions on very small screens */
+    .tweet-bookmark-icon,
+    .tweet-share-icon {
+        display: none;
+    }
+    
+    /* Smaller navigation tabs */
+    .nav-tab-text {
+        font-size: 0.875rem;
+    }
+    
+    .nav-tab {
+        padding: 12px 0;
+    }
+    
+    /* Adjust header */
+    .header h1 {
+        font-size: 0.9375rem;
+    }
+    
+    /* Make sidebar icons smaller */
+    .sidebar-icon {
+        height: 1.5rem;
+        width: 1.5rem;
+    }
+    
+    /* Smaller notification badge */
+    .notification-badge {
+        font-size: 9px;
+        padding: 1px 4px;
+        min-width: 14px;
+    }
+    
+    /* Hide hashtags on very small screens to save space */
+    .tweet-hashtags {
+        display: none;
+    }
+    
+    /* Make quoted tweets more compact */
+    .quoted-tweet {
+        padding: 8px;
+        font-size: 0.8125rem;
+    }
+    
+    /* Smaller video containers */
+    .tweet-video-container {
+        margin-left: 0;
+        margin-right: 0;
+        width: 100%;
+    }
+}
+
+/* ====================================
+   LANDSCAPE MODE FOR PHONES
+   ==================================== */
+@media (max-width: 768px) and (orientation: landscape) {
+    /* Adjust for landscape viewing */
+    .sidebar {
+        height: 50px;
+    }
+    
+    .sidebar-items {
+        padding: 4px 0;
+    }
+    
+    .sidebar-item {
+        padding: 8px;
+    }
+    
+    .main {
+        padding-bottom: 50px;
+    }
+}
+
+/* ====================================
+   TOUCH DEVICE OPTIMIZATIONS
+   ==================================== */
+@media (hover: none) and (pointer: coarse) {
+    /* Larger tap targets for touch devices */
+    .sidebar-item,
+    .tweet-option,
+    .nav-tab {
+        min-height: 44px;
+        min-width: 44px;
+    }
+    
+    /* Remove hover effects on touch devices */
+    .sidebar-item:hover,
+    .tweet-option:hover,
+    .nav-tab:hover {
+        background: transparent;
+    }
+    
+    /* Add active/touch states instead */
+    .sidebar-item:active {
+        background: rgba(231, 233, 234, 0.1);
+    }
+    
+    .tweet-option:active {
+        background: var(--color-hover);
+    }
+}
+
+/* ====================================
+   PRINT STYLES
+   ==================================== */
+@media print {
+    /* Hide navigation and interactive elements when printing */
+    .sidebar,
+    .right-sidebar,
+    .feed-navigation,
+    .post-tweet,
+    .tweet-actions,
+    .dm-modal {
+        display: none !important;
+    }
+    
+    .mainContent {
+        width: 100%;
+        border: none;
+    }
+    
+    .tweet-card {
+        page-break-inside: avoid;
+    }
+}
+
